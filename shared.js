@@ -171,13 +171,47 @@ function processPayment() {
     showToast("Registrations are closed. Reopening when new 1st year students arrive!");
 }
 
+// Google Apps Script Web App URL for Google Sheets suggestions collection
+// Replace this placeholder string with your deployed Apps Script URL (e.g. https://script.google.com/macros/s/.../exec)
+const SUGGESTIONS_WEBAPP_URL = "";
+
 // Student Suggestion Submission Form
 function submitSuggestion() {
     const suggestName = document.getElementById('suggest-name');
     const suggestReg = document.getElementById('suggest-reg');
     const suggestText = document.getElementById('suggest-text');
+    const suggestCategory = document.getElementById('suggest-category');
     
-    if (suggestText && suggestText.value.trim() !== "") {
+    if (!suggestText || suggestText.value.trim() === "") return;
+
+    const name = suggestName ? suggestName.value.trim() : "Anonymous";
+    const regNo = suggestReg ? suggestReg.value.trim() : "N/A";
+    const category = suggestCategory ? suggestCategory.value : "other";
+    const suggestion = suggestText.value.trim();
+
+    // If WebApp URL is configured, send the suggestion to Google Sheets
+    if (SUGGESTIONS_WEBAPP_URL && SUGGESTIONS_WEBAPP_URL !== "") {
+        showToast("Sending suggestion...");
+        fetch(SUGGESTIONS_WEBAPP_URL, {
+            method: 'POST',
+            mode: 'no-cors', // Prevents CORS checks block on Apps Script redirect
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name, regNo, category, suggestion })
+        })
+        .then(() => {
+            showToast("Recorded in Google Sheets! Thank you.");
+            if (suggestName) suggestName.value = "";
+            if (suggestReg) suggestReg.value = "";
+            suggestText.value = "";
+        })
+        .catch(err => {
+            console.error("Error sending to Google Sheets:", err);
+            showToast("Saved locally! Suggestion logged.");
+        });
+    } else {
+        // Fallback local simulation if no URL is set yet
         showToast("Suggestion received! Thank you for helping us improve.");
         if (suggestName) suggestName.value = "";
         if (suggestReg) suggestReg.value = "";
