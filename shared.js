@@ -173,7 +173,7 @@ function processPayment() {
 
 // Google Apps Script Web App URL for Google Sheets suggestions collection
 // Replace this placeholder string with your deployed Apps Script URL (e.g. https://script.google.com/macros/s/.../exec)
-const SUGGESTIONS_WEBAPP_URL = "";
+const SUGGESTIONS_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbwGqLZ2mGYoAR9GCQesVHIZuqnBxqyYymUpjeNuvPXazMAu0dl9PzFzIEAC2P7peyhAsw/exec";
 
 // Student Suggestion Submission Form
 function submitSuggestion() {
