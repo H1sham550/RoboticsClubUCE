@@ -1,0 +1,21 @@
+# System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Gemini & Assistant configurations
+.gemini/
+.agents/
+*.log
+
+# Python cache (if any scripts are run)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
