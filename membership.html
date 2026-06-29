@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEMBERSHIP PASS // Robotics Club UCE</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Shared Stylesheet -->
+    <link rel="stylesheet" href="shared.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            orange: '#ff6b35',
+                            pink: '#ff4b8b',
+                            cyan: '#00f5ff',
+                            darkBg: '#09090b',
+                            panelBg: '#121215',
+                            border: 'rgba(255, 255, 255, 0.08)'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+                        mono: ['monospace', 'Courier New', 'Courier']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="text-slate-300 antialiased min-h-screen flex flex-col justify-between relative pt-6">
+
+    <!-- FULL PAGE CRYSTAL CLEAR VIDEO BACKGROUND WITH PARALLAX -->
+    <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+        <video id="bg-video" autoplay muted loop playsinline class="w-full h-full object-cover opacity-75 scale-105 transition-transform duration-500 ease-out" style="filter: contrast(1.15) saturate(1.2) brightness(0.95);">
+            <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/bg-hero-0BnFGdr81Ifnj3WbBZoNt1KE4D5DMT.mp4" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 bg-black/20"></div>
+        <div class="grid-bg"></div>
+    </div>
+
+    <!-- LEAF EMITTER LAYER -->
+    <div id="leaf-container" class="fixed inset-0 z-5 pointer-events-none overflow-hidden"></div>
+
+    <!-- FLOATING DYNAMIC ISLAND NAVBAR -->
+    <div class="sticky top-4 z-20 w-full max-w-6xl mx-auto px-4 pointer-events-none">
+        <header class="glass-nav border border-white/10 rounded-full px-6 md:px-8 py-3.5 flex items-center justify-between pointer-events-auto shadow-2xl">
+            <!-- Robotics Club UCE Logo -->
+            <a href="index.html" class="flex items-center gap-2">
+                <img src="assets/logo.png" alt="Robotics Club UCE Logo" class="h-10 w-auto object-contain">
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden lg:flex items-center gap-8 font-semibold text-[15px]">
+                <a href="index.html#about" id="nav-about" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">About Us</a>
+                <a href="team.html" id="nav-team" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Team</a>
+                <a href="events.html" id="nav-events" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Events</a>
+                <a href="certificate.html" id="nav-certificate" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Certificate</a>
+                <a href="index.html#suggestions" id="nav-suggestions" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Suggestions</a>
+            </nav>
+
+            <!-- Actions & Menu -->
+            <div class="flex items-center gap-4 pointer-events-auto">
+                <a href="https://www.instagram.com/roboticsclubuce/" target="_blank" class="flex items-center gap-1.5 text-xs font-mono font-bold text-brand-pink hover:text-white transition-colors bg-white/5 px-3 py-1.5 rounded-full border border-white/10" title="Follow us on Instagram">
+                    <i class="fa-brands fa-instagram text-sm"></i>
+                    <span class="hidden sm:inline">@roboticsclubuce</span>
+                </a>
+                <a href="membership.html" class="neu-button hidden sm:inline-flex">
+                    <i class="fa-solid fa-credit-card"></i>
+                    <span>Join Club</span>
+                </a>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-slate-300 hover:text-white transition-colors text-2xl focus:outline-none ml-2" title="Toggle Navigation Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </header>
+    </div>
+
+    <!-- MOBILE FULL SCREEN NAVIGATION OVERLAY (Drawer) -->
+    <div id="mobile-menu" class="fixed inset-0 z-50 glass-nav hidden flex-col items-center justify-center space-y-8 text-xl font-semibold pointer-events-auto">
+        <button id="mobile-menu-close" class="absolute top-6 right-6 text-slate-300 hover:text-white text-3xl focus:outline-none" title="Close Menu">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <a href="index.html" class="mobile-nav-link text-slate-300 hover:text-white transition-colors">Home</a>
+        <a href="index.html#about" class="mobile-nav-link text-slate-300 hover:text-white transition-colors">About Us</a>
+        <a href="team.html" class="mobile-nav-link text-slate-300 hover:text-white transition-colors">Team</a>
+        <a href="events.html" class="mobile-nav-link text-slate-300 hover:text-white transition-colors">Events</a>
+        <a href="certificate.html" class="mobile-nav-link text-slate-300 hover:text-white transition-colors">Certificate</a>
+        <a href="index.html#suggestions" class="mobile-nav-link text-slate-300 hover:text-white transition-colors">Suggestions</a>
+        <a href="membership.html" class="neu-button text-sm mt-4">
+            <i class="fa-solid fa-credit-card"></i>
+            <span>Join Club</span>
+        </a>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="relative z-10 max-w-7xl mx-auto px-6 w-full flex-1 flex flex-col justify-center items-center my-12">
+
+        <!-- ================= MEMBERSHIP SECTION ================= -->
+        <section id="membership" class="scroll-mt-28 py-16 flex flex-col justify-center items-center text-center space-y-12 active-section w-full">
+            <div class="max-w-3xl space-y-4">
+                <span class="text-xs font-mono text-brand-orange uppercase tracking-widest block">05 / REGISTER MEMBERSHIP</span>
+                <h2 class="text-4xl font-extrabold text-white">Membership Registration</h2>
+                <p class="text-slate-300 leading-relaxed glass-panel p-4 rounded-lg max-w-xl mx-auto">
+                    Membership registration is currently closed. Registration for all students will reopen when the new first-year student batch arrives.
+                </p>
+            </div>
+
+            <!-- Centered Uiverse 3D Membership Card -->
+            <div class="flex items-center justify-center py-6 w-full">
+                <div class="container-card">
+                    <div class="canvas">
+                        <div class="tracker tr-1"></div>
+                        <div class="tracker tr-2"></div>
+                        <div class="tracker tr-3"></div>
+                        <div class="tracker tr-4"></div>
+                        <div class="tracker tr-5"></div>
+                        <div class="tracker tr-6"></div>
+                        <div class="tracker tr-7"></div>
+                        <div class="tracker tr-8"></div>
+                        <div class="tracker tr-9"></div>
+                        <div class="tracker tr-10"></div>
+                        <div class="tracker tr-11"></div>
+                        <div class="tracker tr-12"></div>
+                        <div class="tracker tr-13"></div>
+                        <div class="tracker tr-14"></div>
+                        <div class="tracker tr-15"></div>
+                        <div class="tracker tr-16"></div>
+                        <div class="tracker tr-17"></div>
+                        <div class="tracker tr-18"></div>
+                        <div class="tracker tr-19"></div>
+                        <div class="tracker tr-20"></div>
+                        <div class="tracker tr-21"></div>
+                        <div class="tracker tr-22"></div>
+                        <div class="tracker tr-23"></div>
+                        <div class="tracker tr-24"></div>
+                        <div class="tracker tr-25"></div>
+                        
+                        <!-- Click trigger overlay -->
+                        <div onclick="processPayment()" class="tracker hover:scale-95 transition-all duration-300"></div>
+
+                        <div id="card" class="noselect">
+                            <div class="card-content">
+                                <div id="prompt">
+                                    PAUSED<br>
+                                    <span class="text-[8px] text-red-500 uppercase tracking-widest block mt-1 font-mono">Closed for now</span>
+                                </div>
+                                <div class="title">PAUSED<span class="text-[9px] text-red-500 block mt-1 font-bold">REGISTRATION</span></div>
+                                <div class="subtitle">RENEWALS OPEN SOON <span class="highlight">1ST YEARS</span></div>
+                                <div class="glowing-elements">
+                                    <div class="glow-1"></div>
+                                    <div class="glow-2"></div>
+                                    <div class="glow-3"></div>
+                                </div>
+                                <div class="card-particles">
+                                    <span></span><span></span><span></span><span></span><span></span><span></span>
+                                </div>
+                                <div class="cyber-lines">
+                                    <span></span><span></span><span></span><span></span>
+                                </div>
+                                <div class="corner-elements">
+                                    <span></span><span></span><span></span><span></span>
+                                </div>
+                                <div class="scan-line"></div>
+                                <div class="card-glare"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <span class="text-[10px] text-red-500 uppercase tracking-widest font-mono">REGISTRATION TEMPORARILY PAUSED</span>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-black/90 py-12 border-t border-brand-border text-slate-500 text-xs font-mono relative z-10 mt-auto backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3">
+                <img src="assets/logo.png" alt="Robotics Club UCE Logo" class="h-8 w-auto object-contain opacity-50 hover:opacity-100 transition-opacity">
+            </div>
+            <div>
+                <span>&copy; 2026 UCE ROBOTICS CLUB. All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- TOAST POPUP -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 glass-panel border border-brand-orange text-white text-xs font-mono rounded px-6 py-4 hidden flex items-center gap-3 shadow-2xl transition-all duration-300">
+        <span class="w-2.5 h-2.5 rounded-full bg-brand-orange animate-pulse"></span>
+        <span id="toast-message"></span>
+    </div>
+
+    <!-- Custom Shared Script -->
+    <script src="shared.js"></script>
+</body>
+</html>

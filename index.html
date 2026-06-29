@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROBOTICS CLUB UCE // Autonomous Innovation</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Shared Stylesheet -->
+    <link rel="stylesheet" href="shared.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            orange: '#ff6b35',     /* Industrial orange highlight */
+                            pink: '#ff4b8b',       /* Cherry blossom pink */
+                            cyan: '#00f5ff',       /* System cyan */
+                            darkBg: '#09090b',     /* Charcoal background */
+                            panelBg: '#121215',    /* Matte-black panels */
+                            border: 'rgba(255, 255, 255, 0.08)'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+                        mono: ['monospace', 'Courier New', 'Courier']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="text-slate-300 antialiased min-h-screen flex flex-col justify-between relative pt-6">
+
+    <!-- FULL PAGE CRYSTAL CLEAR VIDEO BACKGROUND WITH PARALLAX -->
+    <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+        <video id="bg-video" autoplay muted loop playsinline class="w-full h-full object-cover opacity-75 scale-105 transition-transform duration-500 ease-out" style="filter: contrast(1.15) saturate(1.2) brightness(0.95);">
+            <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/bg-hero-0BnFGdr81Ifnj3WbBZoNt1KE4D5DMT.mp4" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 bg-black/20"></div>
+        <div class="grid-bg"></div>
+    </div>
+
+    <!-- LEAF EMITTER LAYER -->
+    <div id="leaf-container" class="fixed inset-0 z-5 pointer-events-none overflow-hidden"></div>
+
+    <!-- FLOATING DYNAMIC ISLAND NAVBAR -->
+    <div class="sticky top-4 z-20 w-full max-w-6xl mx-auto px-4 pointer-events-none">
+        <header class="glass-nav border border-white/10 rounded-full px-6 md:px-8 py-3.5 flex items-center justify-between pointer-events-auto shadow-2xl">
+            <!-- Robotics Club UCE Logo (Vercel/GitHub optimized PNG) -->
+            <a href="index.html" class="flex items-center gap-2">
+                <img src="assets/logo.png" alt="Robotics Club UCE Logo" class="h-10 w-auto object-contain">
+            </a>
+
+            <!-- Navigation Links (Desktop) -->
+            <nav class="hidden lg:flex items-center gap-8 font-semibold text-[15px]">
+                <a href="index.html#about" id="nav-about" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">About Us</a>
+                <a href="team.html" id="nav-team" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Team</a>
+                <a href="events.html" id="nav-events" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Events</a>
+                <a href="certificate.html" id="nav-certificate" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Certificate</a>
+                <a href="#suggestions" id="nav-suggestions" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Suggestions</a>
+            </nav>
+
+            <!-- Instagram handle, Join Club Action & Mobile Menu Trigger -->
+            <div class="flex items-center gap-4 pointer-events-auto">
+                <a href="https://www.instagram.com/roboticsclubuce/" target="_blank" class="flex items-center gap-1.5 text-xs font-mono font-bold text-brand-pink hover:text-white transition-colors bg-white/5 px-3 py-1.5 rounded-full border border-white/10" title="Follow us on Instagram">
+                    <i class="fa-brands fa-instagram text-sm"></i>
+                    <span class="hidden sm:inline">@roboticsclubuce</span>
+                </a>
+                <a href="membership.html" class="neu-button hidden sm:inline-flex">
+                    <i class="fa-solid fa-credit-card"></i>
+                    <span>Join Club</span>
+                </a>
+                <!-- Mobile Drawer Icon Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-slate-300 hover:text-white transition-colors text-2xl focus:outline-none ml-2" title="Toggle Navigation Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </header>
+    </div>
+
+    <!-- MOBILE FULL SCREEN NAVIGATION OVERLAY (Drawer) -->
+    <div id="mobile-menu" class="fixed inset-0 z-50 glass-nav hidden flex-col items-center justify-center space-y-8 text-xl font-semibold pointer-events-auto">
+        <button id="mobile-menu-close" class="absolute top-6 right-6 text-slate-300 hover:text-white text-3xl focus:outline-none" title="Close Menu">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <a href="index.html" class="mobile-nav-link text-slate-300 hover:text-white transition-colors">Home</a>
+        <a href="index.html#about" class="mobile-nav-link text-slate-300 hover:text-white transition-colors">About Us</a>
+        <a href="team.html" class="mobile-nav-link text-slate-300 hover:text-white transition-colors">Team</a>
+        <a href="events.html" class="mobile-nav-link text-slate-300 hover:text-white transition-colors">Events</a>
+        <a href="certificate.html" class="mobile-nav-link text-slate-300 hover:text-white transition-colors">Certificate</a>
+        <a href="#suggestions" class="mobile-nav-link text-slate-300 hover:text-white transition-colors">Suggestions</a>
+        <a href="membership.html" class="neu-button text-sm mt-4">
+            <i class="fa-solid fa-credit-card"></i>
+            <span>Join Club</span>
+        </a>
+    </div>
+
+    <!-- MAIN VERTICALLY SCROLLABLE CONTENT -->
+    <main class="relative z-10 max-w-7xl mx-auto px-6 w-full flex-1 flex flex-col space-y-32 my-12">
+
+        <!-- ================= HOME / HERO SECTION ================= -->
+        <section id="home" class="scroll-mt-28 py-20 min-h-[80vh] flex items-center grid grid-cols-1 lg:grid-cols-12 gap-12 relative active-section">
+            <!-- Left Info Block -->
+            <div class="lg:col-span-8 space-y-8">
+                <div class="inline-flex items-center gap-2 px-3 py-1 bg-white/5 border border-white/10 rounded-full backdrop-blur-md">
+                    <span class="w-2 h-2 rounded-full bg-brand-pink animate-pulse"></span>
+                    <span class="font-mono text-[10px] text-brand-pink tracking-wider uppercase">UCE ROBOTICS LABORATORY STATION</span>
+                </div>
+                <h1 class="text-5xl sm:text-7xl font-extrabold tracking-tight text-white leading-none">
+                    Innovate, compete, <br>
+                    and <span class="gradient-text-pink-orange font-mono">collaborate</span>
+                </h1>
+                <p class="text-slate-300 leading-relaxed max-w-xl text-sm sm:text-base glass-panel p-5 rounded-lg">
+                    Welcome to the premier collegiate engineering club. We host technical workshops, coding competitions, gaming tournaments, and build innovative hardware/software projects designed for real-world impact.
+                </p>
+                
+                <!-- Glassmorphic Button layout -->
+                <div class="flex flex-wrap items-center gap-4 pt-2">
+                    <a href="events.html" class="px-6 py-3.5 glass-btn rounded-full transition-all font-mono text-xs uppercase font-bold tracking-wider inline-flex items-center">
+                        <span>Upcoming Activities</span>
+                    </a>
+                    <a href="membership.html" class="px-6 py-3.5 glass-btn-pink rounded-full transition-all font-mono text-xs uppercase font-bold tracking-wider inline-flex items-center">
+                        <span>Get 4-Year Pass</span>
+                    </a>
+                </div>
+
+                <!-- Stats widget container -->
+                <div class="grid grid-cols-3 gap-6 pt-10 border-t border-brand-border font-mono max-w-lg">
+                    <div>
+                        <span class="text-3xl font-bold text-white block">150+</span>
+                        <span class="text-[10px] text-slate-400 uppercase tracking-wider">Active Members</span>
+                    </div>
+                    <div>
+                        <span class="text-3xl font-bold text-white block">98.4%</span>
+                        <span class="text-[10px] text-slate-400 uppercase tracking-wider">System Accuracy</span>
+                    </div>
+                    <div>
+                        <span class="text-3xl font-bold text-white block">&lt;10ms</span>
+                        <span class="text-[10px] text-slate-400 uppercase tracking-wider">Loop Latency</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= ABOUT US SECTION ================= -->
+        <section id="about" class="scroll-mt-28 py-16 flex flex-col justify-center space-y-12 active-section">
+            <div class="max-w-3xl space-y-4">
+                <span class="text-xs font-mono text-brand-orange uppercase tracking-widest block">01 / CORE MISSION</span>
+                <h2 class="text-4xl font-extrabold text-white">Fostering Robotics & Embedded Engineering</h2>
+                <p class="text-slate-300 leading-relaxed glass-panel p-4 rounded-lg">
+                    Robotics Club UCE is the premiere collegiate community dedicated to helping students get hands on experience with tech. We host regular events of various types like technical workshops, coding competitions and even the occasional gaming events!
+                </p>
+            </div>
+
+            <!-- Pillars layout -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="p-6 glass-panel rounded hover:border-brand-pink/35 transition-colors space-y-4 shadow-xl">
+                    <div class="w-10 h-10 rounded bg-brand-pink/10 flex items-center justify-center text-brand-pink">
+                        <i class="fa-solid fa-laptop-code text-lg"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Technical Workshops</h3>
+                    <p class="text-xs text-slate-300 font-mono leading-relaxed">
+                        Gain hands-on training in microcontrollers (ESP32, Arduino), web development, PC Assembly and more. 
+                    </p>
+                </div>
+                <div class="p-6 glass-panel rounded hover:border-brand-cyan/35 transition-colors space-y-4 shadow-xl">
+                    <div class="w-10 h-10 rounded bg-brand-cyan/10 flex items-center justify-center text-brand-cyan">
+                        <i class="fa-solid fa-trophy text-lg"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Engineering Competitions</h3>
+                    <p class="text-xs text-slate-300 font-mono leading-relaxed">
+                        Compete in college level coding competitions, designing competitions etc...
+                    </p>
+                </div>
+                <div class="p-6 glass-panel rounded hover:border-brand-orange/35 transition-colors space-y-4 shadow-xl">
+                    <div class="w-10 h-10 rounded bg-brand-orange/10 flex items-center justify-center text-brand-orange">
+                        <i class="fa-solid fa-gamepad text-lg"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Tech & Gaming Events</h3>
+                    <p class="text-xs text-slate-300 font-mono leading-relaxed">
+                        Participate in tech events, collaborative project showcases, and occasional campus esports gaming tournaments.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SUGGESTIONS SECTION ================= -->
+        <section id="suggestions" class="scroll-mt-28 py-16 flex flex-col justify-center space-y-12 active-section">
+            <div class="max-w-3xl space-y-4">
+                <span class="text-xs font-mono text-brand-pink uppercase tracking-widest block">02 / STUDENT HUB</span>
+                <h2 class="text-4xl font-extrabold text-white">Share Your Ideas & Suggestions</h2>
+                <p class="text-slate-300 leading-relaxed glass-panel p-4 rounded-lg">
+                    Have a cool workshop topic in mind, a gaming event proposal, or feedback on past events? Tell us what you want to see next in Robotics Club UCE!
+                </p>
+            </div>
+
+            <div class="max-w-xl w-full mx-auto p-6 glass-panel rounded-lg shadow-2xl space-y-6">
+                <form id="suggestion-form" onsubmit="event.preventDefault(); submitSuggestion();" class="space-y-4 font-mono text-xs text-slate-300">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="space-y-1">
+                            <label class="block text-[9px] text-brand-pink uppercase">Name (Optional)</label>
+                            <input type="text" id="suggest-name" placeholder="e.g. Adhithyan" class="w-full bg-black/40 border border-white/10 rounded px-4 py-3 text-xs text-white focus:outline-none focus:border-brand-pink">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="block text-[9px] text-brand-pink uppercase">Reg Number (Optional)</label>
+                            <input type="text" id="suggest-reg" placeholder="e.g. UCE24CS035" class="w-full bg-black/40 border border-white/10 rounded px-4 py-3 text-xs text-white focus:outline-none focus:border-brand-pink">
+                        </div>
+                    </div>
+                    <div class="space-y-1">
+                        <label class="block text-[9px] text-brand-pink uppercase">Suggestion Category</label>
+                        <select id="suggest-category" class="w-full bg-black/80 border border-white/10 rounded px-4 py-3 text-xs text-white focus:outline-none focus:border-brand-pink">
+                            <option value="workshop">Technical Workshop Topic</option>
+                            <option value="gaming">Gaming/Esports Tournament</option>
+                            <option value="coding">Coding/Hackathon Challenge</option>
+                            <option value="other">General Idea</option>
+                        </select>
+                    </div>
+                    <div class="space-y-1">
+                        <label class="block text-[9px] text-brand-pink uppercase">Your Suggestion</label>
+                        <textarea id="suggest-text" rows="4" placeholder="Describe your idea or what events you want us to conduct..." class="w-full bg-black/40 border border-white/10 rounded px-4 py-3 text-xs text-white focus:outline-none focus:border-brand-pink resize-none" required></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-3.5 mt-2 bg-brand-pink/10 hover:bg-brand-pink/20 border border-brand-pink/30 hover:border-brand-pink rounded text-brand-pink font-bold uppercase transition-all tracking-wider text-center block">
+                        Submit Idea
+                    </button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-black/90 py-12 border-t border-brand-border text-slate-500 text-xs font-mono relative z-10 mt-auto backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3">
+                <img src="assets/logo.png" alt="Robotics Club UCE Logo" class="h-8 w-auto object-contain opacity-50 hover:opacity-100 transition-opacity">
+            </div>
+            <div>
+                <span>&copy; 2026 UCE ROBOTICS CLUB. All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- TOAST POPUP -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 glass-panel border border-brand-orange text-white text-xs font-mono rounded px-6 py-4 hidden flex items-center gap-3 shadow-2xl transition-all duration-300">
+        <span class="w-2.5 h-2.5 rounded-full bg-brand-orange animate-pulse"></span>
+        <span id="toast-message"></span>
+    </div>
+
+    <!-- Custom Shared Script -->
+    <script src="shared.js"></script>
+</body>
+</html>

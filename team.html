@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OUR TEAM // Robotics Club UCE</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Shared Stylesheet -->
+    <link rel="stylesheet" href="shared.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            orange: '#ff6b35',
+                            pink: '#ff4b8b',
+                            cyan: '#00f5ff',
+                            darkBg: '#09090b',
+                            panelBg: '#121215',
+                            border: 'rgba(255, 255, 255, 0.08)'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+                        mono: ['monospace', 'Courier New', 'Courier']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="text-slate-300 antialiased min-h-screen flex flex-col justify-between relative pt-6">
+
+    <!-- FULL PAGE CRYSTAL CLEAR VIDEO BACKGROUND WITH PARALLAX -->
+    <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+        <video id="bg-video" autoplay muted loop playsinline class="w-full h-full object-cover opacity-75 scale-105 transition-transform duration-500 ease-out" style="filter: contrast(1.15) saturate(1.2) brightness(0.95);">
+            <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/bg-hero-0BnFGdr81Ifnj3WbBZoNt1KE4D5DMT.mp4" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 bg-black/20"></div>
+        <div class="grid-bg"></div>
+    </div>
+
+    <!-- LEAF EMITTER LAYER -->
+    <div id="leaf-container" class="fixed inset-0 z-5 pointer-events-none overflow-hidden"></div>
+
+    <!-- FLOATING DYNAMIC ISLAND NAVBAR -->
+    <div class="sticky top-4 z-20 w-full max-w-6xl mx-auto px-4 pointer-events-none">
+        <header class="glass-nav border border-white/10 rounded-full px-6 md:px-8 py-3.5 flex items-center justify-between pointer-events-auto shadow-2xl">
+            <!-- Robotics Club UCE Logo -->
+            <a href="index.html" class="flex items-center gap-2">
+                <img src="assets/logo.png" alt="Robotics Club UCE Logo" class="h-10 w-auto object-contain">
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden lg:flex items-center gap-8 font-semibold text-[15px]">
+                <a href="index.html#about" id="nav-about" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">About Us</a>
+                <a href="team.html" id="nav-team" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Team</a>
+                <a href="events.html" id="nav-events" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Events</a>
+                <a href="certificate.html" id="nav-certificate" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Certificate</a>
+                <a href="index.html#suggestions" id="nav-suggestions" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Suggestions</a>
+            </nav>
+
+            <!-- Actions & Menu -->
+            <div class="flex items-center gap-4 pointer-events-auto">
+                <a href="https://www.instagram.com/roboticsclubuce/" target="_blank" class="flex items-center gap-1.5 text-xs font-mono font-bold text-brand-pink hover:text-white transition-colors bg-white/5 px-3 py-1.5 rounded-full border border-white/10" title="Follow us on Instagram">
+                    <i class="fa-brands fa-instagram text-sm"></i>
+                    <span class="hidden sm:inline">@roboticsclubuce</span>
+                </a>
+                <a href="membership.html" class="neu-button hidden sm:inline-flex">
+                    <i class="fa-solid fa-credit-card"></i>
+                    <span>Join Club</span>
+                </a>
+                <!-- Mobile Drawer Icon Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-slate-300 hover:text-white transition-colors text-2xl focus:outline-none ml-2" title="Toggle Navigation Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </header>
+    </div>
+
+    <!-- MOBILE FULL SCREEN NAVIGATION OVERLAY (Drawer) -->
+    <div id="mobile-menu" class="fixed inset-0 z-50 glass-nav hidden flex-col items-center justify-center space-y-8 text-xl font-semibold pointer-events-auto">
+        <button id="mobile-menu-close" class="absolute top-6 right-6 text-slate-300 hover:text-white text-3xl focus:outline-none" title="Close Menu">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <a href="index.html" class="mobile-nav-link text-slate-300 hover:text-white transition-colors">Home</a>
+        <a href="index.html#about" class="mobile-nav-link text-slate-300 hover:text-white transition-colors">About Us</a>
+        <a href="team.html" class="mobile-nav-link text-slate-300 hover:text-white transition-colors">Team</a>
+        <a href="events.html" class="mobile-nav-link text-slate-300 hover:text-white transition-colors">Events</a>
+        <a href="certificate.html" class="mobile-nav-link text-slate-300 hover:text-white transition-colors">Certificate</a>
+        <a href="index.html#suggestions" class="mobile-nav-link text-slate-300 hover:text-white transition-colors">Suggestions</a>
+        <a href="membership.html" class="neu-button text-sm mt-4">
+            <i class="fa-solid fa-credit-card"></i>
+            <span>Join Club</span>
+        </a>
+    </div>
+
+    <!-- MAIN VERTICALLY SCROLLABLE CONTENT -->
+    <main class="relative z-10 max-w-7xl mx-auto px-6 w-full flex-1 flex flex-col justify-center my-12">
+
+        <!-- ================= TEAM SECTION ================= -->
+        <section id="team" class="scroll-mt-28 py-16 flex flex-col justify-center space-y-12 active-section">
+            <div class="max-w-3xl space-y-4">
+                <span class="text-xs font-mono text-brand-orange uppercase tracking-widest block">02 / LAB OPERATORS</span>
+                <h2 class="text-4xl font-extrabold text-white">Meet the System Architects</h2>
+                <p class="text-slate-300 leading-relaxed glass-panel p-4 rounded-lg">
+                    Our student leaders oversee club events, coordinate project clusters, and mentor incoming engineering apprentices.
+                </p>
+            </div>
+
+            <!-- Team cards layout -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Member 1 -->
+                <div class="p-6 glass-panel rounded space-y-4 text-center shadow-xl hover:border-brand-pink/30 transition-colors">
+                    <div class="w-20 h-20 rounded-full bg-white/5 border border-white/10 mx-auto flex items-center justify-center text-slate-400">
+                        <i class="fa-solid fa-user-astronaut text-3xl text-brand-pink"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white">Anila Thomas</h4>
+                        <span class="text-[10px] font-mono text-brand-pink uppercase tracking-widest block">Club Convener</span>
+                    </div>
+                </div>
+                <!-- Member 2 -->
+                <div class="p-6 glass-panel rounded space-y-4 text-center shadow-xl hover:border-brand-orange/30 transition-colors">
+                    <div class="w-20 h-20 rounded-full bg-white/5 border border-white/10 mx-auto flex items-center justify-center text-slate-400">
+                        <i class="fa-solid fa-user-tie text-3xl text-brand-orange"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white">Yedu</h4>
+                        <span class="text-[10px] font-mono text-brand-orange uppercase tracking-widest block">Club Treasurer</span>
+                    </div>
+                </div>
+                <!-- Member 3 -->
+                <div class="p-6 glass-panel rounded space-y-4 text-center shadow-xl hover:border-white/20 transition-colors">
+                    <div class="w-20 h-20 rounded-full bg-white/5 border border-white/10 mx-auto flex items-center justify-center text-slate-400">
+                        <i class="fa-solid fa-graduation-cap text-3xl text-slate-300"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white">Lini Abraham</h4>
+                        <span class="text-[10px] font-mono text-slate-400 uppercase tracking-widest block">Faculty Mentor</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-black/90 py-12 border-t border-brand-border text-slate-500 text-xs font-mono relative z-10 mt-auto backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3">
+                <img src="assets/logo.png" alt="Robotics Club UCE Logo" class="h-8 w-auto object-contain opacity-50 hover:opacity-100 transition-opacity">
+            </div>
+            <div>
+                <span>&copy; 2026 UCE ROBOTICS CLUB. All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- TOAST POPUP -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 glass-panel border border-brand-orange text-white text-xs font-mono rounded px-6 py-4 hidden flex items-center gap-3 shadow-2xl transition-all duration-300">
+        <span class="w-2.5 h-2.5 rounded-full bg-brand-orange animate-pulse"></span>
+        <span id="toast-message"></span>
+    </div>
+
+    <!-- Custom Shared Script -->
+    <script src="shared.js"></script>
+</body>
+</html>
