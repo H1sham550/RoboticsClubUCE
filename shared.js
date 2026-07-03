@@ -283,8 +283,18 @@ function highlightNav() {
     }
 }
 
+// Lock background video container height on mobile to prevent address bar scroll resize/zoom jitter
+function lockBgHeightMobile() {
+    const bgContainer = document.querySelector('.fixed.inset-0.z-0');
+    if (bgContainer && window.innerWidth < 768) {
+        bgContainer.style.height = (window.innerHeight + 80) + 'px';
+        bgContainer.style.bottom = 'auto';
+    }
+}
+
 // Initialize on DOM ready
 window.addEventListener('DOMContentLoaded', () => {
+    lockBgHeightMobile();
     initLeaves();
     initMobileMenu();
     highlightNav();
