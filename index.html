@@ -62,7 +62,7 @@
                 <a href="team.html" id="nav-team" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Team</a>
                 <a href="events.html" id="nav-events" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Events</a>
                 <a href="certificate.html" id="nav-certificate" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Certificate</a>
-                <a href="#suggestions" id="nav-suggestions" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Suggestions</a>
+                <a href="suggestions.html" id="nav-suggestions" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Suggestions</a>
             </nav>
 
             <!-- Instagram handle, Join Club Action & Mobile Menu Trigger -->
@@ -71,7 +71,7 @@
                     <i class="fa-brands fa-instagram text-sm"></i>
                     <span class="hidden sm:inline">@roboticsclubuce</span>
                 </a>
-                <a href="membership.html" class="neu-button hidden sm:inline-flex">
+                <a href="#membership" class="neu-button hidden sm:inline-flex">
                     <i class="fa-solid fa-credit-card"></i>
                     <span>Join Club</span>
                 </a>
@@ -93,8 +93,8 @@
         <a href="team.html" class="mobile-nav-link text-slate-300 hover:text-white transition-colors">Team</a>
         <a href="events.html" class="mobile-nav-link text-slate-300 hover:text-white transition-colors">Events</a>
         <a href="certificate.html" class="mobile-nav-link text-slate-300 hover:text-white transition-colors">Certificate</a>
-        <a href="#suggestions" class="mobile-nav-link text-slate-300 hover:text-white transition-colors">Suggestions</a>
-        <a href="membership.html" class="neu-button text-sm mt-4">
+        <a href="suggestions.html" class="mobile-nav-link text-slate-300 hover:text-white transition-colors">Suggestions</a>
+        <a href="#membership" class="neu-button text-sm mt-4">
             <i class="fa-solid fa-credit-card"></i>
             <span>Join Club</span>
         </a>
@@ -124,7 +124,7 @@
                     <a href="events.html" class="px-6 py-3.5 glass-btn rounded-full transition-all font-mono text-xs uppercase font-bold tracking-wider inline-flex items-center">
                         <span>Upcoming Activities</span>
                     </a>
-                    <a href="membership.html" class="px-6 py-3.5 glass-btn-pink rounded-full transition-all font-mono text-xs uppercase font-bold tracking-wider inline-flex items-center">
+                    <a href="#membership" class="px-6 py-3.5 glass-btn-pink rounded-full transition-all font-mono text-xs uppercase font-bold tracking-wider inline-flex items-center">
                         <span>Get 4-Year Pass</span>
                     </a>
                 </div>
@@ -185,46 +185,80 @@
             </div>
         </section>
 
-        <!-- ================= SUGGESTIONS SECTION ================= -->
-        <section id="suggestions" class="scroll-mt-28 py-16 flex flex-col justify-center space-y-12 active-section">
+        <!-- ================= MEMBERSHIP SECTION ================= -->
+        <section id="membership" class="scroll-mt-28 py-16 flex flex-col justify-center items-center text-center space-y-12 active-section w-full">
             <div class="max-w-3xl space-y-4">
-                <span class="text-xs font-mono text-brand-pink uppercase tracking-widest block">02 / STUDENT HUB</span>
-                <h2 class="text-4xl font-extrabold text-white">Share Your Ideas & Suggestions</h2>
-                <p class="text-slate-300 leading-relaxed glass-panel p-4 rounded-lg">
-                    Have a cool workshop topic in mind, a gaming event proposal, or feedback on past events? Tell us what you want to see next in Robotics Club UCE!
+                <span class="text-xs font-mono text-brand-orange uppercase tracking-widest block">05 / REGISTER MEMBERSHIP</span>
+                <h2 class="text-4xl font-extrabold text-white">Membership Registration</h2>
+                <p class="text-slate-300 leading-relaxed glass-panel p-4 rounded-lg max-w-xl mx-auto">
+                    Membership registration is currently closed. Registration for all students will reopen when the new first-year student batch arrives.
                 </p>
             </div>
 
-            <div class="max-w-xl w-full mx-auto p-6 glass-panel rounded-lg shadow-2xl space-y-6">
-                <form id="suggestion-form" onsubmit="event.preventDefault(); submitSuggestion();" class="space-y-4 font-mono text-xs text-slate-300">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="space-y-1">
-                            <label class="block text-[9px] text-brand-pink uppercase">Name (Optional)</label>
-                            <input type="text" id="suggest-name" placeholder="e.g. Adhithyan" class="w-full bg-black/40 border border-white/10 rounded px-4 py-3 text-xs text-white focus:outline-none focus:border-brand-pink">
+            <!-- Centered Uiverse 3D Membership Card -->
+            <div class="flex items-center justify-center py-6 w-full">
+                <div class="container-card">
+                    <div class="canvas">
+                        <div class="tracker tr-1"></div>
+                        <div class="tracker tr-2"></div>
+                        <div class="tracker tr-3"></div>
+                        <div class="tracker tr-4"></div>
+                        <div class="tracker tr-5"></div>
+                        <div class="tracker tr-6"></div>
+                        <div class="tracker tr-7"></div>
+                        <div class="tracker tr-8"></div>
+                        <div class="tracker tr-9"></div>
+                        <div class="tracker tr-10"></div>
+                        <div class="tracker tr-11"></div>
+                        <div class="tracker tr-12"></div>
+                        <div class="tracker tr-13"></div>
+                        <div class="tracker tr-14"></div>
+                        <div class="tracker tr-15"></div>
+                        <div class="tracker tr-16"></div>
+                        <div class="tracker tr-17"></div>
+                        <div class="tracker tr-18"></div>
+                        <div class="tracker tr-19"></div>
+                        <div class="tracker tr-20"></div>
+                        <div class="tracker tr-21"></div>
+                        <div class="tracker tr-22"></div>
+                        <div class="tracker tr-23"></div>
+                        <div class="tracker tr-24"></div>
+                        <div class="tracker tr-25"></div>
+                        
+                        <!-- Click trigger overlay -->
+                        <div onclick="processPayment()" class="tracker hover:scale-95 transition-all duration-300"></div>
+
+                        <div id="card" class="noselect">
+                            <div class="card-content">
+                                <div id="prompt">
+                                    PAUSED<br>
+                                    <span class="text-[8px] text-red-500 uppercase tracking-widest block mt-1 font-mono">Closed for now</span>
+                                </div>
+                                <div class="title">PAUSED<span class="text-[9px] text-red-500 block mt-1 font-bold">REGISTRATION</span></div>
+                                <div class="subtitle">RENEWALS OPEN SOON <span class="highlight">1ST YEARS</span></div>
+                                <div class="glowing-elements">
+                                    <div class="glow-1"></div>
+                                    <div class="glow-2"></div>
+                                    <div class="glow-3"></div>
+                                </div>
+                                <div class="card-particles">
+                                    <span></span><span></span><span></span><span></span><span></span><span></span>
+                                </div>
+                                <div class="cyber-lines">
+                                    <span></span><span></span><span></span><span></span>
+                                </div>
+                                <div class="corner-elements">
+                                    <span></span><span></span><span></span><span></span>
+                                </div>
+                                <div class="scan-line"></div>
+                                <div class="card-glare"></div>
+                            </div>
                         </div>
-                        <div class="space-y-1">
-                            <label class="block text-[9px] text-brand-pink uppercase">Reg Number (Optional)</label>
-                            <input type="text" id="suggest-reg" placeholder="e.g. UCE24CS035" class="w-full bg-black/40 border border-white/10 rounded px-4 py-3 text-xs text-white focus:outline-none focus:border-brand-pink">
-                        </div>
                     </div>
-                    <div class="space-y-1">
-                        <label class="block text-[9px] text-brand-pink uppercase">Suggestion Category</label>
-                        <select id="suggest-category" class="w-full bg-black/80 border border-white/10 rounded px-4 py-3 text-xs text-white focus:outline-none focus:border-brand-pink">
-                            <option value="workshop">Technical Workshop Topic</option>
-                            <option value="gaming">Gaming/Esports Tournament</option>
-                            <option value="coding">Coding/Hackathon Challenge</option>
-                            <option value="other">General Idea</option>
-                        </select>
-                    </div>
-                    <div class="space-y-1">
-                        <label class="block text-[9px] text-brand-pink uppercase">Your Suggestion</label>
-                        <textarea id="suggest-text" rows="4" placeholder="Describe your idea or what events you want us to conduct..." class="w-full bg-black/40 border border-white/10 rounded px-4 py-3 text-xs text-white focus:outline-none focus:border-brand-pink resize-none" required></textarea>
-                    </div>
-                    <button type="submit" class="w-full py-3.5 mt-2 bg-brand-pink/10 hover:bg-brand-pink/20 border border-brand-pink/30 hover:border-brand-pink rounded text-brand-pink font-bold uppercase transition-all tracking-wider text-center block">
-                        Submit Idea
-                    </button>
-                </form>
+                </div>
             </div>
+            
+            <span class="text-[10px] text-red-500 uppercase tracking-widest font-mono">REGISTRATION TEMPORARILY PAUSED</span>
         </section>
 
     </main>

@@ -271,10 +271,10 @@ function highlightNav() {
     } else if (path.includes('certificate.html')) {
         const item = document.getElementById('nav-certificate');
         if (item) item.classList.add('active', 'text-white');
-    } else if (path.includes('membership.html')) {
+    } else if (hash.includes('#membership')) {
         const item = document.getElementById('nav-membership');
         if (item) item.classList.add('active', 'text-white');
-    } else if (hash.includes('#suggestions')) {
+    } else if (path.includes('suggestions.html')) {
         const item = document.getElementById('nav-suggestions');
         if (item) item.classList.add('active', 'text-white');
     } else if (hash.includes('#about') || path.endsWith('/') || path.includes('index.html')) {
