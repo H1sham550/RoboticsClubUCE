@@ -19,6 +19,8 @@ class MasonryGrid {
 
     async init() {
         this.container.classList.add('relative', 'overflow-hidden', 'bg-black/20', 'rounded-3xl', 'border', 'border-white/10');
+        this.container.style.height = '650px';
+        this.container.style.minHeight = '650px';
 
         // Add CSS styling rules for the moments grid
         this.injectStyles();
@@ -83,18 +85,10 @@ class MasonryGrid {
     createHUD() {
         this.hudEl = document.createElement('div');
         this.hudEl.className = 'absolute bottom-6 left-6 right-6 md:right-auto md:w-96 p-6 rounded-2xl moments-hud-panel z-30 transition-all duration-300 pointer-events-auto text-left';
-        
-        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-        const categoryText = isTouchDevice ? "TOUCH & SWIPE" : "MOVING CURSOR";
-        const titleText = isTouchDevice ? "Swipe the photos wall" : "Hover the photos wall";
-        const descText = isTouchDevice 
-            ? "Drag your finger to part the photography wall and highlight a moment." 
-            : "Move your cursor to part the photography wall and highlight a moment.";
-
         this.hudEl.innerHTML = `
-            <div id="hud-category" class="text-[9px] font-mono tracking-widest text-brand-pink font-bold uppercase mb-1">${categoryText}</div>
-            <h3 id="hud-title" class="text-lg font-bold text-white mb-2 leading-snug">${titleText}</h3>
-            <p id="hud-desc" class="text-xs text-slate-400 font-mono leading-relaxed">${descText}</p>
+            <div id="hud-category" class="text-[9px] font-mono tracking-widest text-brand-pink font-bold uppercase mb-1">MOVING CURSOR</div>
+            <h3 id="hud-title" class="text-lg font-bold text-white mb-2 leading-snug">Hover the photos wall</h3>
+            <p id="hud-desc" class="text-xs text-slate-400 font-mono leading-relaxed">Move your cursor to part the photography wall and highlight a moment.</p>
         `;
         this.container.appendChild(this.hudEl);
     }
@@ -159,16 +153,6 @@ class MasonryGrid {
     }
 
     calculateGrid() {
-        const containerWidth = this.width || this.container.offsetWidth || 1000;
-        let containerHeight = 650;
-        if (containerWidth < 768) {
-            // Proportional height to maintain aspect ratio on mobile
-            containerHeight = Math.max(300, containerWidth * 0.65);
-        }
-
-        this.container.style.height = `${containerHeight}px`;
-        this.container.style.minHeight = `${containerHeight}px`;
-
         // Moments Photography Wall dense scatter layout coordinates
         const gridItems = [
             // Row 1
@@ -189,6 +173,9 @@ class MasonryGrid {
             { id: "11", xFactor: 0.66, yFactor: 0.28, wFactor: 0.15, hFactor: 0.26 },
             { id: "12", xFactor: 0.88, yFactor: 0.22, wFactor: 0.10, hFactor: 0.38 }
         ];
+
+        const containerWidth = this.width || this.container.offsetWidth || 1000;
+        const containerHeight = this.height || this.container.offsetHeight || 650;
 
         return gridItems.map(gridInfo => {
             const item = this.items.find(i => i.id === gridInfo.id) || {};
@@ -235,21 +222,17 @@ class MasonryGrid {
     setupMomentsInteraction() {
         const activeHoverScale = 1.05;
 
-        const handleInteraction = (clientX, clientY) => {
+        this.container.addEventListener('mousemove', (e) => {
             const rect = this.container.getBoundingClientRect();
-            const mx = clientX - rect.left;
-            const my = clientY - rect.top;
+            const mx = e.clientX - rect.left;
+            const my = e.clientY - rect.top;
 
             const gridItems = this.calculateGrid();
             
             // Interaction Parameters
-            const containerWidth = this.width || this.container.offsetWidth || 1000;
-            const isMobile = containerWidth < 768;
-            
-            // Scale physics parameters based on viewport size
-            const radius = isMobile ? 120 : 260;
-            const maxPush = isMobile ? 30 : 60;
-            const fadeRadius = isMobile ? 50 : 110;
+            const radius = 260;
+            const maxPush = 60;
+            const fadeRadius = 110; // Parting clearing radius (void)
 
             let closestItem = null;
             let minDistance = Infinity;
@@ -296,6 +279,7 @@ class MasonryGrid {
                     opacity: targetOpacity,
                     scale: targetScale,
                     duration: 0.4,
+                    ease: 'power2.out',
                     overwrite: 'auto'
                 });
             });
@@ -305,9 +289,9 @@ class MasonryGrid {
                 this.activeFeaturedId = closestItem.id;
                 this.updateHUD(closestItem);
             }
-        };
+        });
 
-        const resetGrid = () => {
+        this.container.addEventListener('mouseleave', () => {
             const gridItems = this.calculateGrid();
             gridItems.forEach((item) => {
                 const el = this.container.querySelector(`[data-key="${item.id}"]`);
@@ -326,57 +310,23 @@ class MasonryGrid {
 
             // Reset HUD
             this.activeFeaturedId = null;
-            if (this.hudEl) {
-                const categoryEl = this.hudEl.querySelector('#hud-category');
-                const titleEl = this.hudEl.querySelector('#hud-title');
-                const descEl = this.hudEl.querySelector('#hud-desc');
-                
-                const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-                const categoryText = isTouchDevice ? "TOUCH & SWIPE" : "MOVING CURSOR";
-                const titleText = isTouchDevice ? "Swipe the photos wall" : "Hover the photos wall";
-                const descText = isTouchDevice 
-                    ? "Drag your finger to part the photography wall and highlight a moment." 
-                    : "Move your cursor to part the photography wall and highlight a moment.";
-
-                gsap.to([categoryEl, titleEl, descEl], {
-                    opacity: 0.5,
-                    y: -3,
-                    duration: 0.3,
-                    stagger: 0.05,
-                    onComplete: () => {
-                        categoryEl.innerText = categoryText;
-                        titleEl.innerText = titleText;
-                        descEl.innerText = descText;
-                        gsap.to([categoryEl, titleEl, descEl], { opacity: 1, y: 0, duration: 0.3 });
-                    }
-                });
-            }
-        };
-
-        // Desktop mouse event listeners
-        this.container.addEventListener('mousemove', (e) => {
-            handleInteraction(e.clientX, e.clientY);
+            const categoryEl = this.hudEl.querySelector('#hud-category');
+            const titleEl = this.hudEl.querySelector('#hud-title');
+            const descEl = this.hudEl.querySelector('#hud-desc');
+            
+            gsap.to([categoryEl, titleEl, descEl], {
+                opacity: 0.5,
+                y: -3,
+                duration: 0.3,
+                stagger: 0.05,
+                onComplete: () => {
+                    categoryEl.innerText = "MOVING CURSOR";
+                    titleEl.innerText = "Hover the photos wall";
+                    descEl.innerText = "Move your cursor to part the photography wall and highlight a moment.";
+                    gsap.to([categoryEl, titleEl, descEl], { opacity: 1, y: 0, duration: 0.3 });
+                }
+            });
         });
-
-        this.container.addEventListener('mouseleave', resetGrid);
-
-        // Mobile touch event listeners (allows swiping/dragging to part the wall on phone screen)
-        this.container.addEventListener('touchstart', (e) => {
-            if (e.touches.length > 0) {
-                if (e.cancelable) e.preventDefault();
-                handleInteraction(e.touches[0].clientX, e.touches[0].clientY);
-            }
-        }, { passive: false });
-
-        this.container.addEventListener('touchmove', (e) => {
-            if (e.touches.length > 0) {
-                if (e.cancelable) e.preventDefault();
-                handleInteraction(e.touches[0].clientX, e.touches[0].clientY);
-            }
-        }, { passive: false });
-
-        this.container.addEventListener('touchend', resetGrid);
-        this.container.addEventListener('touchcancel', resetGrid);
     }
 
     updateHUD(item) {
