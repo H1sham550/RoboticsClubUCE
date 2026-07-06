@@ -82,11 +82,19 @@ class MasonryGrid {
 
     createHUD() {
         this.hudEl = document.createElement('div');
-        this.hudEl.className = 'absolute bottom-6 left-6 right-6 md:right-auto md:w-96 p-6 rounded-2xl moments-hud-panel z-30 transition-all duration-300 pointer-events-auto text-left hidden md:block';
+        this.hudEl.className = 'absolute bottom-6 left-6 right-6 md:right-auto md:w-96 p-6 rounded-2xl moments-hud-panel z-30 transition-all duration-300 pointer-events-auto text-left';
+        
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        const categoryText = isTouchDevice ? "TOUCH & SWIPE" : "MOVING CURSOR";
+        const titleText = isTouchDevice ? "Swipe the photos wall" : "Hover the photos wall";
+        const descText = isTouchDevice 
+            ? "Drag your finger to part the photography wall and highlight a moment." 
+            : "Move your cursor to part the photography wall and highlight a moment.";
+
         this.hudEl.innerHTML = `
-            <div id="hud-category" class="text-[9px] font-mono tracking-widest text-brand-pink font-bold uppercase mb-1">MOVING CURSOR</div>
-            <h3 id="hud-title" class="text-lg font-bold text-white mb-2 leading-snug">Hover the photos wall</h3>
-            <p id="hud-desc" class="text-xs text-slate-400 font-mono leading-relaxed">Move your cursor to part the photography wall and highlight a moment.</p>
+            <div id="hud-category" class="text-[9px] font-mono tracking-widest text-brand-pink font-bold uppercase mb-1">${categoryText}</div>
+            <h3 id="hud-title" class="text-lg font-bold text-white mb-2 leading-snug">${titleText}</h3>
+            <p id="hud-desc" class="text-xs text-slate-400 font-mono leading-relaxed">${descText}</p>
         `;
         this.container.appendChild(this.hudEl);
     }
@@ -292,8 +300,8 @@ class MasonryGrid {
                 });
             });
 
-            // Update HUD (only on desktop since it is hidden on mobile)
-            if (!isMobile && closestItem && closestItem.id !== this.activeFeaturedId) {
+            // Update HUD
+            if (closestItem && closestItem.id !== this.activeFeaturedId) {
                 this.activeFeaturedId = closestItem.id;
                 this.updateHUD(closestItem);
             }
@@ -318,20 +326,27 @@ class MasonryGrid {
 
             // Reset HUD
             this.activeFeaturedId = null;
-            if (this.hudEl && !this.hudEl.classList.contains('hidden')) {
+            if (this.hudEl) {
                 const categoryEl = this.hudEl.querySelector('#hud-category');
                 const titleEl = this.hudEl.querySelector('#hud-title');
                 const descEl = this.hudEl.querySelector('#hud-desc');
                 
+                const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+                const categoryText = isTouchDevice ? "TOUCH & SWIPE" : "MOVING CURSOR";
+                const titleText = isTouchDevice ? "Swipe the photos wall" : "Hover the photos wall";
+                const descText = isTouchDevice 
+                    ? "Drag your finger to part the photography wall and highlight a moment." 
+                    : "Move your cursor to part the photography wall and highlight a moment.";
+
                 gsap.to([categoryEl, titleEl, descEl], {
                     opacity: 0.5,
                     y: -3,
                     duration: 0.3,
                     stagger: 0.05,
                     onComplete: () => {
-                        categoryEl.innerText = "MOVING CURSOR";
-                        titleEl.innerText = "Hover the photos wall";
-                        descEl.innerText = "Move your cursor to part the photography wall and highlight a moment.";
+                        categoryEl.innerText = categoryText;
+                        titleEl.innerText = titleText;
+                        descEl.innerText = descText;
                         gsap.to([categoryEl, titleEl, descEl], { opacity: 1, y: 0, duration: 0.3 });
                     }
                 });
