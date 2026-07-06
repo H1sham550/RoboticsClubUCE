@@ -32,40 +32,46 @@ class MasonryGrid {
         }
     }
 
-    // ===================== MOBILE: Smooth horizontal carousel =====================
+    // ===================== MOBILE: Auto-scrolling dual marquee =====================
     initMobile() {
-        this.container.className = 'mobile-showcase-container';
+        this.container.className = 'marquee-showcase';
 
-        // Section header
-        const header = document.createElement('div');
-        header.className = 'mobile-showcase-header';
-        header.innerHTML = `
-            <span class="text-[9px] font-mono tracking-widest text-brand-pink font-bold uppercase">TAP TO VIEW</span>
-            <h3 class="text-base font-bold text-white leading-snug">Swipe through our moments</h3>
-        `;
-        this.container.appendChild(header);
+        // Split items into two rows
+        const half = Math.ceil(this.items.length / 2);
+        const row1Items = this.items.slice(0, half);
+        const row2Items = this.items.slice(half);
 
-        // Scrollable track
-        const track = document.createElement('div');
-        track.className = 'mobile-showcase-track';
+        // Build a marquee row: duplicate content for seamless loop
+        const buildRow = (items, directionClass) => {
+            const row = document.createElement('div');
+            row.className = `marquee-row ${directionClass}`;
 
-        this.items.forEach((item) => {
-            const card = document.createElement('div');
-            card.className = 'mobile-showcase-card';
-            card.onclick = () => this.openModal(item);
+            const track = document.createElement('div');
+            track.className = 'marquee-track';
 
-            // Use lazy-loaded <img> instead of background-image for performance
-            card.innerHTML = `
-                <img src="${item.img}" alt="${item.title}" loading="lazy" decoding="async" class="mobile-showcase-img" />
-                <div class="mobile-showcase-overlay">
-                    <span class="mobile-showcase-cat">${item.category}</span>
-                    <span class="mobile-showcase-title">${item.title}</span>
-                </div>
-            `;
-            track.appendChild(card);
-        });
+            // Render items twice for seamless infinite loop
+            for (let copy = 0; copy < 2; copy++) {
+                items.forEach((item) => {
+                    const card = document.createElement('div');
+                    card.className = 'marquee-card';
+                    card.onclick = () => this.openModal(item);
+                    card.innerHTML = `
+                        <img src="${item.img}" alt="${item.title}" loading="lazy" decoding="async" class="marquee-card-img" />
+                        <div class="marquee-card-overlay">
+                            <span class="marquee-card-cat">${item.category}</span>
+                            <span class="marquee-card-title">${item.title}</span>
+                        </div>
+                    `;
+                    track.appendChild(card);
+                });
+            }
 
-        this.container.appendChild(track);
+            row.appendChild(track);
+            return row;
+        };
+
+        this.container.appendChild(buildRow(row1Items, 'marquee-left'));
+        this.container.appendChild(buildRow(row2Items, 'marquee-right'));
     }
 
     // ===================== DESKTOP: Full GSAP scattered wall =====================
@@ -126,69 +132,80 @@ class MasonryGrid {
                 -webkit-backdrop-filter: blur(20px);
             }
 
-            /* ---- Mobile horizontal carousel ---- */
-            .mobile-showcase-container {
+            /* ---- Mobile auto-scrolling marquee ---- */
+            .marquee-showcase {
                 width: 100%;
-                padding: 0;
-            }
-            .mobile-showcase-header {
-                padding: 0 0 16px 0;
-            }
-            .mobile-showcase-track {
+                overflow: hidden;
                 display: flex;
-                gap: 14px;
-                overflow-x: auto;
-                scroll-snap-type: x mandatory;
-                -webkit-overflow-scrolling: touch;
-                padding: 4px 0 20px 0;
-                scrollbar-width: none;
+                flex-direction: column;
+                gap: 12px;
             }
-            .mobile-showcase-track::-webkit-scrollbar {
-                display: none;
+            .marquee-row {
+                overflow: hidden;
+                width: 100%;
             }
-            .mobile-showcase-card {
-                flex: 0 0 72vw;
-                max-width: 300px;
-                height: 220px;
-                border-radius: 18px;
+            .marquee-track {
+                display: flex;
+                gap: 12px;
+                width: max-content;
+                will-change: transform;
+            }
+            .marquee-left .marquee-track {
+                animation: marqueeScrollLeft 30s linear infinite;
+            }
+            .marquee-right .marquee-track {
+                animation: marqueeScrollRight 35s linear infinite;
+            }
+            @keyframes marqueeScrollLeft {
+                0%   { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+            }
+            @keyframes marqueeScrollRight {
+                0%   { transform: translateX(-50%); }
+                100% { transform: translateX(0); }
+            }
+            .marquee-card {
+                flex: 0 0 auto;
+                width: 55vw;
+                max-width: 240px;
+                height: 160px;
+                border-radius: 16px;
                 overflow: hidden;
                 position: relative;
-                scroll-snap-align: center;
-                border: 1px solid rgba(255,255,255,0.08);
                 cursor: pointer;
+                border: 1px solid rgba(255,255,255,0.08);
                 background: rgba(0,0,0,0.3);
             }
-            .mobile-showcase-img {
+            .marquee-card-img {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
                 display: block;
-                transition: transform 0.3s ease;
             }
-            .mobile-showcase-card:active .mobile-showcase-img {
+            .marquee-card:active .marquee-card-img {
                 transform: scale(1.05);
             }
-            .mobile-showcase-overlay {
+            .marquee-card-overlay {
                 position: absolute;
                 bottom: 0;
                 left: 0;
                 right: 0;
-                padding: 14px 16px;
-                background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+                padding: 10px 12px;
+                background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.35) 60%, transparent 100%);
                 display: flex;
                 flex-direction: column;
-                gap: 2px;
+                gap: 1px;
             }
-            .mobile-showcase-cat {
-                font-size: 8px;
+            .marquee-card-cat {
+                font-size: 7px;
                 font-family: monospace;
                 letter-spacing: 0.15em;
                 text-transform: uppercase;
                 color: #ff4b8b;
                 font-weight: 700;
             }
-            .mobile-showcase-title {
-                font-size: 13px;
+            .marquee-card-title {
+                font-size: 12px;
                 font-weight: 700;
                 color: white;
                 line-height: 1.3;
