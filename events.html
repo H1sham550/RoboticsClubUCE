@@ -58,13 +58,13 @@
 
             <!-- Navigation Links -->
             <nav class="hidden lg:flex items-center gap-10 font-semibold text-[17px]">
-                <a href="index.html#about" id="nav-about" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">About Us</a>
+                <a href="index.html" id="nav-about" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Home</a>
                 <a href="team.html" id="nav-team" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Team</a>
                 <a href="events.html" id="nav-events" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Events</a>
                 <a href="certificate.html" id="nav-certificate" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Certificate</a>
                 <a href="suggestions.html" id="nav-suggestions" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Suggestions</a>
             </nav>
-
+            
             <!-- Actions & Menu -->
             <div class="flex items-center gap-4 pointer-events-auto">
                 <a href="https://www.instagram.com/roboticsclubuce/" target="_blank" class="flex items-center gap-1.5 text-xs font-mono font-bold text-brand-pink hover:text-white transition-colors bg-white/5 px-3 py-1.5 rounded-full border border-white/10" title="Follow us on Instagram">
@@ -89,7 +89,6 @@
             <i class="fa-solid fa-xmark"></i>
         </button>
         <a href="index.html" class="mobile-nav-link text-slate-300 hover:text-white transition-colors">Home</a>
-        <a href="index.html#about" class="mobile-nav-link text-slate-300 hover:text-white transition-colors">About Us</a>
         <a href="team.html" class="mobile-nav-link text-slate-300 hover:text-white transition-colors">Team</a>
         <a href="events.html" class="mobile-nav-link text-slate-300 hover:text-white transition-colors">Events</a>
         <a href="certificate.html" class="mobile-nav-link text-slate-300 hover:text-white transition-colors">Certificate</a>
@@ -157,12 +156,18 @@
                 <!-- Event 2: Arduino Workshop -->
                 <div class="p-6 glass-panel rounded hover:border-brand-cyan/35 transition-colors space-y-4 shadow-xl flex flex-col justify-between">
                     <div class="space-y-4">
-                        <div class="w-10 h-10 rounded bg-brand-cyan/10 flex items-center justify-center text-brand-cyan">
-                            <i class="fa-solid fa-microchip text-lg"></i>
+                        <!-- Event Image -->
+                        <div class="w-full aspect-video rounded-lg overflow-hidden border border-white/5 bg-slate-950/40">
+                            <img src="assets/EventPhotos/arduino1.JPEG" alt="2-Day Arduino Learning Workshop" class="w-full h-full object-cover">
                         </div>
-                        <div>
-                            <span class="text-[9px] font-mono text-brand-cyan uppercase tracking-widest block">Embedded Systems</span>
-                            <h3 class="text-lg font-bold text-white">2-Day Arduino Learning Workshop</h3>
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded bg-brand-cyan/10 flex items-center justify-center text-brand-cyan flex-shrink-0">
+                                <i class="fa-solid fa-microchip text-sm"></i>
+                            </div>
+                            <div>
+                                <span class="text-[9px] font-mono text-brand-cyan uppercase tracking-widest block">Embedded Systems</span>
+                                <h3 class="text-base font-bold text-white leading-tight">2-Day Arduino Learning Workshop</h3>
+                            </div>
                         </div>
                         <p class="text-xs text-slate-300 font-mono leading-relaxed">
                             A hands-on, two-day intensive training bootcamp focusing on microcontroller programming, basic sensor interfacing, and actuator controls.
@@ -191,12 +196,18 @@
                 <!-- Event 4: Poster Making Competition -->
                 <div class="p-6 glass-panel rounded hover:border-brand-pink/35 transition-colors space-y-4 shadow-xl flex flex-col justify-between">
                     <div class="space-y-4">
-                        <div class="w-10 h-10 rounded bg-brand-pink/10 flex items-center justify-center text-brand-pink">
-                            <i class="fa-solid fa-palette text-lg"></i>
+                        <!-- Event Image -->
+                        <div class="w-full aspect-video rounded-lg overflow-hidden border border-white/5 bg-slate-950/40">
+                            <img src="assets/EventPhotos/postermaking1.jpeg" alt="Poster Making Competition" class="w-full h-full object-cover">
                         </div>
-                        <div>
-                            <span class="text-[9px] font-mono text-brand-pink uppercase tracking-widest block">Creative Tech</span>
-                            <h3 class="text-lg font-bold text-white">Poster Making Competition</h3>
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded bg-brand-pink/10 flex items-center justify-center text-brand-pink flex-shrink-0">
+                                <i class="fa-solid fa-palette text-sm"></i>
+                            </div>
+                            <div>
+                                <span class="text-[9px] font-mono text-brand-pink uppercase tracking-widest block">Creative Tech</span>
+                                <h3 class="text-base font-bold text-white leading-tight">Poster Making Competition</h3>
+                            </div>
                         </div>
                         <p class="text-xs text-slate-300 font-mono leading-relaxed">
                             A creative competition blending design and technology where participants designed posters utilizing all kinds of tools.
@@ -208,12 +219,18 @@
                 <!-- Event 5: Coding Competition -->
                 <div class="p-6 glass-panel rounded hover:border-brand-cyan/35 transition-colors space-y-4 shadow-xl flex flex-col justify-between">
                     <div class="space-y-4">
-                        <div class="w-10 h-10 rounded bg-brand-cyan/10 flex items-center justify-center text-brand-cyan">
-                            <i class="fa-solid fa-code text-lg"></i>
+                        <!-- Event Image -->
+                        <div class="w-full aspect-video rounded-lg overflow-hidden border border-white/5 bg-slate-950/40">
+                            <img src="assets/EventPhotos/codingcompetition1.jpeg" alt="Algorithmic Coding Competition" class="w-full h-full object-cover">
                         </div>
-                        <div>
-                            <span class="text-[9px] font-mono text-brand-cyan uppercase tracking-widest block">Software Engineering</span>
-                            <h3 class="text-lg font-bold text-white">Algorithmic Coding Competition</h3>
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded bg-brand-cyan/10 flex items-center justify-center text-brand-cyan flex-shrink-0">
+                                <i class="fa-solid fa-code text-sm"></i>
+                            </div>
+                            <div>
+                                <span class="text-[9px] font-mono text-brand-cyan uppercase tracking-widest block">Software Engineering</span>
+                                <h3 class="text-base font-bold text-white leading-tight">Algorithmic Coding Competition</h3>
+                            </div>
                         </div>
                         <p class="text-xs text-slate-300 font-mono leading-relaxed">
                             A fast-paced algorithmic problem-solving contest testing students on efficiency, programming logic, and computational complexity.

@@ -58,7 +58,7 @@
 
             <!-- Navigation Links (Desktop) -->
             <nav class="hidden lg:flex items-center gap-10 font-semibold text-[17px]">
-                <a href="index.html#about" id="nav-about" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">About Us</a>
+                <a href="index.html" id="nav-about" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Home</a>
                 <a href="team.html" id="nav-team" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Team</a>
                 <a href="events.html" id="nav-events" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Events</a>
                 <a href="certificate.html" id="nav-certificate" class="nav-btn text-slate-300 hover:text-white transition-colors py-1">Certificate</a>
@@ -89,7 +89,6 @@
             <i class="fa-solid fa-xmark"></i>
         </button>
         <a href="index.html" class="mobile-nav-link text-slate-300 hover:text-white transition-colors">Home</a>
-        <a href="index.html#about" class="mobile-nav-link text-slate-300 hover:text-white transition-colors">About Us</a>
         <a href="team.html" class="mobile-nav-link text-slate-300 hover:text-white transition-colors">Team</a>
         <a href="events.html" class="mobile-nav-link text-slate-300 hover:text-white transition-colors">Events</a>
         <a href="certificate.html" class="mobile-nav-link text-slate-300 hover:text-white transition-colors">Certificate</a>
@@ -143,46 +142,18 @@
             </div>
         </section>
 
-        <!-- ================= ABOUT US SECTION ================= -->
+        <!-- ================= GALLERY SECTION ================= -->
         <section id="about" class="scroll-mt-28 py-16 flex flex-col justify-center space-y-12 active-section">
             <div class="max-w-3xl space-y-4">
-                <span class="text-xs font-mono text-brand-orange uppercase tracking-widest block">01 / CORE MISSION</span>
-                <h2 class="text-4xl font-extrabold text-white">Fostering Robotics & Embedded Engineering</h2>
+                <span class="text-xs font-mono text-brand-orange uppercase tracking-widest block">01 / PHOTO GALLERY</span>
+                <h2 class="text-4xl font-extrabold text-white">Showcase of Past Events</h2>
                 <p class="text-slate-300 leading-relaxed glass-panel p-4 rounded-lg">
-                    Robotics Club UCE is the premiere collegiate community dedicated to helping students get hands on experience with tech. We host regular events of various types like technical workshops, coding competitions and even the occasional gaming events!
+                    Take a look at some of the memorable moments from our technical bootcamps, coding tournaments, and hands-on project building sessions.
                 </p>
             </div>
 
-            <!-- Pillars layout -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="p-6 glass-panel rounded hover:border-brand-pink/35 transition-colors space-y-4 shadow-xl">
-                    <div class="w-10 h-10 rounded bg-brand-pink/10 flex items-center justify-center text-brand-pink">
-                        <i class="fa-solid fa-laptop-code text-lg"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white">Technical Workshops</h3>
-                    <p class="text-xs text-slate-300 font-mono leading-relaxed">
-                        Gain hands-on training in microcontrollers (ESP32, Arduino), web development, PC Assembly and more. 
-                    </p>
-                </div>
-                <div class="p-6 glass-panel rounded hover:border-brand-cyan/35 transition-colors space-y-4 shadow-xl">
-                    <div class="w-10 h-10 rounded bg-brand-cyan/10 flex items-center justify-center text-brand-cyan">
-                        <i class="fa-solid fa-trophy text-lg"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white">Engineering Competitions</h3>
-                    <p class="text-xs text-slate-300 font-mono leading-relaxed">
-                        Compete in college level coding competitions, designing competitions etc...
-                    </p>
-                </div>
-                <div class="p-6 glass-panel rounded hover:border-brand-orange/35 transition-colors space-y-4 shadow-xl">
-                    <div class="w-10 h-10 rounded bg-brand-orange/10 flex items-center justify-center text-brand-orange">
-                        <i class="fa-solid fa-gamepad text-lg"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white">Tech & Gaming Events</h3>
-                    <p class="text-xs text-slate-300 font-mono leading-relaxed">
-                        Participate in tech events, collaborative project showcases, and occasional campus esports gaming tournaments.
-                    </p>
-                </div>
-            </div>
+            <!-- Dynamic Masonry grid container -->
+            <div id="masonry-container" class="w-full relative min-h-[650px]"></div>
         </section>
 
         <!-- ================= MEMBERSHIP SECTION ================= -->
@@ -280,6 +251,11 @@
         <span class="w-2.5 h-2.5 rounded-full bg-brand-orange animate-pulse"></span>
         <span id="toast-message"></span>
     </div>
+
+    <!-- GSAP & Masonry Grid Gallery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="masonry-items.js"></script>
+    <script src="masonry.js"></script>
 
     <!-- Custom Shared Script -->
     <script src="shared.js"></script>
