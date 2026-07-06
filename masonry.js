@@ -54,7 +54,17 @@ class MasonryGrid {
                 items.forEach((item) => {
                     const card = document.createElement('div');
                     card.className = 'marquee-card';
-                    card.onclick = () => this.openModal(item);
+                    card.onclick = () => {
+                        // Tactile press & pop animation before modal opens
+                        gsap.to(card, {
+                            scale: 0.95,
+                            duration: 0.1,
+                            yoyo: true,
+                            repeat: 1,
+                            ease: "power2.inOut",
+                            onComplete: () => this.openModal(item)
+                        });
+                    };
                     card.innerHTML = `
                         <img src="${item.img}" alt="${item.title}" loading="eager" class="marquee-card-img" />
                         <div class="marquee-card-overlay">
@@ -155,6 +165,9 @@ class MasonryGrid {
             }
             .marquee-right .marquee-track {
                 animation: marqueeScrollRight 35s linear infinite;
+            }
+            .marquee-showcase.paused .marquee-track {
+                animation-play-state: paused;
             }
             @keyframes marqueeScrollLeft {
                 0%   { transform: translateX(0); }
@@ -275,6 +288,10 @@ class MasonryGrid {
         this.modalEl.classList.remove('opacity-0', 'pointer-events-none');
         modalBox.classList.remove('scale-95');
         modalBox.classList.add('scale-100');
+
+        if (this.isMobile) {
+            this.container.classList.add('paused');
+        }
     }
 
     closeModal() {
@@ -282,6 +299,10 @@ class MasonryGrid {
         modalBox.classList.remove('scale-100');
         modalBox.classList.add('scale-95');
         this.modalEl.classList.add('opacity-0', 'pointer-events-none');
+
+        if (this.isMobile) {
+            this.container.classList.remove('paused');
+        }
     }
 
     // ===================== Desktop grid + interaction (unchanged) =====================
@@ -334,7 +355,17 @@ class MasonryGrid {
                 el.className = 'moments-cell';
                 el.setAttribute('data-key', item.id);
                 el.style.backgroundImage = `url(${item.img})`;
-                el.onclick = () => this.openModal(item);
+                el.onclick = () => {
+                    // Tactile press & pop animation before modal opens
+                    gsap.to(el, {
+                        scale: 0.95,
+                        duration: 0.1,
+                        yoyo: true,
+                        repeat: 1,
+                        ease: "power2.inOut",
+                        onComplete: () => this.openModal(item)
+                    });
+                };
 
                 this.container.appendChild(el);
             }
