@@ -19,8 +19,6 @@ class MasonryGrid {
 
     async init() {
         this.container.classList.add('relative', 'overflow-hidden', 'bg-black/20', 'rounded-3xl', 'border', 'border-white/10');
-        this.container.style.height = '650px';
-        this.container.style.minHeight = '650px';
 
         // Add CSS styling rules for the moments grid
         this.injectStyles();
@@ -154,37 +152,16 @@ class MasonryGrid {
 
     calculateGrid() {
         const containerWidth = this.width || this.container.offsetWidth || 1000;
-        const containerHeight = this.height || this.container.offsetHeight || 650;
-        const isMobile = containerWidth < 768;
-
-        if (isMobile) {
-            // Mobile Grid Layout (2 columns, neat rows)
-            const gap = 12;
-            const cols = 2;
-            const colWidth = (containerWidth - (gap * 3)) / cols;
-            const rowHeight = 150; // Neat height for mobile cards
-
-            // Adjust container height to fit all cards
-            const totalRows = Math.ceil(this.items.length / cols);
-            const totalHeight = totalRows * rowHeight + (totalRows + 1) * gap;
-            
-            // Set styles directly to prevent overflow issues
-            this.container.style.height = `${totalHeight}px`;
-            this.container.style.minHeight = `${totalHeight}px`;
-
-            return this.items.map((item, idx) => {
-                const col = idx % cols;
-                const row = Math.floor(idx / cols);
-                const x = gap + col * (colWidth + gap);
-                const y = gap + row * (rowHeight + gap);
-                return {
-                    ...item,
-                    x, y, w: colWidth, h: rowHeight
-                };
-            });
+        let containerHeight = 650;
+        if (containerWidth < 768) {
+            // Proportional height to maintain aspect ratio on mobile
+            containerHeight = Math.max(300, containerWidth * 0.65);
         }
 
-        // Desktop Moments Photography Wall dense scatter layout coordinates
+        this.container.style.height = `${containerHeight}px`;
+        this.container.style.minHeight = `${containerHeight}px`;
+
+        // Moments Photography Wall dense scatter layout coordinates
         const gridItems = [
             // Row 1
             { id: "1", xFactor: 0.05, yFactor: 0.12, wFactor: 0.18, hFactor: 0.35 },
@@ -204,10 +181,6 @@ class MasonryGrid {
             { id: "11", xFactor: 0.66, yFactor: 0.28, wFactor: 0.15, hFactor: 0.26 },
             { id: "12", xFactor: 0.88, yFactor: 0.22, wFactor: 0.10, hFactor: 0.38 }
         ];
-
-        // Reset to original container height on desktop resize
-        this.container.style.height = '650px';
-        this.container.style.minHeight = '650px';
 
         return gridItems.map(gridInfo => {
             const item = this.items.find(i => i.id === gridInfo.id) || {};
@@ -254,20 +227,21 @@ class MasonryGrid {
     setupMomentsInteraction() {
         const activeHoverScale = 1.05;
 
-        this.container.addEventListener('mousemove', (e) => {
-            const containerWidth = this.width || this.container.offsetWidth || 1000;
-            if (containerWidth < 768) return;
-
+        const handleInteraction = (clientX, clientY) => {
             const rect = this.container.getBoundingClientRect();
-            const mx = e.clientX - rect.left;
-            const my = e.clientY - rect.top;
+            const mx = clientX - rect.left;
+            const my = clientY - rect.top;
 
             const gridItems = this.calculateGrid();
             
             // Interaction Parameters
-            const radius = 260;
-            const maxPush = 60;
-            const fadeRadius = 110; // Parting clearing radius (void)
+            const containerWidth = this.width || this.container.offsetWidth || 1000;
+            const isMobile = containerWidth < 768;
+            
+            // Scale physics parameters based on viewport size
+            const radius = isMobile ? 120 : 260;
+            const maxPush = isMobile ? 30 : 60;
+            const fadeRadius = isMobile ? 50 : 110;
 
             let closestItem = null;
             let minDistance = Infinity;
@@ -314,19 +288,18 @@ class MasonryGrid {
                     opacity: targetOpacity,
                     scale: targetScale,
                     duration: 0.4,
-                    ease: 'power2.out',
                     overwrite: 'auto'
                 });
             });
 
-            // Update HUD
-            if (closestItem && closestItem.id !== this.activeFeaturedId) {
+            // Update HUD (only on desktop since it is hidden on mobile)
+            if (!isMobile && closestItem && closestItem.id !== this.activeFeaturedId) {
                 this.activeFeaturedId = closestItem.id;
                 this.updateHUD(closestItem);
             }
-        });
+        };
 
-        this.container.addEventListener('mouseleave', () => {
+        const resetGrid = () => {
             const gridItems = this.calculateGrid();
             gridItems.forEach((item) => {
                 const el = this.container.querySelector(`[data-key="${item.id}"]`);
@@ -345,23 +318,50 @@ class MasonryGrid {
 
             // Reset HUD
             this.activeFeaturedId = null;
-            const categoryEl = this.hudEl.querySelector('#hud-category');
-            const titleEl = this.hudEl.querySelector('#hud-title');
-            const descEl = this.hudEl.querySelector('#hud-desc');
-            
-            gsap.to([categoryEl, titleEl, descEl], {
-                opacity: 0.5,
-                y: -3,
-                duration: 0.3,
-                stagger: 0.05,
-                onComplete: () => {
-                    categoryEl.innerText = "MOVING CURSOR";
-                    titleEl.innerText = "Hover the photos wall";
-                    descEl.innerText = "Move your cursor to part the photography wall and highlight a moment.";
-                    gsap.to([categoryEl, titleEl, descEl], { opacity: 1, y: 0, duration: 0.3 });
-                }
-            });
+            if (this.hudEl && !this.hudEl.classList.contains('hidden')) {
+                const categoryEl = this.hudEl.querySelector('#hud-category');
+                const titleEl = this.hudEl.querySelector('#hud-title');
+                const descEl = this.hudEl.querySelector('#hud-desc');
+                
+                gsap.to([categoryEl, titleEl, descEl], {
+                    opacity: 0.5,
+                    y: -3,
+                    duration: 0.3,
+                    stagger: 0.05,
+                    onComplete: () => {
+                        categoryEl.innerText = "MOVING CURSOR";
+                        titleEl.innerText = "Hover the photos wall";
+                        descEl.innerText = "Move your cursor to part the photography wall and highlight a moment.";
+                        gsap.to([categoryEl, titleEl, descEl], { opacity: 1, y: 0, duration: 0.3 });
+                    }
+                });
+            }
+        };
+
+        // Desktop mouse event listeners
+        this.container.addEventListener('mousemove', (e) => {
+            handleInteraction(e.clientX, e.clientY);
         });
+
+        this.container.addEventListener('mouseleave', resetGrid);
+
+        // Mobile touch event listeners (allows swiping/dragging to part the wall on phone screen)
+        this.container.addEventListener('touchstart', (e) => {
+            if (e.touches.length > 0) {
+                if (e.cancelable) e.preventDefault();
+                handleInteraction(e.touches[0].clientX, e.touches[0].clientY);
+            }
+        }, { passive: false });
+
+        this.container.addEventListener('touchmove', (e) => {
+            if (e.touches.length > 0) {
+                if (e.cancelable) e.preventDefault();
+                handleInteraction(e.touches[0].clientX, e.touches[0].clientY);
+            }
+        }, { passive: false });
+
+        this.container.addEventListener('touchend', resetGrid);
+        this.container.addEventListener('touchcancel', resetGrid);
     }
 
     updateHUD(item) {
