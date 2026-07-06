@@ -9,6 +9,7 @@ class MasonryGrid {
         this.width = 0;
         this.height = 0;
         this.activeFeaturedId = null;
+        this.isMobile = window.innerWidth < 768;
 
         // Initialize HUD elements
         this.hudEl = null;
@@ -18,18 +19,63 @@ class MasonryGrid {
     }
 
     async init() {
+        // Add CSS styling rules
+        this.injectStyles();
+
+        // Setup Modal (shared between desktop and mobile)
+        this.createModal();
+
+        if (this.isMobile) {
+            this.initMobile();
+        } else {
+            this.initDesktop();
+        }
+    }
+
+    // ===================== MOBILE: Smooth horizontal carousel =====================
+    initMobile() {
+        this.container.className = 'mobile-showcase-container';
+
+        // Section header
+        const header = document.createElement('div');
+        header.className = 'mobile-showcase-header';
+        header.innerHTML = `
+            <span class="text-[9px] font-mono tracking-widest text-brand-pink font-bold uppercase">TAP TO VIEW</span>
+            <h3 class="text-base font-bold text-white leading-snug">Swipe through our moments</h3>
+        `;
+        this.container.appendChild(header);
+
+        // Scrollable track
+        const track = document.createElement('div');
+        track.className = 'mobile-showcase-track';
+
+        this.items.forEach((item) => {
+            const card = document.createElement('div');
+            card.className = 'mobile-showcase-card';
+            card.onclick = () => this.openModal(item);
+
+            // Use lazy-loaded <img> instead of background-image for performance
+            card.innerHTML = `
+                <img src="${item.img}" alt="${item.title}" loading="lazy" decoding="async" class="mobile-showcase-img" />
+                <div class="mobile-showcase-overlay">
+                    <span class="mobile-showcase-cat">${item.category}</span>
+                    <span class="mobile-showcase-title">${item.title}</span>
+                </div>
+            `;
+            track.appendChild(card);
+        });
+
+        this.container.appendChild(track);
+    }
+
+    // ===================== DESKTOP: Full GSAP scattered wall =====================
+    initDesktop() {
         this.container.classList.add('relative', 'overflow-hidden', 'bg-black/20', 'rounded-3xl', 'border', 'border-white/10');
         this.container.style.height = '650px';
         this.container.style.minHeight = '650px';
 
-        // Add CSS styling rules for the moments grid
-        this.injectStyles();
-
         // Setup HUD
         this.createHUD();
-
-        // Setup Modal
-        this.createModal();
 
         // Handle resizing
         this.resizeObserver = new ResizeObserver(([entry]) => {
@@ -39,7 +85,7 @@ class MasonryGrid {
         });
         this.resizeObserver.observe(this.container);
 
-        // Preload images
+        // Render grid
         this.render();
 
         // Setup Moments interaction
@@ -51,6 +97,7 @@ class MasonryGrid {
         const style = document.createElement('style');
         style.id = 'moments-styles';
         style.innerHTML = `
+            /* ---- Desktop scattered wall ---- */
             .moments-cell {
                 position: absolute;
                 border-radius: 16px;
@@ -77,6 +124,74 @@ class MasonryGrid {
                 background: rgba(0,0,0,0.9);
                 backdrop-filter: blur(20px);
                 -webkit-backdrop-filter: blur(20px);
+            }
+
+            /* ---- Mobile horizontal carousel ---- */
+            .mobile-showcase-container {
+                width: 100%;
+                padding: 0;
+            }
+            .mobile-showcase-header {
+                padding: 0 0 16px 0;
+            }
+            .mobile-showcase-track {
+                display: flex;
+                gap: 14px;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                padding: 4px 0 20px 0;
+                scrollbar-width: none;
+            }
+            .mobile-showcase-track::-webkit-scrollbar {
+                display: none;
+            }
+            .mobile-showcase-card {
+                flex: 0 0 72vw;
+                max-width: 300px;
+                height: 220px;
+                border-radius: 18px;
+                overflow: hidden;
+                position: relative;
+                scroll-snap-align: center;
+                border: 1px solid rgba(255,255,255,0.08);
+                cursor: pointer;
+                background: rgba(0,0,0,0.3);
+            }
+            .mobile-showcase-img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+                transition: transform 0.3s ease;
+            }
+            .mobile-showcase-card:active .mobile-showcase-img {
+                transform: scale(1.05);
+            }
+            .mobile-showcase-overlay {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                padding: 14px 16px;
+                background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+                display: flex;
+                flex-direction: column;
+                gap: 2px;
+            }
+            .mobile-showcase-cat {
+                font-size: 8px;
+                font-family: monospace;
+                letter-spacing: 0.15em;
+                text-transform: uppercase;
+                color: #ff4b8b;
+                font-weight: 700;
+            }
+            .mobile-showcase-title {
+                font-size: 13px;
+                font-weight: 700;
+                color: white;
+                line-height: 1.3;
             }
         `;
         document.head.appendChild(style);
@@ -152,8 +267,9 @@ class MasonryGrid {
         this.modalEl.classList.add('opacity-0', 'pointer-events-none');
     }
 
+    // ===================== Desktop grid + interaction (unchanged) =====================
+
     calculateGrid() {
-        // Moments Photography Wall dense scatter layout coordinates
         const gridItems = [
             // Row 1
             { id: "1", xFactor: 0.05, yFactor: 0.12, wFactor: 0.18, hFactor: 0.35 },
@@ -167,7 +283,7 @@ class MasonryGrid {
             { id: "7", xFactor: 0.56, yFactor: 0.54, wFactor: 0.20, hFactor: 0.34 },
             { id: "8", xFactor: 0.79, yFactor: 0.46, wFactor: 0.16, hFactor: 0.42 },
 
-            // Scattered / Overlay elements for high density
+            // Scattered / Overlay elements
             { id: "9", xFactor: 0.18, yFactor: 0.36, wFactor: 0.12, hFactor: 0.22 },
             { id: "10", xFactor: 0.44, yFactor: 0.34, wFactor: 0.14, hFactor: 0.24 },
             { id: "11", xFactor: 0.66, yFactor: 0.28, wFactor: 0.15, hFactor: 0.26 },
@@ -232,7 +348,7 @@ class MasonryGrid {
             // Interaction Parameters
             const radius = 260;
             const maxPush = 60;
-            const fadeRadius = 110; // Parting clearing radius (void)
+            const fadeRadius = 110;
 
             let closestItem = null;
             let minDistance = Infinity;
@@ -248,7 +364,6 @@ class MasonryGrid {
                 const dy = itemY - my;
                 const dist = Math.hypot(dx, dy);
 
-                // Find closest item for HUD highlight
                 if (dist < minDistance) {
                     minDistance = dist;
                     closestItem = item;
@@ -261,12 +376,11 @@ class MasonryGrid {
 
                 if (dist < radius) {
                     const factor = 1 - dist / radius;
-                    const pushFactor = Math.pow(factor, 2); // Quadratic falloff
+                    const pushFactor = Math.pow(factor, 2);
 
                     targetX = item.x + (dist > 0 ? (dx / dist) : 0) * maxPush * pushFactor;
                     targetY = item.y + (dist > 0 ? (dy / dist) : 0) * maxPush * pushFactor;
 
-                    // Soft fade void effect
                     if (dist < fadeRadius) {
                         const fadeFactor = dist / fadeRadius;
                         targetOpacity = 0.15 + 0.85 * Math.pow(fadeFactor, 1.5);
@@ -336,7 +450,6 @@ class MasonryGrid {
 
         gsap.killTweensOf([categoryEl, titleEl, descEl]);
 
-        // Smooth text transition
         gsap.to([categoryEl, titleEl, descEl], {
             opacity: 0,
             y: 5,
