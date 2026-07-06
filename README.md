@@ -1,36 +1,94 @@
-# Robotics Club UCE
+# 🤖 Robotics Club UCE
 
-A premium, modern, glassmorphic multi-page website designed for the **Robotics Club of University College of Engineering (UCE)**. The site is optimized for mobile viewports, features 3D card/ticket interactive elements, and is ready for free hosting on Vercel.
+The official website for the **Robotics Club** at **University College of Engineering (UCE)** — a collegiate community dedicated to hands-on experience with robotics, embedded systems, and software engineering.
 
-## 🚀 Live Preview & Hosting
-The website is structured as a static HTML/CSS/JS application, making it fully compatible with Vercel's free tier. 
-Every time you push changes to your GitHub repository, Vercel will automatically redeploy the site.
+🔗 **Live Site**: [roboticsclubuce.vercel.app](https://roboticsclubuce.vercel.app)
+
+---
 
 ## ✨ Features
-- **Modern Glassmorphic UI**: Sleek dark backgrounds with glowing neon highlights, glass borders, and dynamic backdrop blurring.
-- **Interactive Spawning Physics**: Falling neon cherry blossom particles that drift across the screen and scatter when they get near the user's cursor.
-- **3D Card Perspective Tilt**: Interactive hover tilts on membership cards and ticket passes.
-- **Dynamic Certificate Lookup**: A validation console that lets students search by University Registration Number (e.g. `UCE26041`) and instantly displays their achievement portfolio with links to download certificates from Google Drive.
-- **Ideas & Suggestions Portal**: An interactive form on the landing page for students to submit suggestions for upcoming workshops, coding hackathons, and esports gaming events.
-- **Mobile First Optimization**: Fully responsive layout wrapping, flex grids, and a slide-out hamburger navigation drawer built specifically for mobile screens.
 
-## 📁 File Structure
-- `index.html`: The landing page containing the Hero introduction, core focus areas (Workshops, Competitions, Gaming), and the Student Suggestions form.
-- `team.html`: Lists the club leadership roster (Club Convener, Treasurer, and Faculty Mentor).
-- `events.html`: Displays upcoming event statuses and features a grid showcase of completed past initiatives (VR Experience, Arduino Workshop, F1 Gaming Tournament, etc.).
-- `certificate.html`: The secure validation panel for checking credentials by Registration Number.
-- `membership.html`: Shows registration status and details regarding student pass renewals.
-- `shared.css`: Central stylesheet containing variables, resets, layout panels, and animations.
-- `shared.js`: Central logic file housing mobile drawer handlers, particle animation loops, payment warnings, and certificate database checks.
-- `assets/logo.png`: The cropped, high-resolution official club branding logo.
+### 🎨 Design
+- Dark glassmorphic UI with neon accent highlights (orange, pink, cyan)
+- Falling cherry blossom particle animation with cursor-reactive physics
+- 3D perspective tilt on interactive cards
+- Fully responsive across desktop, tablet, and mobile
 
-## 🛠️ Running Locally
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/RoboticsClub.git
-   ```
-2. Simply double-click `index.html` to open it in your browser, or run a local python development server:
-   ```bash
-   python -m http.server 8000
-   ```
-3. Open **`http://localhost:8000`** in your browser.
+### 📸 Dynamic Photo Showcase
+- GSAP-powered scattered moments wall on the homepage
+- Mouse-hover parting physics — photos push away from the cursor
+- Live HUD overlay showing photo details on hover
+- Click-to-expand modal with full image and description
+
+### 📄 Pages
+- **Home** — Hero section, interactive moments photo wall
+- **Events** — Upcoming events board and past event achievements with photo previews
+- **Team** — Club leadership roster (Convener, Treasurer, Faculty Mentor)
+- **Certificates** — Validation console to look up student achievements by Registration Number
+- **Suggestions** — Form for students to submit ideas for workshops, hackathons, and gaming events
+
+---
+
+## 📁 Project Structure
+
+```
+RoboticsClub/
+├── index.html            # Homepage with hero + moments photo wall
+├── events.html           # Upcoming & past events
+├── team.html             # Club leadership
+├── certificate.html      # Certificate validation portal
+├── suggestions.html      # Student suggestions form
+├── shared.css            # Global styles, animations, glassmorphism
+├── shared.js             # Particle system, mobile nav, certificate lookup
+├── masonry.js            # GSAP moments wall grid engine
+├── masonry-items.js      # Photo metadata for the showcase wall
+└── assets/
+    ├── logo.png          # Club logo
+    └── EventPhotos/      # Event photography collection
+```
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer      | Technology                         |
+|------------|------------------------------------|
+| Structure  | HTML5                              |
+| Styling    | Tailwind CSS (CDN) + Custom CSS    |
+| Logic      | Vanilla JavaScript                 |
+| Animation  | GSAP 3.12                          |
+| Icons      | Font Awesome 6.4                   |
+| Hosting    | Vercel (auto-deploys from GitHub)  |
+
+---
+
+## 🚀 Running Locally
+
+```bash
+# Clone the repository
+git clone https://github.com/H1sham550/RoboticsClubUCE.git
+cd RoboticsClubUCE
+
+# Serve locally (pick one)
+npx -y http-server -p 8080
+# or
+python -m http.server 8080
+```
+
+Open **http://localhost:8080** in your browser.
+
+---
+
+## 🤝 Contributing
+
+1. Fork the repo
+2. Create a feature branch (`git checkout -b feature/my-feature`)
+3. Commit your changes (`git commit -m "feat: add my feature"`)
+4. Push to the branch (`git push origin feature/my-feature`)
+5. Open a Pull Request
+
+---
+
+## 📜 License
+
+© 2026 UCE Robotics Club. All rights reserved.
