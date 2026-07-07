@@ -90,6 +90,7 @@ class NeonLeaf {
 }
 
 function initLeaves() {
+    if (window.innerWidth < 768) return; // Disable on mobile to prevent scrolling lag
     const leafContainer = document.getElementById('leaf-container');
     if (!leafContainer) return;
 

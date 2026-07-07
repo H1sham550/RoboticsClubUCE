@@ -100,7 +100,7 @@ const masonryItems = [
     },
     {
       id: "12",
-      img: "assets/EventPhotos/projectshowcase4.jpeg",
+      img: "assets/EventPhotos/projectshowcase9.jpeg",
       url: "#",
       height: 500,
       title: "Project showcase",
