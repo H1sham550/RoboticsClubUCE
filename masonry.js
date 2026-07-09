@@ -230,6 +230,7 @@ class MasonryGrid {
     createHUD() {
         this.hudEl = document.createElement('div');
         this.hudEl.className = 'absolute bottom-6 left-6 right-6 md:right-auto md:w-96 p-6 rounded-2xl moments-hud-panel z-30 transition-all duration-300 pointer-events-auto text-left';
+        this.hudEl.style.opacity = '0';
         this.hudEl.innerHTML = `
             <div id="hud-category" class="text-[9px] font-mono tracking-widest text-brand-pink font-bold uppercase mb-1">MOVING CURSOR</div>
             <h3 id="hud-title" class="text-lg font-bold text-white mb-2 leading-snug">Hover the photos wall</h3>
@@ -381,6 +382,12 @@ class MasonryGrid {
         });
 
         this.hasMounted = true;
+
+        // Fade in HUD after first render so it doesn't flash before images load
+        if (this.hudEl && !this._hudRevealed) {
+            this._hudRevealed = true;
+            gsap.to(this.hudEl, { opacity: 1, duration: 0.6, delay: 0.3, ease: 'power2.out' });
+        }
     }
 
     setupMomentsInteraction() {

@@ -139,16 +139,36 @@
                 <!-- Event 1: VR Experience -->
                 <div class="p-6 glass-panel rounded hover:border-brand-pink/35 transition-colors space-y-4 shadow-xl flex flex-col justify-between">
                     <div class="space-y-4">
-                        <div class="w-10 h-10 rounded bg-brand-pink/10 flex items-center justify-center text-brand-pink">
-                            <i class="fa-solid fa-vr-cardboard text-lg"></i>
+                        <div class="w-full aspect-video rounded-lg overflow-hidden border border-white/5 bg-slate-950/40">
+                            <img src="assets/EventPhotos/VREvent/30.png" alt="Free VR Experience Event" class="w-full h-full object-cover" loading="lazy">
                         </div>
-                        <div>
-                            <span class="text-[9px] font-mono text-brand-pink uppercase tracking-widest block">Virtual Reality</span>
-                            <h3 class="text-lg font-bold text-white">Free VR Experience Event</h3>
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded bg-brand-pink/10 flex items-center justify-center text-brand-pink flex-shrink-0">
+                                <i class="fa-solid fa-vr-cardboard text-sm"></i>
+                            </div>
+                            <div>
+                                <span class="text-[9px] font-mono text-brand-pink uppercase tracking-widest block">Virtual Reality</span>
+                                <h3 class="text-base font-bold text-white leading-tight">Free VR Experience Event</h3>
+                            </div>
                         </div>
                         <p class="text-xs text-slate-300 font-mono leading-relaxed">
                             An interactive campus showcase where all club members could experience premium VR gaming and industrial simulator controls free of charge.
                         </p>
+                        <button onclick="toggleGallery('vr-gallery', this)" class="text-[10px] font-mono text-brand-pink hover:text-white transition-colors flex items-center gap-1.5 group">
+                            <i class="fa-solid fa-images text-xs"></i>
+                            <span>View Photos</span>
+                            <i class="fa-solid fa-chevron-down text-[8px] transition-transform duration-300 group-[.gallery-open]:rotate-180"></i>
+                        </button>
+                        <div id="vr-gallery" class="event-photo-gallery hidden">
+                            <div class="grid grid-cols-3 gap-2">
+                                <img src="assets/EventPhotos/VREvent/25.png" alt="VR Event" class="rounded-lg w-full aspect-square object-cover border border-white/5 cursor-pointer hover:border-brand-pink/40 transition-colors" loading="lazy">
+                                <img src="assets/EventPhotos/VREvent/35.png" alt="VR Event" class="rounded-lg w-full aspect-square object-cover border border-white/5 cursor-pointer hover:border-brand-pink/40 transition-colors" loading="lazy">
+                                <img src="assets/EventPhotos/VREvent/28.png" alt="VR Event" class="rounded-lg w-full aspect-square object-cover border border-white/5 cursor-pointer hover:border-brand-pink/40 transition-colors" loading="lazy">
+                                <img src="assets/EventPhotos/VREvent/33.png" alt="VR Event" class="rounded-lg w-full aspect-square object-cover border border-white/5 cursor-pointer hover:border-brand-pink/40 transition-colors" loading="lazy">
+                                <img src="assets/EventPhotos/VREvent/36.png" alt="VR Event" class="rounded-lg w-full aspect-square object-cover border border-white/5 cursor-pointer hover:border-brand-pink/40 transition-colors" loading="lazy">
+                                <img src="assets/EventPhotos/VREvent/40.png" alt="VR Event" class="rounded-lg w-full aspect-square object-cover border border-white/5 cursor-pointer hover:border-brand-pink/40 transition-colors" loading="lazy">
+                            </div>
+                        </div>
                     </div>
                     <span class="text-[9px] font-mono text-slate-500 mt-2 block border-t border-white/5 pt-2">COLLEGE LEVEL // COMPLETED</span>
                 </div>
@@ -156,9 +176,8 @@
                 <!-- Event 2: Arduino Workshop -->
                 <div class="p-6 glass-panel rounded hover:border-brand-cyan/35 transition-colors space-y-4 shadow-xl flex flex-col justify-between">
                     <div class="space-y-4">
-                        <!-- Event Image -->
                         <div class="w-full aspect-video rounded-lg overflow-hidden border border-white/5 bg-slate-950/40">
-                            <img src="assets/EventPhotos/arduino1.JPEG" alt="2-Day Arduino Learning Workshop" class="w-full h-full object-cover">
+                            <img src="assets/EventPhotos/Arduino/arduino1.JPEG" alt="2-Day Arduino Learning Workshop" class="w-full h-full object-cover" loading="lazy">
                         </div>
                         <div class="flex items-center gap-3">
                             <div class="w-8 h-8 rounded bg-brand-cyan/10 flex items-center justify-center text-brand-cyan flex-shrink-0">
@@ -172,6 +191,21 @@
                         <p class="text-xs text-slate-300 font-mono leading-relaxed">
                             A hands-on, two-day intensive training bootcamp focusing on microcontroller programming, basic sensor interfacing, and actuator controls.
                         </p>
+                        <button onclick="toggleGallery('arduino-gallery', this)" class="text-[10px] font-mono text-brand-cyan hover:text-white transition-colors flex items-center gap-1.5 group">
+                            <i class="fa-solid fa-images text-xs"></i>
+                            <span>View Photos</span>
+                            <i class="fa-solid fa-chevron-down text-[8px] transition-transform duration-300 group-[.gallery-open]:rotate-180"></i>
+                        </button>
+                        <div id="arduino-gallery" class="event-photo-gallery hidden">
+                            <div class="grid grid-cols-3 gap-2">
+                                <img src="assets/EventPhotos/Arduino/arduino5.JPEG" alt="Arduino Workshop" class="rounded-lg w-full aspect-square object-cover border border-white/5 cursor-pointer hover:border-brand-cyan/40 transition-colors" loading="lazy">
+                                <img src="assets/EventPhotos/Arduino/arduino8.JPEG" alt="Arduino Workshop" class="rounded-lg w-full aspect-square object-cover border border-white/5 cursor-pointer hover:border-brand-cyan/40 transition-colors" loading="lazy">
+                                <img src="assets/EventPhotos/Arduino/arduino3.JPEG" alt="Arduino Workshop" class="rounded-lg w-full aspect-square object-cover border border-white/5 cursor-pointer hover:border-brand-cyan/40 transition-colors" loading="lazy">
+                                <img src="assets/EventPhotos/Arduino/arduino10.JPEG" alt="Arduino Workshop" class="rounded-lg w-full aspect-square object-cover border border-white/5 cursor-pointer hover:border-brand-cyan/40 transition-colors" loading="lazy">
+                                <img src="assets/EventPhotos/Arduino/arduino6.JPEG" alt="Arduino Workshop" class="rounded-lg w-full aspect-square object-cover border border-white/5 cursor-pointer hover:border-brand-cyan/40 transition-colors" loading="lazy">
+                                <img src="assets/EventPhotos/Arduino/arduino11.JPEG" alt="Arduino Workshop" class="rounded-lg w-full aspect-square object-cover border border-white/5 cursor-pointer hover:border-brand-cyan/40 transition-colors" loading="lazy">
+                            </div>
+                        </div>
                     </div>
                     <span class="text-[9px] font-mono text-slate-500 mt-2 block border-t border-white/5 pt-2">COLLEGE LEVEL // COMPLETED</span>
                 </div>
@@ -179,16 +213,36 @@
                 <!-- Event 3: F1 Gaming Competition -->
                 <div class="p-6 glass-panel rounded hover:border-brand-orange/35 transition-colors space-y-4 shadow-xl flex flex-col justify-between">
                     <div class="space-y-4">
-                        <div class="w-10 h-10 rounded bg-brand-orange/10 flex items-center justify-center text-brand-orange">
-                            <i class="fa-solid fa-gamepad text-lg"></i>
+                        <div class="w-full aspect-video rounded-lg overflow-hidden border border-white/5 bg-slate-950/40">
+                            <img src="assets/EventPhotos/F1GamingEvent/11.png" alt="F1 & Disney Speedstorm Racing Competition" class="w-full h-full object-cover" loading="lazy">
                         </div>
-                        <div>
-                            <span class="text-[9px] font-mono text-brand-orange uppercase tracking-widest block">Esports Tournament</span>
-                            <h3 class="text-lg font-bold text-white">F1 Racing Gaming Competition</h3>
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded bg-brand-orange/10 flex items-center justify-center text-brand-orange flex-shrink-0">
+                                <i class="fa-solid fa-gamepad text-sm"></i>
+                            </div>
+                            <div>
+                                <span class="text-[9px] font-mono text-brand-orange uppercase tracking-widest block">Esports Tournament</span>
+                                <h3 class="text-base font-bold text-white leading-tight">F1 & Disney Speedstorm Racing Competition</h3>
+                            </div>
                         </div>
                         <p class="text-xs text-slate-300 font-mono leading-relaxed">
-                            An esports racing tournament conducted on the official F1 game, attracting virtual drivers from all engineering departments to compete for the fastest lap time.
+                            An esports racing tournament featuring both F1 and Disney Speedstorm, attracting virtual drivers from all engineering departments to compete for the fastest lap time.
                         </p>
+                        <button onclick="toggleGallery('f1-gallery', this)" class="text-[10px] font-mono text-brand-orange hover:text-white transition-colors flex items-center gap-1.5 group">
+                            <i class="fa-solid fa-images text-xs"></i>
+                            <span>View Photos</span>
+                            <i class="fa-solid fa-chevron-down text-[8px] transition-transform duration-300 group-[.gallery-open]:rotate-180"></i>
+                        </button>
+                        <div id="f1-gallery" class="event-photo-gallery hidden">
+                            <div class="grid grid-cols-3 gap-2">
+                                <img src="assets/EventPhotos/F1GamingEvent/12.png" alt="F1 Gaming" class="rounded-lg w-full aspect-square object-cover border border-white/5 cursor-pointer hover:border-brand-orange/40 transition-colors" loading="lazy">
+                                <img src="assets/EventPhotos/F1GamingEvent/15.png" alt="F1 Gaming" class="rounded-lg w-full aspect-square object-cover border border-white/5 cursor-pointer hover:border-brand-orange/40 transition-colors" loading="lazy">
+                                <img src="assets/EventPhotos/F1GamingEvent/18.png" alt="F1 Gaming" class="rounded-lg w-full aspect-square object-cover border border-white/5 cursor-pointer hover:border-brand-orange/40 transition-colors" loading="lazy">
+                                <img src="assets/EventPhotos/F1GamingEvent/21.png" alt="F1 Gaming" class="rounded-lg w-full aspect-square object-cover border border-white/5 cursor-pointer hover:border-brand-orange/40 transition-colors" loading="lazy">
+                                <img src="assets/EventPhotos/F1GamingEvent/13.png" alt="F1 Gaming" class="rounded-lg w-full aspect-square object-cover border border-white/5 cursor-pointer hover:border-brand-orange/40 transition-colors" loading="lazy">
+                                <img src="assets/EventPhotos/F1GamingEvent/22.png" alt="F1 Gaming" class="rounded-lg w-full aspect-square object-cover border border-white/5 cursor-pointer hover:border-brand-orange/40 transition-colors" loading="lazy">
+                            </div>
+                        </div>
                     </div>
                     <span class="text-[9px] font-mono text-slate-500 mt-2 block border-t border-white/5 pt-2">COLLEGE LEVEL // COMPLETED</span>
                 </div>
@@ -196,9 +250,8 @@
                 <!-- Event 4: Poster Making Competition -->
                 <div class="p-6 glass-panel rounded hover:border-brand-pink/35 transition-colors space-y-4 shadow-xl flex flex-col justify-between">
                     <div class="space-y-4">
-                        <!-- Event Image -->
                         <div class="w-full aspect-video rounded-lg overflow-hidden border border-white/5 bg-slate-950/40">
-                            <img src="assets/EventPhotos/postermaking1.jpeg" alt="Poster Making Competition" class="w-full h-full object-cover">
+                            <img src="assets/EventPhotos/PosterMakingCompetition/postermaking1.jpeg" alt="Poster Making Competition" class="w-full h-full object-cover" loading="lazy">
                         </div>
                         <div class="flex items-center gap-3">
                             <div class="w-8 h-8 rounded bg-brand-pink/10 flex items-center justify-center text-brand-pink flex-shrink-0">
@@ -212,6 +265,17 @@
                         <p class="text-xs text-slate-300 font-mono leading-relaxed">
                             A creative competition blending design and technology where participants designed posters utilizing all kinds of tools.
                         </p>
+                        <button onclick="toggleGallery('poster-gallery', this)" class="text-[10px] font-mono text-brand-pink hover:text-white transition-colors flex items-center gap-1.5 group">
+                            <i class="fa-solid fa-images text-xs"></i>
+                            <span>View Photos</span>
+                            <i class="fa-solid fa-chevron-down text-[8px] transition-transform duration-300 group-[.gallery-open]:rotate-180"></i>
+                        </button>
+                        <div id="poster-gallery" class="event-photo-gallery hidden">
+                            <div class="grid grid-cols-2 gap-2">
+                                <img src="assets/EventPhotos/PosterMakingCompetition/postermaking1.jpeg" alt="Poster Making" class="rounded-lg w-full aspect-square object-cover border border-white/5 cursor-pointer hover:border-brand-pink/40 transition-colors" loading="lazy">
+                                <img src="assets/EventPhotos/PosterMakingCompetition/postermaking2.jpeg" alt="Poster Making" class="rounded-lg w-full aspect-square object-cover border border-white/5 cursor-pointer hover:border-brand-pink/40 transition-colors" loading="lazy">
+                            </div>
+                        </div>
                     </div>
                     <span class="text-[9px] font-mono text-slate-500 mt-2 block border-t border-white/5 pt-2">COLLEGE LEVEL // COMPLETED</span>
                 </div>
@@ -219,9 +283,8 @@
                 <!-- Event 5: Coding Competition -->
                 <div class="p-6 glass-panel rounded hover:border-brand-cyan/35 transition-colors space-y-4 shadow-xl flex flex-col justify-between">
                     <div class="space-y-4">
-                        <!-- Event Image -->
                         <div class="w-full aspect-video rounded-lg overflow-hidden border border-white/5 bg-slate-950/40">
-                            <img src="assets/EventPhotos/codingcompetition1.jpeg" alt="Algorithmic Coding Competition" class="w-full h-full object-cover">
+                            <img src="assets/EventPhotos/CodingCompetition/codingcompetition1.jpeg" alt="Algorithmic Coding Competition" class="w-full h-full object-cover" loading="lazy">
                         </div>
                         <div class="flex items-center gap-3">
                             <div class="w-8 h-8 rounded bg-brand-cyan/10 flex items-center justify-center text-brand-cyan flex-shrink-0">
@@ -235,6 +298,21 @@
                         <p class="text-xs text-slate-300 font-mono leading-relaxed">
                             A fast-paced algorithmic problem-solving contest testing students on efficiency, programming logic, and computational complexity.
                         </p>
+                        <button onclick="toggleGallery('coding-gallery', this)" class="text-[10px] font-mono text-brand-cyan hover:text-white transition-colors flex items-center gap-1.5 group">
+                            <i class="fa-solid fa-images text-xs"></i>
+                            <span>View Photos</span>
+                            <i class="fa-solid fa-chevron-down text-[8px] transition-transform duration-300 group-[.gallery-open]:rotate-180"></i>
+                        </button>
+                        <div id="coding-gallery" class="event-photo-gallery hidden">
+                            <div class="grid grid-cols-3 gap-2">
+                                <img src="assets/EventPhotos/CodingCompetition/codingcompetition4.jpeg" alt="Coding Competition" class="rounded-lg w-full aspect-square object-cover border border-white/5 cursor-pointer hover:border-brand-cyan/40 transition-colors" loading="lazy">
+                                <img src="assets/EventPhotos/CodingCompetition/coding1stprize.jpeg" alt="Coding 1st Prize" class="rounded-lg w-full aspect-square object-cover border border-white/5 cursor-pointer hover:border-brand-cyan/40 transition-colors" loading="lazy">
+                                <img src="assets/EventPhotos/CodingCompetition/codingcompetition12.jpeg" alt="Coding Competition" class="rounded-lg w-full aspect-square object-cover border border-white/5 cursor-pointer hover:border-brand-cyan/40 transition-colors" loading="lazy">
+                                <img src="assets/EventPhotos/CodingCompetition/coding2ndprize.jpeg" alt="Coding 2nd Prize" class="rounded-lg w-full aspect-square object-cover border border-white/5 cursor-pointer hover:border-brand-cyan/40 transition-colors" loading="lazy">
+                                <img src="assets/EventPhotos/CodingCompetition/codingcompetition7.jpeg" alt="Coding Competition" class="rounded-lg w-full aspect-square object-cover border border-white/5 cursor-pointer hover:border-brand-cyan/40 transition-colors" loading="lazy">
+                                <img src="assets/EventPhotos/CodingCompetition/coding3rdprize.jpeg" alt="Coding 3rd Prize" class="rounded-lg w-full aspect-square object-cover border border-white/5 cursor-pointer hover:border-brand-cyan/40 transition-colors" loading="lazy">
+                            </div>
+                        </div>
                     </div>
                     <span class="text-[9px] font-mono text-slate-500 mt-2 block border-t border-white/5 pt-2">COLLEGE LEVEL // COMPLETED</span>
                 </div>
@@ -242,18 +320,233 @@
                 <!-- Event 6: PC Assembly Workshop -->
                 <div class="p-6 glass-panel rounded hover:border-brand-orange/35 transition-colors space-y-4 shadow-xl flex flex-col justify-between">
                     <div class="space-y-4">
-                        <div class="w-10 h-10 rounded bg-brand-orange/10 flex items-center justify-center text-brand-orange">
-                            <i class="fa-solid fa-screwdriver-wrench text-lg"></i>
+                        <div class="w-full aspect-video rounded-lg overflow-hidden border border-white/5 bg-slate-950/40">
+                            <img src="assets/EventPhotos/PCAssemblyWorkshop/3.png" alt="Live PC Assembly Workshop" class="w-full h-full object-cover" loading="lazy">
                         </div>
-                        <div>
-                            <span class="text-[9px] font-mono text-brand-orange uppercase tracking-widest block">Hardware Training</span>
-                            <h3 class="text-lg font-bold text-white">Live PC Assembly Workshop</h3>
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded bg-brand-orange/10 flex items-center justify-center text-brand-orange flex-shrink-0">
+                                <i class="fa-solid fa-screwdriver-wrench text-sm"></i>
+                            </div>
+                            <div>
+                                <span class="text-[9px] font-mono text-brand-orange uppercase tracking-widest block">Hardware Training</span>
+                                <h3 class="text-base font-bold text-white leading-tight">Live PC Assembly Workshop</h3>
+                            </div>
                         </div>
                         <p class="text-xs text-slate-300 font-mono leading-relaxed">
                             A live demonstration led by a hardware expert showing step-by-step assembly of custom computer rigs, component selection, and safety protocols.
                         </p>
+                        <button onclick="toggleGallery('pc-gallery', this)" class="text-[10px] font-mono text-brand-orange hover:text-white transition-colors flex items-center gap-1.5 group">
+                            <i class="fa-solid fa-images text-xs"></i>
+                            <span>View Photos</span>
+                            <i class="fa-solid fa-chevron-down text-[8px] transition-transform duration-300 group-[.gallery-open]:rotate-180"></i>
+                        </button>
+                        <div id="pc-gallery" class="event-photo-gallery hidden">
+                            <div class="grid grid-cols-3 gap-2">
+                                <img src="assets/EventPhotos/PCAssemblyWorkshop/1.png" alt="PC Assembly" class="rounded-lg w-full aspect-square object-cover border border-white/5 cursor-pointer hover:border-brand-orange/40 transition-colors" loading="lazy">
+                                <img src="assets/EventPhotos/PCAssemblyWorkshop/5.png" alt="PC Assembly" class="rounded-lg w-full aspect-square object-cover border border-white/5 cursor-pointer hover:border-brand-orange/40 transition-colors" loading="lazy">
+                                <img src="assets/EventPhotos/PCAssemblyWorkshop/7.png" alt="PC Assembly" class="rounded-lg w-full aspect-square object-cover border border-white/5 cursor-pointer hover:border-brand-orange/40 transition-colors" loading="lazy">
+                                <img src="assets/EventPhotos/PCAssemblyWorkshop/9.png" alt="PC Assembly" class="rounded-lg w-full aspect-square object-cover border border-white/5 cursor-pointer hover:border-brand-orange/40 transition-colors" loading="lazy">
+                                <img src="assets/EventPhotos/PCAssemblyWorkshop/4.png" alt="PC Assembly" class="rounded-lg w-full aspect-square object-cover border border-white/5 cursor-pointer hover:border-brand-orange/40 transition-colors" loading="lazy">
+                                <img src="assets/EventPhotos/PCAssemblyWorkshop/10.png" alt="PC Assembly" class="rounded-lg w-full aspect-square object-cover border border-white/5 cursor-pointer hover:border-brand-orange/40 transition-colors" loading="lazy">
+                            </div>
+                        </div>
                     </div>
                     <span class="text-[9px] font-mono text-slate-500 mt-2 block border-t border-white/5 pt-2">COLLEGE LEVEL // COMPLETED</span>
+                </div>
+
+                <!-- Event 7: Project Showcase (NEW) -->
+                <div class="p-6 glass-panel rounded hover:border-brand-cyan/35 transition-colors space-y-4 shadow-xl flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-full aspect-video rounded-lg overflow-hidden border border-white/5 bg-slate-950/40">
+                            <img src="assets/EventPhotos/ProjectShowcase/projectshowcase1.jpeg" alt="Project Showcase Event" class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded bg-brand-cyan/10 flex items-center justify-center text-brand-cyan flex-shrink-0">
+                                <i class="fa-solid fa-diagram-project text-sm"></i>
+                            </div>
+                            <div>
+                                <span class="text-[9px] font-mono text-brand-cyan uppercase tracking-widest block">Exhibition</span>
+                                <h3 class="text-base font-bold text-white leading-tight">Project Showcase Event</h3>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-300 font-mono leading-relaxed">
+                            An exhibition where students presented their self-built robotics and electronics projects to faculty, peers, and the college principal.
+                        </p>
+                        <button onclick="toggleGallery('showcase-gallery', this)" class="text-[10px] font-mono text-brand-cyan hover:text-white transition-colors flex items-center gap-1.5 group">
+                            <i class="fa-solid fa-images text-xs"></i>
+                            <span>View Photos</span>
+                            <i class="fa-solid fa-chevron-down text-[8px] transition-transform duration-300 group-[.gallery-open]:rotate-180"></i>
+                        </button>
+                        <div id="showcase-gallery" class="event-photo-gallery hidden">
+                            <div class="grid grid-cols-3 gap-2">
+                                <img src="assets/EventPhotos/ProjectShowcase/projectshowcase1.jpeg" alt="Project Showcase" class="rounded-lg w-full aspect-square object-cover border border-white/5 cursor-pointer hover:border-brand-cyan/40 transition-colors" loading="lazy">
+                                <img src="assets/EventPhotos/ProjectShowcase/projectshowcase3.jpeg" alt="Project Showcase" class="rounded-lg w-full aspect-square object-cover border border-white/5 cursor-pointer hover:border-brand-cyan/40 transition-colors" loading="lazy">
+                                <img src="assets/EventPhotos/ProjectShowcase/projectshowcase7.jpeg" alt="Project Showcase" class="rounded-lg w-full aspect-square object-cover border border-white/5 cursor-pointer hover:border-brand-cyan/40 transition-colors" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                    <span class="text-[9px] font-mono text-slate-500 mt-2 block border-t border-white/5 pt-2">COLLEGE LEVEL // COMPLETED</span>
+                </div>
+            </div>
+
+            <!-- Gallery toggle script -->
+            <script>
+                function toggleGallery(galleryId, btn) {
+                    const gallery = document.getElementById(galleryId);
+                    if (!gallery) return;
+                    const isHidden = gallery.classList.contains('hidden');
+                    gallery.classList.toggle('hidden');
+                    if (isHidden) {
+                        btn.classList.add('gallery-open');
+                        btn.querySelector('span').textContent = 'Hide Photos';
+                    } else {
+                        btn.classList.remove('gallery-open');
+                        btn.querySelector('span').textContent = 'View Photos';
+                    }
+                }
+
+                // Navigable Lightbox Variables
+                let currentGalleryImages = [];
+                let currentImgIndex = -1;
+                let touchStartX = 0;
+                let touchEndX = 0;
+
+                function openLightbox(src, imgEl) {
+                    const overlay = document.getElementById('photo-lightbox');
+                    const img = document.getElementById('lightbox-img');
+                    
+                    const gallery = imgEl.closest('.event-photo-gallery');
+                    if (gallery) {
+                        const imgs = Array.from(gallery.querySelectorAll('img'));
+                        currentGalleryImages = imgs.map(i => i.src);
+                        currentImgIndex = imgs.indexOf(imgEl);
+                    } else {
+                        currentGalleryImages = [src];
+                        currentImgIndex = 0;
+                    }
+
+                    updateNavigation();
+                    img.src = src;
+                    overlay.classList.remove('hidden');
+                    requestAnimationFrame(() => {
+                        overlay.style.opacity = '1';
+                        img.style.transform = 'scale(1)';
+                    });
+                }
+
+                function closeLightbox() {
+                    const overlay = document.getElementById('photo-lightbox');
+                    const img = document.getElementById('lightbox-img');
+                    overlay.style.opacity = '0';
+                    img.style.transform = 'scale(0.9)';
+                    setTimeout(() => overlay.classList.add('hidden'), 300);
+                }
+
+                function updateNavigation() {
+                    const prevBtn = document.getElementById('lightbox-prev');
+                    const nextBtn = document.getElementById('lightbox-next');
+                    if (currentGalleryImages.length <= 1) {
+                        prevBtn.style.display = 'none';
+                        nextBtn.style.display = 'none';
+                    } else {
+                        prevBtn.style.display = 'flex';
+                        nextBtn.style.display = 'flex';
+                    }
+                }
+
+                function prevLightboxImage(event) {
+                    if (event) event.stopPropagation();
+                    if (currentGalleryImages.length <= 1) return;
+                    currentImgIndex = (currentImgIndex - 1 + currentGalleryImages.length) % currentGalleryImages.length;
+                    changeImage(currentGalleryImages[currentImgIndex]);
+                }
+
+                document.prevLightboxImage = prevLightboxImage;
+
+                function nextLightboxImage(event) {
+                    if (event) event.stopPropagation();
+                    if (currentGalleryImages.length <= 1) return;
+                    currentImgIndex = (currentImgIndex + 1) % currentGalleryImages.length;
+                    changeImage(currentGalleryImages[currentImgIndex]);
+                }
+
+                document.nextLightboxImage = nextLightboxImage;
+
+                function changeImage(newSrc) {
+                    const img = document.getElementById('lightbox-img');
+                    img.style.opacity = '0';
+                    img.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        img.src = newSrc;
+                        img.style.opacity = '1';
+                        img.style.transform = 'scale(1)';
+                    }, 150);
+                }
+
+                // Keyboard listener for navigation
+                document.addEventListener('keydown', (e) => {
+                    const overlay = document.getElementById('photo-lightbox');
+                    if (overlay.classList.contains('hidden')) return;
+                    if (e.key === 'ArrowRight' || e.key === 'Right') {
+                        nextLightboxImage();
+                    } else if (e.key === 'ArrowLeft' || e.key === 'Left') {
+                        prevLightboxImage();
+                    } else if (e.key === 'Escape') {
+                        closeLightbox();
+                    }
+                });
+
+                // Set up handlers when loaded
+                document.addEventListener('DOMContentLoaded', () => {
+                    // Touch events for swipes on mobile
+                    const lightbox = document.getElementById('photo-lightbox');
+                    lightbox.addEventListener('touchstart', (e) => {
+                        touchStartX = e.changedTouches[0].screenX;
+                    }, { passive: true });
+
+                    lightbox.addEventListener('touchend', (e) => {
+                        touchEndX = e.changedTouches[0].screenX;
+                        handleSwipe();
+                    }, { passive: true });
+
+                    function handleSwipe() {
+                        const swipeDistance = touchEndX - touchStartX;
+                        if (swipeDistance < -50) {
+                            nextLightboxImage();
+                        } else if (swipeDistance > 50) {
+                            prevLightboxImage();
+                        }
+                    }
+
+                    // Attach handlers to all gallery images
+                    document.querySelectorAll('.event-photo-gallery img').forEach(img => {
+                        img.onclick = (e) => {
+                            e.stopPropagation();
+                            openLightbox(img.src, img);
+                        };
+                    });
+                });
+            </script>
+
+            <!-- Photo Lightbox Overlay -->
+            <div id="photo-lightbox" class="fixed inset-0 z-[200] hidden flex items-center justify-center p-4 select-none" style="background:rgba(0,0,0,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);opacity:0;transition:opacity 0.3s ease" onclick="closeLightbox()">
+                <!-- Close Button -->
+                <button onclick="closeLightbox()" class="absolute top-5 right-5 text-white/70 hover:text-white text-3xl z-30 transition-colors cursor-pointer" title="Close">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                
+                <!-- Left Nav Arrow -->
+                <button id="lightbox-prev" onclick="document.prevLightboxImage(event)" class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-white flex items-center justify-center z-30 transition-all cursor-pointer opacity-70 hover:opacity-100" title="Previous Image">
+                    <i class="fa-solid fa-chevron-left text-lg"></i>
+                </button>
+                
+                <!-- Right Nav Arrow -->
+                <button id="lightbox-next" onclick="document.nextLightboxImage(event)" class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-white flex items-center justify-center z-30 transition-all cursor-pointer opacity-70 hover:opacity-100" title="Next Image">
+                    <i class="fa-solid fa-chevron-right text-lg"></i>
+                </button>
+
+                <div class="relative max-w-full max-h-[85vh] flex items-center justify-center" onclick="event.stopPropagation()">
+                    <img id="lightbox-img" src="" alt="Enlarged photo" class="max-w-full max-h-[85vh] rounded-2xl border border-white/10 shadow-2xl object-contain select-none" style="transform:scale(0.9);transition:transform 0.3s ease, opacity 0.2s ease">
                 </div>
             </div>
         </section>
