@@ -76,9 +76,9 @@ const masonryItems = [
       img: "assets/EventPhotos/Arduino/arduino8.JPEG",
       url: "#",
       height: 480,
-      title: "Hardware Troubleshooting",
+      title: "ArduinoC Programming",
       category: "WORKSHOP",
-      desc: "Mentors helping students resolve circuit connections and compile errors."
+      desc: "A professional teaching students microcontroller programming and basic controls in ArduinoC."
     },
     {
       id: "10",
