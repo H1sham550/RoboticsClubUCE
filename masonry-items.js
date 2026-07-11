@@ -15,7 +15,7 @@ const masonryItems = [
       height: 400,
       title: "Arduino Basics & Interface",
       category: "WORKSHOP",
-      desc: "Winners of a small RC car creation competition held at the end of the competition."
+      desc: "Winners of a small RC car creation competition held at the end of the workshop."
     },
     {
       id: "3",
