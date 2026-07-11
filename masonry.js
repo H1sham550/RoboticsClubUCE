@@ -66,7 +66,7 @@ class MasonryGrid {
                         });
                     };
                     card.innerHTML = `
-                        <img src="${item.img}" alt="${item.title}" loading="eager" class="marquee-card-img" />
+                        <img src="${item.img}" alt="${item.title}" loading="lazy" decoding="async" class="marquee-card-img" />
                         <div class="marquee-card-overlay">
                             <span class="marquee-card-cat">${item.category}</span>
                             <span class="marquee-card-title">${item.title}</span>

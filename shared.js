@@ -19,16 +19,23 @@ const leafArray = [];
 let mouseX = -1000;
 let mouseY = -1000;
 
+let videoRafPending = false;
 window.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
 
-    // Background video 3D Parallax effect
-    const video = document.getElementById('bg-video');
-    if (video) {
-        const x = (window.innerWidth / 2 - e.clientX) / 45;
-        const y = (window.innerHeight / 2 - e.clientY) / 45;
-        video.style.transform = `scale(1.06) translate(${x}px, ${y}px)`;
+    // Background video 3D Parallax effect (RAF-throttled to prevent jank)
+    if (!videoRafPending) {
+        videoRafPending = true;
+        requestAnimationFrame(() => {
+            const video = document.getElementById('bg-video');
+            if (video) {
+                const x = (window.innerWidth / 2 - mouseX) / 45;
+                const y = (window.innerHeight / 2 - mouseY) / 45;
+                video.style.transform = `scale(1.06) translate(${x}px, ${y}px)`;
+            }
+            videoRafPending = false;
+        });
     }
 });
 

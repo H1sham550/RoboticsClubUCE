@@ -12,10 +12,12 @@ html, body {
 #bg-video {
     object-position: center center;
     transition: transform 0.5s ease-out;
+    filter: contrast(1.15) saturate(1.2) brightness(0.95);
 }
 @media (max-width: 768px) {
     #bg-video {
         object-position: 72% center; /* Center the tree branch frame horizontally on mobile devices */
+        filter: none; /* Disable per-frame video filter on mobile for GPU performance */
     }
 }
 
@@ -117,6 +119,26 @@ html, body {
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
     border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Mobile: reduce backdrop-filter blur and promote to GPU layer for smoother scrolling */
+@media (max-width: 768px) {
+    .glass-nav {
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        transform: translateZ(0);
+        will-change: transform;
+    }
+    .glass-panel {
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        transform: translateZ(0);
+    }
+    .glass-btn,
+    .glass-btn-pink {
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
 }
 
 /* ================= UIVERSE.IO NEUMORPHIC BUTTONS ================= */
@@ -768,4 +790,12 @@ html, body {
 #card:hover .corner-elements span {
     border-color: rgba(92, 103, 255, 0.8);
     box-shadow: 0 0 10px rgba(92, 103, 255, 0.5);
+}
+
+/* Mobile: reduce lightbox backdrop blur for smoother overlay rendering */
+@media (max-width: 768px) {
+    #photo-lightbox {
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+    }
 }
