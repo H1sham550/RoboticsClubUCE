@@ -10,7 +10,7 @@ const masonryItems = [
     },
     {
       id: "2",
-      img: "assets/EventPhotos/Arduino/arduino5.JPEG",
+      img: "assets/EventPhotos/Arduino/arduino19.PNG",
       url: "#",
       height: 400,
       title: "Arduino Basics & Interface",
