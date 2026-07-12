@@ -1,7 +1,7 @@
 const masonryItems = [
     {
       id: "1",
-      img: "assets/EventPhotos/ProjectShowcase/projectshowcase1.jpeg",
+      img: "assets/EventPhotos/ProjectShowcase/projectshowcase1.webp",
       url: "#",
       height: 600,
       title: "Robotics Project Exhibition",
@@ -10,7 +10,7 @@ const masonryItems = [
     },
     {
       id: "2",
-      img: "assets/EventPhotos/Arduino/arduino19.PNG",
+      img: "assets/EventPhotos/Arduino/arduino19.webp",
       url: "#",
       height: 400,
       title: "Arduino Basics & Interface",
@@ -19,7 +19,7 @@ const masonryItems = [
     },
     {
       id: "3",
-      img: "assets/EventPhotos/CodingCompetition/codingcompetition1.jpeg",
+      img: "assets/EventPhotos/CodingCompetition/codingcompetition1.webp",
       url: "#",
       height: 500,
       title: "Speed Coding Tournament",
@@ -28,7 +28,7 @@ const masonryItems = [
     },
     {
       id: "4",
-      img: "assets/EventPhotos/PosterMakingCompetition/postermaking1.jpeg",
+      img: "assets/EventPhotos/PosterMakingCompetition/postermaking1.webp",
       url: "#",
       height: 350,
       title: "Technical Poster Design",
@@ -37,7 +37,7 @@ const masonryItems = [
     },
     {
       id: "5",
-      img: "assets/EventPhotos/VREvent/30.png",
+      img: "assets/EventPhotos/VREvent/30.webp",
       url: "#",
       height: 550,
       title: "VR Immersive Experience",
@@ -46,7 +46,7 @@ const masonryItems = [
     },
     {
       id: "6",
-      img: "assets/EventPhotos/CodingCompetition/coding1stprize.jpeg",
+      img: "assets/EventPhotos/CodingCompetition/coding1stprize.webp",
       url: "#",
       height: 450,
       title: "Coding Competition Winners",
@@ -55,7 +55,7 @@ const masonryItems = [
     },
     {
       id: "7",
-      img: "assets/EventPhotos/PCAssemblyWorkshop/3.png",
+      img: "assets/EventPhotos/PCAssemblyWorkshop/3.webp",
       url: "#",
       height: 600,
       title: "PC Assembly Workshop",
@@ -64,7 +64,7 @@ const masonryItems = [
     },
     {
       id: "8",
-      img: "assets/EventPhotos/F1GamingEvent/18.png",
+      img: "assets/EventPhotos/F1GamingEvent/18.webp",
       url: "#",
       height: 380,
       title: "F1 Racing Tournament",
@@ -73,7 +73,7 @@ const masonryItems = [
     },
     {
       id: "9",
-      img: "assets/EventPhotos/Arduino/arduino8.JPEG",
+      img: "assets/EventPhotos/Arduino/arduino8.webp",
       url: "#",
       height: 480,
       title: "ArduinoC Programming",
@@ -82,7 +82,7 @@ const masonryItems = [
     },
     {
       id: "10",
-      img: "assets/EventPhotos/CodingCompetition/codingcompetition12.jpeg",
+      img: "assets/EventPhotos/CodingCompetition/codingcompetition12.webp",
       url: "#",
       height: 520,
       title: "Algorithmic Sprint",
@@ -91,7 +91,7 @@ const masonryItems = [
     },
     {
       id: "11",
-      img: "assets/EventPhotos/F1GamingEvent/21.png",
+      img: "assets/EventPhotos/F1GamingEvent/21.webp",
       url: "#",
       height: 360,
       title: "F1 Gaming Arena",
@@ -100,7 +100,7 @@ const masonryItems = [
     },
     {
       id: "12",
-      img: "assets/EventPhotos/ProjectShowcase/projectshowcase9.jpeg",
+      img: "assets/EventPhotos/ProjectShowcase/projectshowcase9.webp",
       url: "#",
       height: 500,
       title: "Project Showcase",
