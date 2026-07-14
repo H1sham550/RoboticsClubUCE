@@ -499,8 +499,28 @@
                     <span class="text-[9px] font-mono text-slate-500 mt-2 block border-t border-white/5 pt-2">COLLEGE LEVEL // COMPLETED</span>
                 </div>
             </div>
+        </section>
+    </main>
 
-            <!-- Gallery toggle script -->
+    <!-- FOOTER -->
+    <footer class="bg-black/90 py-12 border-t border-brand-border text-slate-500 text-xs font-mono relative z-10 mt-auto backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3">
+                <img src="assets/logo.png" alt="Robotics Club UCE Logo" class="h-8 w-auto object-contain opacity-50 hover:opacity-100 transition-opacity">
+            </div>
+            <div>
+                <span>&copy; 2026 UCE ROBOTICS CLUB. All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- TOAST POPUP -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 glass-panel border border-brand-orange text-white text-xs font-mono rounded px-6 py-4 hidden flex items-center gap-3 shadow-2xl transition-all duration-300">
+        <span class="w-2.5 h-2.5 rounded-full bg-brand-orange animate-pulse"></span>
+        <span id="toast-message"></span>
+    </div>
+
+<!-- Gallery toggle script -->
             <script>
                 function toggleGallery(galleryId, btn) {
                     const gallery = document.getElementById(galleryId);
@@ -660,26 +680,6 @@
                     <img id="lightbox-img" src="" alt="Enlarged photo" class="max-w-full max-h-[85vh] rounded-2xl border border-white/10 shadow-2xl object-contain select-none" style="transform:scale(0.9);transition:transform 0.3s ease, opacity 0.2s ease" onclick="event.stopPropagation()">
                 </div>
             </div>
-        </section>
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="bg-black/90 py-12 border-t border-brand-border text-slate-500 text-xs font-mono relative z-10 mt-auto backdrop-blur-md">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex items-center gap-3">
-                <img src="assets/logo.png" alt="Robotics Club UCE Logo" class="h-8 w-auto object-contain opacity-50 hover:opacity-100 transition-opacity">
-            </div>
-            <div>
-                <span>&copy; 2026 UCE ROBOTICS CLUB. All rights reserved.</span>
-            </div>
-        </div>
-    </footer>
-
-    <!-- TOAST POPUP -->
-    <div id="toast" class="fixed bottom-6 right-6 z-50 glass-panel border border-brand-orange text-white text-xs font-mono rounded px-6 py-4 hidden flex items-center gap-3 shadow-2xl transition-all duration-300">
-        <span class="w-2.5 h-2.5 rounded-full bg-brand-orange animate-pulse"></span>
-        <span id="toast-message"></span>
-    </div>
 
     <!-- Custom Shared Script -->
     <script src="shared.js"></script>
