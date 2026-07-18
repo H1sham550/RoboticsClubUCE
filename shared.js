@@ -197,9 +197,11 @@ function submitSuggestion() {
     const category = suggestCategory ? suggestCategory.value : "other";
     const suggestion = suggestText.value.trim();
 
+    // Show sending state
+    showSuggestionAlert("Sending suggestion...", "sending");
+
     // If WebApp URL is configured, send the suggestion to Google Sheets
     if (SUGGESTIONS_WEBAPP_URL && SUGGESTIONS_WEBAPP_URL !== "") {
-        showToast("Sending suggestion...");
         fetch(SUGGESTIONS_WEBAPP_URL, {
             method: 'POST',
             mode: 'no-cors', // Prevents CORS checks block on Apps Script redirect
@@ -209,21 +211,69 @@ function submitSuggestion() {
             body: JSON.stringify({ name, regNo, category, suggestion })
         })
         .then(() => {
-            showToast("Recorded in Google Sheets! Thank you.");
+            showSuggestionAlert("Suggestion Submitted Successfully!", "success");
             if (suggestName) suggestName.value = "";
             if (suggestReg) suggestReg.value = "";
             suggestText.value = "";
         })
         .catch(err => {
             console.error("Error sending to Google Sheets:", err);
-            showToast("Saved locally! Suggestion logged.");
+            showSuggestionAlert("Suggestion Saved Locally!", "success");
         });
     } else {
         // Fallback local simulation if no URL is set yet
-        showToast("Suggestion received! Thank you for helping us improve.");
+        showSuggestionAlert("Suggestion Submitted Successfully!", "success");
         if (suggestName) suggestName.value = "";
         if (suggestReg) suggestReg.value = "";
         suggestText.value = "";
+    }
+}
+
+// Centered fullscreen suggestion alert modal
+function showSuggestionAlert(message, type) {
+    // Remove existing modal if present
+    const existing = document.getElementById('suggestion-alert-overlay');
+    if (existing) existing.remove();
+
+    const overlay = document.createElement('div');
+    overlay.id = 'suggestion-alert-overlay';
+    overlay.style.cssText = 'position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.7);backdrop-filter:blur(8px);opacity:0;transition:opacity 0.3s ease;';
+
+    const isSending = type === 'sending';
+    const iconHTML = isSending
+        ? '<div style="width:64px;height:64px;border:3px solid rgba(255,75,139,0.3);border-top-color:#ff4b8b;border-radius:50%;animation:spin 0.8s linear infinite;"></div>'
+        : '<div style="width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#ff4b8b,#ff6b35);display:flex;align-items:center;justify-content:center;box-shadow:0 0 30px rgba(255,75,139,0.4);animation:popIn 0.4s cubic-bezier(0.175,0.885,0.32,1.275);"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>';
+
+    overlay.innerHTML = `
+        <div style="text-align:center;padding:40px 32px;max-width:380px;background:rgba(18,18,21,0.95);border:1px solid rgba(255,255,255,0.1);border-radius:16px;box-shadow:0 25px 60px rgba(0,0,0,0.5);animation:slideUp 0.35s ease;">
+            <div style="margin-bottom:20px;display:flex;justify-content:center;">${iconHTML}</div>
+            <h3 style="color:white;font-size:18px;font-weight:700;margin:0 0 8px 0;font-family:system-ui,sans-serif;">${message}</h3>
+            ${!isSending ? '<p style="color:rgba(255,255,255,0.5);font-size:12px;font-family:monospace;margin:0;">Thank you for helping us improve the club!</p>' : ''}
+            ${!isSending ? '<button onclick="this.closest(\'#suggestion-alert-overlay\').remove()" style="margin-top:20px;padding:10px 32px;background:rgba(255,75,139,0.1);border:1px solid rgba(255,75,139,0.3);border-radius:8px;color:#ff4b8b;font-size:12px;font-weight:700;font-family:monospace;text-transform:uppercase;letter-spacing:1px;cursor:pointer;transition:all 0.2s;">Got it</button>' : ''}
+        </div>
+        <style>
+            @keyframes slideUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+            @keyframes popIn { from { transform:scale(0); } to { transform:scale(1); } }
+            @keyframes spin { to { transform:rotate(360deg); } }
+        </style>
+    `;
+
+    document.body.appendChild(overlay);
+    requestAnimationFrame(() => { overlay.style.opacity = '1'; });
+
+    // Click backdrop to close (only for success state)
+    if (!isSending) {
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) overlay.remove();
+        });
+
+        // Auto-dismiss after 5 seconds
+        setTimeout(() => {
+            if (document.getElementById('suggestion-alert-overlay')) {
+                overlay.style.opacity = '0';
+                setTimeout(() => overlay.remove(), 300);
+            }
+        }, 5000);
     }
 }
 
