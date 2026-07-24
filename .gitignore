@@ -19,3 +19,9 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
+
+# Large raw camera source PNGs (WebP versions are used in production)
+assets/EventPhotos/*/*.PNG
+assets/EventPhotos/*/*.png
+!assets/logo.png
+
