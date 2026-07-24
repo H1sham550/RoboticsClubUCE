@@ -106,5 +106,23 @@ const masonryItems = [
       title: "Project Showcase",
       category: "SHOWCASE",
       desc: "A photo taken with the principal on the Project Showcase event."
+    },
+    {
+      id: "13",
+      img: "assets/EventPhotos/FIFA23GamingEvent/IMG_4964.webp",
+      url: "#",
+      height: 520,
+      title: "FIFA23 Gaming Tournament",
+      category: "ESPORTS",
+      desc: "76 participants competing head-to-head in our controller-based FIFA23 tournament."
+    },
+    {
+      id: "14",
+      img: "assets/EventPhotos/FIFA23GamingEvent/IMG_4974.webp",
+      url: "#",
+      height: 420,
+      title: "FIFA23 Arena Action",
+      category: "ESPORTS",
+      desc: "Intense gameplay during the FIFA23 tournament finals."
     }
 ];

@@ -43,7 +43,7 @@
             </nav>
             
             <!-- Actions & Menu -->
-            <div class="flex items-center gap-4 pointer-events-auto">
+            <div class="flex items-center gap-2 lg:gap-4 pointer-events-auto">
                 <a href="https://www.instagram.com/roboticsclubuce/" target="_blank" class="flex items-center gap-1.5 text-xs font-mono font-bold text-brand-pink hover:text-white transition-colors bg-white/5 px-3 py-1.5 rounded-full border border-white/10" title="Follow us on Instagram">
                     <i class="fa-brands fa-instagram text-sm"></i>
                     <span class="hidden sm:inline">@roboticsclubuce</span>
@@ -70,7 +70,7 @@
         <a href="events.html" class="mobile-nav-link text-slate-300 hover:text-white transition-colors">Events</a>
         <a href="certificate.html" class="mobile-nav-link text-slate-300 hover:text-white transition-colors">Certificate</a>
         <a href="suggestions.html" class="mobile-nav-link text-slate-300 hover:text-white transition-colors">Suggestions</a>
-        <a href="index.html#membership" class="neu-button text-sm mt-4">
+        <a href="index.html#membership" class="neu-button text-xs px-5 py-2.5 mt-2">
             <i class="fa-solid fa-credit-card"></i>
             <span>Join Club</span>
         </a>
@@ -113,6 +113,59 @@
 
             <!-- Past events grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Event 1: FIFA23 Gaming Tournament -->
+                <div class="p-6 glass-panel rounded hover:border-brand-orange/35 transition-colors space-y-4 shadow-xl flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-full aspect-video rounded-lg overflow-hidden border border-white/5 bg-slate-950/40 relative">
+                            <img src="assets/EventPhotos/FIFA23GamingEvent/IMG_4964.webp" alt="FIFA23 Gaming Tournament" class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded bg-brand-orange/10 flex items-center justify-center text-brand-orange flex-shrink-0">
+                                <i class="fa-solid fa-gamepad text-sm"></i>
+                            </div>
+                            <div>
+                                <span class="text-[9px] font-mono text-brand-orange uppercase tracking-widest block">Esports Tournament</span>
+                                <h3 class="text-base font-bold text-white leading-tight">FIFA23 Gaming Tournament</h3>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-300 font-mono leading-relaxed">
+                            An intense FIFA23 gaming tournament played with controllers. 76 participants competed head-to-head for top honors and cash prizes.
+                        </p>
+
+                        <!-- Winners & Stats Badges -->
+                        <div class="p-3 bg-slate-950/40 rounded-lg border border-white/5 space-y-1.5 font-mono text-xs">
+                            <div class="flex justify-between items-center text-slate-400 text-[10px]">
+                                <span><i class="fa-solid fa-users text-brand-orange"></i> 76 Participants</span>
+                                <span class="text-brand-orange font-bold">Total ₹1,500 Prize Pool</span>
+                            </div>
+                            <div class="flex justify-between items-center text-white text-xs pt-1 border-t border-white/5">
+                                <span>🥇 1st: <strong class="text-white">Ebin George</strong></span>
+                                <span class="text-brand-orange font-bold">₹1,000</span>
+                            </div>
+                            <div class="flex justify-between items-center text-white text-xs">
+                                <span>🥈 2nd: <strong class="text-white">Ashwin Roy</strong></span>
+                                <span class="text-brand-orange font-bold">₹500</span>
+                            </div>
+                        </div>
+
+                        <button onclick="toggleGallery('fifa23-gallery', this)" class="text-[10px] font-mono text-brand-orange hover:text-white transition-colors flex items-center gap-1.5 group">
+                            <i class="fa-solid fa-images text-xs"></i>
+                            <span>View Photos</span>
+                            <i class="fa-solid fa-chevron-down text-[8px] transition-transform duration-300 group-[.gallery-open]:rotate-180"></i>
+                        </button>
+                        <div id="fifa23-gallery" class="event-photo-gallery hidden">
+                            <div class="grid grid-cols-3 gap-2">
+                                <img src="assets/EventPhotos/FIFA23GamingEvent/IMG_4975.webp" alt="FIFA23 Gaming Event" class="rounded-lg w-full aspect-square object-cover border border-white/5 cursor-pointer hover:border-brand-orange/40 transition-colors" loading="lazy" decoding="async">
+                                <img src="assets/EventPhotos/FIFA23GamingEvent/IMG_4964.webp" alt="FIFA23 Gaming Event" class="rounded-lg w-full aspect-square object-cover border border-white/5 cursor-pointer hover:border-brand-orange/40 transition-colors" loading="lazy" decoding="async">
+                                <img src="assets/EventPhotos/FIFA23GamingEvent/IMG_4965.webp" alt="FIFA23 Gaming Event" class="rounded-lg w-full aspect-square object-cover border border-white/5 cursor-pointer hover:border-brand-orange/40 transition-colors" loading="lazy" decoding="async">
+                                <img src="assets/EventPhotos/FIFA23GamingEvent/IMG_4967.webp" alt="FIFA23 Gaming Event" class="rounded-lg w-full aspect-square object-cover border border-white/5 cursor-pointer hover:border-brand-orange/40 transition-colors" loading="lazy" decoding="async">
+                                <img src="assets/EventPhotos/FIFA23GamingEvent/IMG_4971.webp" alt="FIFA23 Gaming Event" class="rounded-lg w-full aspect-square object-cover border border-white/5 cursor-pointer hover:border-brand-orange/40 transition-colors" loading="lazy" decoding="async">
+                                <img src="assets/EventPhotos/FIFA23GamingEvent/IMG_4974.webp" alt="FIFA23 Gaming Event" class="rounded-lg w-full aspect-square object-cover border border-white/5 cursor-pointer hover:border-brand-orange/40 transition-colors" loading="lazy" decoding="async">
+                            </div>
+                        </div>
+                    </div>
+                    <span class="text-[9px] font-mono text-slate-500 mt-2 block border-t border-white/5 pt-2">COLLEGE LEVEL // COMPLETED</span>
+                </div>
                 <!-- Event 2: Arduino Workshop -->
                 <div class="p-6 glass-panel rounded hover:border-brand-cyan/35 transition-colors space-y-4 shadow-xl flex flex-col justify-between">
                     <div class="space-y-4">
@@ -606,23 +659,62 @@
 
                 // Set up handlers when loaded
                 document.addEventListener('DOMContentLoaded', () => {
-                    // Touch events for swipes on mobile
+                    // Touch events for swipes on mobile (with zoom & multi-touch protection)
                     const lightbox = document.getElementById('photo-lightbox');
+                    let touchStartX = 0;
+                    let touchStartY = 0;
+                    let touchEndX = 0;
+                    let touchEndY = 0;
+                    let touchStartTime = 0;
+                    let isMultiTouch = false;
+
                     lightbox.addEventListener('touchstart', (e) => {
-                        touchStartX = e.changedTouches[0].screenX;
+                        if (e.touches.length > 1) {
+                            isMultiTouch = true;
+                        } else {
+                            isMultiTouch = false;
+                            touchStartX = e.touches[0].clientX;
+                            touchStartY = e.touches[0].clientY;
+                            touchStartTime = Date.now();
+                        }
+                    }, { passive: true });
+
+                    lightbox.addEventListener('touchmove', (e) => {
+                        if (e.touches.length > 1) {
+                            isMultiTouch = true;
+                        }
                     }, { passive: true });
 
                     lightbox.addEventListener('touchend', (e) => {
-                        touchEndX = e.changedTouches[0].screenX;
-                        handleSwipe();
+                        if (isMultiTouch) {
+                            if (e.touches.length === 0) isMultiTouch = false;
+                            return;
+                        }
+
+                        // Prevent photo switching if browser is zoomed in
+                        if (window.visualViewport && window.visualViewport.scale > 1.05) {
+                            return;
+                        }
+
+                        if (e.changedTouches.length > 0) {
+                            touchEndX = e.changedTouches[0].clientX;
+                            touchEndY = e.changedTouches[0].clientY;
+                            const touchDuration = Date.now() - touchStartTime;
+                            handleSwipe(touchDuration);
+                        }
                     }, { passive: true });
 
-                    function handleSwipe() {
-                        const swipeDistance = touchEndX - touchStartX;
-                        if (swipeDistance < -50) {
-                            nextLightboxImage();
-                        } else if (swipeDistance > 50) {
-                            prevLightboxImage();
+                    function handleSwipe(duration) {
+                        const deltaX = touchEndX - touchStartX;
+                        const deltaY = touchEndY - touchStartY;
+
+                        // Only trigger if fast horizontal swipe (duration < 400ms, abs(deltaX) > 60px, horizontal dominant)
+                        if (duration < 400 && Math.abs(deltaX) > 60 && Math.abs(deltaX) > Math.abs(deltaY) * 1.5) {
+                            if (deltaX < 0) {
+                                nextLightboxImage();
+                            } else {
+                                prevLightboxImage();
+                            }
                         }
                     }
 

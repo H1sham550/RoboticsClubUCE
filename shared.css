@@ -162,6 +162,15 @@ html, body {
     gap: 8px;
 }
 
+/* Shrink .neu-button on mobile/tablet (below lg breakpoint where hamburger shows) */
+@media (max-width: 1023px) {
+    .neu-button {
+        padding: 6px 14px;
+        font-size: 9px;
+        gap: 5px;
+    }
+}
+
 .neu-button:hover {
     box-shadow: inset 1px 1px 4px #08080a, inset -1px -1px 4px #1c1c22, 0 4px 12px rgba(255, 107, 53, 0.15);
     color: #ff6b35;
@@ -816,3 +825,5 @@ html, body {
         transition: none !important;
     }
 }
+
+
