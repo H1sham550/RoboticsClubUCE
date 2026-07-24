@@ -4,7 +4,6 @@
 html, body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background-color: #09090b;
-    overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
 }
 
@@ -114,6 +113,25 @@ html, body {
     border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
+/* Dynamic Island Navbar Wrapper & Responsive Logo */
+.sticky-nav-wrapper {
+    position: relative; /* Non-sticky on Desktop: scrolls away naturally */
+    z-index: 40;
+    width: 100%;
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    pointer-events: none;
+}
+
+.nav-logo {
+    height: 3.5rem; /* 56px - desktop height matching original h-14 */
+    width: auto;
+    object-fit: contain;
+}
+
 .glass-panel {
     background: rgba(18, 18, 21, 0.35);
     backdrop-filter: blur(24px);
@@ -121,13 +139,30 @@ html, body {
     border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Mobile: reduce backdrop-filter blur and promote to GPU layer for smoother scrolling */
-@media (max-width: 768px) {
+/* Mobile View (<1024px): Sticky navbar with a floating top gap while scrolling */
+@media (max-width: 1024px) {
+    .sticky-nav-wrapper {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 1rem !important; /* Preserves 1rem (16px) floating gap above navbar while scrolling */
+        padding-left: 0.875rem;
+        padding-right: 0.875rem;
+    }
+
+    .nav-logo {
+        height: 2.75rem; /* 44px - compact mobile height */
+    }
+
+    .glass-nav-header {
+        padding-top: 0.875rem !important;
+        padding-bottom: 0.875rem !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
     .glass-nav {
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
-        transform: translateZ(0);
-        will-change: transform;
     }
     .glass-panel {
         backdrop-filter: blur(10px);
