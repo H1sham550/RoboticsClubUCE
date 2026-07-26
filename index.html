@@ -20,6 +20,12 @@
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://roboticsclub.ucet.ac.in/assets/og-image.png">
+    <!-- Security: Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com 'unsafe-inline'; style-src 'self' https://cdnjs.cloudflare.com 'unsafe-inline'; img-src 'self' data:; font-src 'self' https://cdnjs.cloudflare.com; connect-src 'self' https://script.google.com; media-src 'self'; frame-ancestors 'none';">
+    <!-- SEO: Canonical URL -->
+    <link rel="canonical" href="https://roboticsclub.ucet.ac.in/">
+    <!-- Performance: Preconnect to CDN -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <!-- Compiled Tailwind CSS -->
     <link rel="stylesheet" href="tailwind.css">
     <!-- FontAwesome for Icons -->
@@ -31,7 +37,7 @@
 
     <!-- FULL PAGE CRYSTAL CLEAR VIDEO BACKGROUND WITH PARALLAX -->
     <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-        <video id="bg-video" autoplay muted loop playsinline class="w-full h-full object-cover opacity-75 scale-105 transition-transform duration-500 ease-out">
+        <video id="bg-video" autoplay muted loop playsinline preload="metadata" class="w-full h-full object-cover opacity-75 scale-105 transition-transform duration-500 ease-out">
             <source src="assets/bg-cherry-blossom.mp4" type="video/mp4">
         </video>
         <div class="absolute inset-0 bg-black/20"></div>
@@ -60,7 +66,7 @@
 
             <!-- Instagram handle, Join Club Action & Mobile Menu Trigger -->
             <div class="flex items-center gap-2 lg:gap-4 pointer-events-auto">
-                <a href="https://www.instagram.com/roboticsclubuce/" target="_blank" class="flex items-center gap-1.5 text-xs font-mono font-bold text-brand-pink hover:text-white transition-colors bg-white/5 px-3 py-1.5 rounded-full border border-white/10" title="Follow us on Instagram">
+                <a href="https://www.instagram.com/roboticsclubuce/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-xs font-mono font-bold text-brand-pink hover:text-white transition-colors bg-white/5 px-3 py-1.5 rounded-full border border-white/10" title="Follow us on Instagram">
                     <i class="fa-brands fa-instagram text-sm"></i>
                     <span class="hidden sm:inline">@roboticsclubuce</span>
                 </a>

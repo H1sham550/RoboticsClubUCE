@@ -152,18 +152,43 @@ function verifyCertificate() {
             certList.innerHTML = ''; // Clear previous searches
             
             dummyCertDB[query].certificates.forEach(cert => {
+                // Build DOM safely to prevent XSS — no innerHTML with dynamic data
                 const item = document.createElement('div');
                 item.className = 'p-3 bg-white/5 border border-white/10 rounded flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 hover:border-brand-cyan/35 transition-colors';
-                item.innerHTML = `
-                    <div>
-                        <span class="text-[9px] font-mono text-brand-cyan uppercase tracking-widest block">${cert.event}</span>
-                        <span class="text-white font-bold block text-xs mt-0.5">${cert.role}</span>
-                        <span class="text-[9px] text-slate-500 block">AWARDED: ${cert.date}</span>
-                    </div>
-                    <a href="${cert.link}" target="_blank" class="px-3 py-1.5 bg-brand-cyan/10 hover:bg-brand-cyan/20 border border-brand-cyan/20 rounded font-mono text-[9px] text-brand-cyan font-bold transition-all uppercase tracking-wider flex items-center gap-1.5 self-end sm:self-auto">
-                        <i class="fa-solid fa-arrow-up-right-from-square"></i> View PDF
-                    </a>
-                `;
+
+                const infoDiv = document.createElement('div');
+
+                const eventSpan = document.createElement('span');
+                eventSpan.className = 'text-[9px] font-mono text-brand-cyan uppercase tracking-widest block';
+                eventSpan.textContent = cert.event;
+                infoDiv.appendChild(eventSpan);
+
+                const roleSpan = document.createElement('span');
+                roleSpan.className = 'text-white font-bold block text-xs mt-0.5';
+                roleSpan.textContent = cert.role;
+                infoDiv.appendChild(roleSpan);
+
+                const dateSpan = document.createElement('span');
+                dateSpan.className = 'text-[9px] text-slate-500 block';
+                dateSpan.textContent = 'AWARDED: ' + cert.date;
+                infoDiv.appendChild(dateSpan);
+
+                item.appendChild(infoDiv);
+
+                // Validate cert.link is a safe URL before creating the link
+                const link = document.createElement('a');
+                const safeUrl = (cert.link && (cert.link.startsWith('https://') || cert.link.startsWith('http://'))) ? cert.link : '#';
+                link.href = safeUrl;
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+                link.className = 'px-3 py-1.5 bg-brand-cyan/10 hover:bg-brand-cyan/20 border border-brand-cyan/20 rounded font-mono text-[9px] text-brand-cyan font-bold transition-all uppercase tracking-wider flex items-center gap-1.5 self-end sm:self-auto';
+
+                const linkIcon = document.createElement('i');
+                linkIcon.className = 'fa-solid fa-arrow-up-right-from-square';
+                link.appendChild(linkIcon);
+                link.appendChild(document.createTextNode(' View PDF'));
+
+                item.appendChild(link);
                 certList.appendChild(item);
             });
         }
@@ -189,6 +214,10 @@ function submitSuggestion() {
     const suggestReg = document.getElementById('suggest-reg');
     const suggestText = document.getElementById('suggest-text');
     const suggestCategory = document.getElementById('suggest-category');
+    const honeypot = document.getElementById('suggest-website');
+
+    // Honeypot spam protection — bots auto-fill hidden fields, real users never see it
+    if (honeypot && honeypot.value.trim() !== "") return;
     
     if (!suggestText || suggestText.value.trim() === "") return;
 

@@ -20,6 +20,12 @@
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://roboticsclub.ucet.ac.in/assets/og-image.png">
+    <!-- Security: Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com 'unsafe-inline'; style-src 'self' https://cdnjs.cloudflare.com 'unsafe-inline'; img-src 'self' data:; font-src 'self' https://cdnjs.cloudflare.com; connect-src 'self' https://script.google.com; media-src 'self'; frame-ancestors 'none';">
+    <!-- SEO: Canonical URL -->
+    <link rel="canonical" href="https://roboticsclub.ucet.ac.in/suggestions.html">
+    <!-- Performance: Preconnect to CDN -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <!-- Compiled Tailwind CSS -->
     <link rel="stylesheet" href="tailwind.css">
     <!-- FontAwesome for Icons -->
@@ -31,7 +37,7 @@
 
     <!-- FULL PAGE CRYSTAL CLEAR VIDEO BACKGROUND WITH PARALLAX -->
     <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-        <video id="bg-video" autoplay muted loop playsinline class="w-full h-full object-cover opacity-75 scale-105 transition-transform duration-500 ease-out">
+        <video id="bg-video" autoplay muted loop playsinline preload="metadata" class="w-full h-full object-cover opacity-75 scale-105 transition-transform duration-500 ease-out">
             <source src="assets/bg-cherry-blossom.mp4" type="video/mp4">
         </video>
         <div class="absolute inset-0 bg-black/20"></div>
@@ -60,7 +66,7 @@
             
             <!-- Actions & Menu -->
             <div class="flex items-center gap-2 lg:gap-4 pointer-events-auto">
-                <a href="https://www.instagram.com/roboticsclubuce/" target="_blank" class="flex items-center gap-1.5 text-xs font-mono font-bold text-brand-pink hover:text-white transition-colors bg-white/5 px-3 py-1.5 rounded-full border border-white/10" title="Follow us on Instagram">
+                <a href="https://www.instagram.com/roboticsclubuce/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-xs font-mono font-bold text-brand-pink hover:text-white transition-colors bg-white/5 px-3 py-1.5 rounded-full border border-white/10" title="Follow us on Instagram">
                     <i class="fa-brands fa-instagram text-sm"></i>
                     <span class="hidden sm:inline">@roboticsclubuce</span>
                 </a>
@@ -107,18 +113,23 @@
 
             <div class="max-w-xl w-full mx-auto mt-10 p-6 glass-panel rounded-lg shadow-2xl border border-white/10">
                 <form id="suggestion-form" onsubmit="event.preventDefault(); submitSuggestion();" class="space-y-4 font-mono text-xs text-slate-300">
+                    <!-- Honeypot field — hidden from users, catches bots that auto-fill all fields -->
+                    <div style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true">
+                        <label for="suggest-website">Website</label>
+                        <input type="text" id="suggest-website" name="website" tabindex="-1" autocomplete="off">
+                    </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div class="space-y-1">
-                            <label class="block text-[9px] text-brand-pink uppercase">Name (Optional)</label>
+                            <label for="suggest-name" class="block text-[9px] text-brand-pink uppercase">Name (Optional)</label>
                             <input type="text" id="suggest-name" placeholder="e.g. Aditya Verma" class="w-full bg-black/40 border border-white/10 rounded px-4 py-3 text-xs text-white focus:outline-none focus:border-brand-pink">
                         </div>
                         <div class="space-y-1">
-                            <label class="block text-[9px] text-brand-pink uppercase">Reg Number (Optional)</label>
+                            <label for="suggest-reg" class="block text-[9px] text-brand-pink uppercase">Reg Number (Optional)</label>
                             <input type="text" id="suggest-reg" placeholder="e.g. UCE26041" class="w-full bg-black/40 border border-white/10 rounded px-4 py-3 text-xs text-white focus:outline-none focus:border-brand-pink">
                         </div>
                     </div>
                     <div class="space-y-1">
-                        <label class="block text-[9px] text-brand-pink uppercase">Suggestion Category</label>
+                        <label for="suggest-category" class="block text-[9px] text-brand-pink uppercase">Suggestion Category</label>
                         <select id="suggest-category" class="w-full bg-black/80 border border-white/10 rounded px-4 py-3 text-xs text-white focus:outline-none focus:border-brand-pink">
                             <option value="workshop">Technical Workshop Topic</option>
                             <option value="gaming">Gaming/Esports Tournament</option>
@@ -128,7 +139,7 @@
                         </select>
                     </div>
                     <div class="space-y-1">
-                        <label class="block text-[9px] text-brand-pink uppercase">Your Suggestion</label>
+                        <label for="suggest-text" class="block text-[9px] text-brand-pink uppercase">Your Suggestion</label>
                         <textarea id="suggest-text" rows="4" placeholder="Describe your idea or what events you want us to conduct..." class="w-full bg-black/40 border border-white/10 rounded px-4 py-3 text-xs text-white focus:outline-none focus:border-brand-pink resize-none" required></textarea>
                     </div>
                     <button type="submit" class="w-full py-3.5 mt-2 bg-brand-pink/10 hover:bg-brand-pink/20 border border-brand-pink/30 hover:border-brand-pink rounded text-brand-pink font-bold uppercase transition-all tracking-wider text-center block">

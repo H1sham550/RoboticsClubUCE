@@ -1,0 +1,4 @@
+# Robotics Club UCE — Crawler Directives
+User-agent: *
+Allow: /
+Sitemap: https://roboticsclub.ucet.ac.in/sitemap.xml

@@ -118,7 +118,7 @@ const masonryItems = [
     },
     {
       id: "14",
-      img: "assets/EventPhotos/FIFA23GamingEvent/IMG_4974.webp",
+      img: "assets/EventPhotos/FIFA23GamingEvent/IMG_4966.webp",
       url: "#",
       height: 420,
       title: "FIFA23 Arena Action",
