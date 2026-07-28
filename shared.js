@@ -142,7 +142,7 @@ async function verifyCertificate() {
     errorBox.classList.add('hidden');
 
     if (query.length < 3) {
-        if (errorText) errorText.textContent = "Please enter at least 3 characters of your name to search (e.g. Rahul).";
+        if (errorText) errorText.textContent = "Please enter at least 3 characters of your name to search (e.g. Kevin).";
         errorBox.classList.remove('hidden');
         return;
     }
