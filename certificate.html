@@ -107,7 +107,7 @@
                 <span class="text-xs font-mono text-brand-orange uppercase tracking-widest block">04 / SECURE VERIFICATION</span>
                 <h2 class="text-4xl font-extrabold text-white">Download Event Certificates</h2>
                 <p class="text-slate-300 leading-relaxed glass-panel p-4 rounded-lg max-w-xl mx-auto">
-                    Enter the unique reg no provided by the college and all Robotics Club certificates in your name will be available for download.
+                    Enter your full name below to verify and download official Robotics Club event certificates.
                 </p>
             </div>
 
@@ -120,9 +120,9 @@
                     </div>
                     <div class="p-6 space-y-6">
                         <div class="font-mono text-xs">
-                            <label for="cert-input" class="block text-[9px] text-brand-orange uppercase mb-1">University Registration No.</label>
+                            <label for="cert-input" class="block text-[9px] text-brand-orange uppercase mb-1">Student Full Name</label>
                             <div class="flex flex-col sm:flex-row gap-3">
-                                <input type="text" id="cert-input" placeholder="e.g. UCE24CS075" class="flex-1 bg-black/40 border border-white/10 rounded px-4 py-3 text-xs text-white focus:outline-none focus:border-brand-orange font-mono font-bold">
+                                <input type="text" id="cert-input" placeholder="e.g. Ebin George or Ashwin Roy" class="flex-1 bg-black/40 border border-white/10 rounded px-4 py-3 text-xs text-white focus:outline-none focus:border-brand-orange font-mono font-bold">
                                 <button onclick="verifyCertificate()" class="neu-button">Search</button>
                             </div>
                         </div>
@@ -134,7 +134,6 @@
                             </div>
                             <div class="text-[11px] space-y-1">
                                 <div class="flex"><span class="text-slate-500 w-28">STUDENT NAME:</span><span class="text-white font-bold" id="cert-student-name">-</span></div>
-                                <div class="flex"><span class="text-slate-500 w-28">REG NUMBER:</span><span class="text-white font-bold" id="cert-reg-no">-</span></div>
                             </div>
                             <div class="border-t border-brand-cyan/10 pt-3">
                                 <span class="block text-[10px] text-slate-400 uppercase tracking-widest mb-2 font-bold">Awarded Certificates</span>
@@ -147,7 +146,7 @@
                         <!-- Empty state -->
                         <div id="cert-error" class="hidden p-4 bg-red-950/20 border border-red-500/30 rounded font-mono text-xs text-red-400 flex items-center gap-3">
                             <i class="fa-solid fa-circle-exclamation text-lg"></i>
-                            <span id="cert-error-text">No credential records found matching the specified registration number.</span>
+                            <span id="cert-error-text">No credential records found matching the specified name.</span>
                         </div>
 
                         <!-- Disclaimer Callout -->

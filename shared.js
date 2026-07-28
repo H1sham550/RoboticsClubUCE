@@ -112,70 +112,588 @@ function initLeaves() {
     animate();
 }
 
-// Dummy Certificate Validation Database Check (indexed by Registration Number)
-const dummyCertDB = {
-    'UCE26041': {
-        name: 'Aditya Verma',
-        certificates: [
-            { event: '2-Day Arduino Learning Workshop', role: 'Participant Pass', date: 'May 12, 2026', link: 'https://drive.google.com/drive/folders/dummy-ard-1' },
-            { event: 'Algorithmic Coding Competition', role: 'Winner (1st Place)', date: 'June 15, 2026', link: 'https://drive.google.com/drive/folders/dummy-code-1' }
-        ]
+// Certificate Validation Database (Indexed by Student Full Name)
+const certDatabase = [
+    {
+        "name": "Muhammed Yaseen",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1TGGFkUKU-XAMpQuvORsz1EF_xwmKvSDb/view?usp=drivesdk"
     },
-    'UCE26085': {
-        name: 'Neha Kumari',
-        certificates: [
-            { event: 'Free VR Experience Event', role: 'Volunteer Organizer', date: 'April 10, 2026', link: 'https://drive.google.com/drive/folders/dummy-vr-1' }
-        ]
+    {
+        "name": "Muhammed shefin",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/18UZOK6wDtRsYwJ7FLE2efftwT5-R_XNh/view?usp=drivesdk"
+    },
+    {
+        "name": "Midhun Krishna",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1gg781pmO38B2-YA09jc5gXy_FGybYXyW/view?usp=drivesdk"
+    },
+    {
+        "name": "Muhammed Nihal",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1bMoXuM3mWaUBimLWs0GY8_UwaqyZQeoV/view?usp=drivesdk"
+    },
+    {
+        "name": "Mukhil",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1KGhLXCCdY6JK7bTDE0qi1kPz3k32UdtQ/view?usp=drivesdk"
+    },
+    {
+        "name": "Muhammed Irfaan P K",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1ytGE8rl21JkDrjBDLb6yG79pENcoGtu9/view?usp=drivesdk"
+    },
+    {
+        "name": "Meghanath Suresh",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/16f904Sro1gGPzt2tD7OCX_hhfY4fmHdm/view?usp=drivesdk"
+    },
+    {
+        "name": "Kishan joby",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1TfV2O9lukC45HKi-jfPTCBFYDGpXJ3Qa/view?usp=drivesdk"
+    },
+    {
+        "name": "JOYAL REJI",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1YdaOoCOB8Ueim_It569MWwWa-HCCY2ju/view?usp=drivesdk"
+    },
+    {
+        "name": "Kasinath Remesh",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1f7ciV9CS_H7NV7ts2N2NbjnWg4RPUB5i/view?usp=drivesdk"
+    },
+    {
+        "name": "Josin Jomon",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1spZDq-Kb2ee4ekHe-Quw1mwMgmNbjaDX/view?usp=drivesdk"
+    },
+    {
+        "name": "Jagan Rajeev",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/15jqJ3IE5jjF01S4Z6OrdRpfC2-_Oqzpf/view?usp=drivesdk"
+    },
+    {
+        "name": "Irfan Thaha",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1zKF60bpDHCRjn_oSL8w7L7B6jPIAVEb8/view?usp=drivesdk"
+    },
+    {
+        "name": "Jil Joj Jaison",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1TUItRb_SpNBiMEerCVPyTk2H2HIpZsEB/view?usp=drivesdk"
+    },
+    {
+        "name": "Joseph Benny",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1dqujoW1a7LaDvYKfbPJBG_VH0LZ0CBrH/view?usp=drivesdk"
+    },
+    {
+        "name": "Dibin Dinesh",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1UFNfll5oKGiMzQ4oigv0cqZgL1BKZA9X/view?usp=drivesdk"
+    },
+    {
+        "name": "GOKUL KRISHNA M M",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1W1bxivhAG6k8JXASOxvJLWqKnIy0d4g1/view?usp=drivesdk"
+    },
+    {
+        "name": "Harishankar S",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1kmIPWJdQj8SD6LA4hrNC06RLjru8RCuE/view?usp=drivesdk"
+    },
+    {
+        "name": "Irfan Mohammed",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1TWaDSj5v6tEzTPXwIH1sDuLijvFXaArH/view?usp=drivesdk"
+    },
+    {
+        "name": "Gayathri M",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/14caGCN0cb2HgHS3Yn-pGqQCvMXOpC_ME/view?usp=drivesdk"
+    },
+    {
+        "name": "Georgekutty Senni",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1hR_QraiPcLDHm9aKjbsWeEQmNUlhhwuR/view?usp=drivesdk"
+    },
+    {
+        "name": "Fathima Farzana N A",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1Z5f6mRmSaK5-bZ1YzzOPUfnanywluOAM/view?usp=drivesdk"
+    },
+    {
+        "name": "FARSEEN P",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1rg20rU9QagGnFH99Pow2bII0nyc0HRPu/view?usp=drivesdk"
+    },
+    {
+        "name": "Gautham Krishna",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1xS0frRibMoM0LhhstNCX4OvGaKN5Oekp/view?usp=drivesdk"
+    },
+    {
+        "name": "Athun k",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1Z5h28DBdVQd4yIrBlTjxfdxT43atJ9SQ/view?usp=drivesdk"
+    },
+    {
+        "name": "Devarjun Shibu",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1xXaAsW7rqrzlMq59xdg5ACHH0y3yBIyX/view?usp=drivesdk"
+    },
+    {
+        "name": "Asif",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1ODN9bJLufN3S_uErAJ7lyiVpyU_CqDUu/view?usp=drivesdk"
+    },
+    {
+        "name": "Athul Aravind",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/16uTsz3Wb5wQ3tkdjNgpp9r09Hp7-nF4Z/view?usp=drivesdk"
+    },
+    {
+        "name": "ATHUL T K",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1PBWmx6GAtTlWbH4F7e4LdnCVrA1__MMu/view?usp=drivesdk"
+    },
+    {
+        "name": "ANSAL TA",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1aXDexkef12X9AdjrqCY9ssZSPekU_8vz/view?usp=drivesdk"
+    },
+    {
+        "name": "Ashin Aji",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1Kx8bjRGGbA9_8_H1I_S3FnumDPEBhYPf/view?usp=drivesdk"
+    },
+    {
+        "name": "Anirudh Ajithkumar",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1VDtlW1EQKZsxj3rIaQ5oX3cJlJxy_oST/view?usp=drivesdk"
+    },
+    {
+        "name": "Aleesa muhammed",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1ocTOqFlJz8BGAIbIx84ypwTWCRuHdoc8/view?usp=drivesdk"
+    },
+    {
+        "name": "Anandhu A Nair",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1yKpDfFKVVbb8se2CWV4WiqliXijejIqe/view?usp=drivesdk"
+    },
+    {
+        "name": "Alfass",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1zurLSXWXDB9eDW5O32T274BbOJgLFJGx/view?usp=drivesdk"
+    },
+    {
+        "name": "Alphons CS",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1uNGghGL_B-tjwRb14IPTOPtxrtgHIxKD/view?usp=drivesdk"
+    },
+    {
+        "name": "Akshay sm",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/11DcNMM1Zbsi7XVbHzT4WzacwhT0IpvtX/view?usp=drivesdk"
+    },
+    {
+        "name": "Alan Biju",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1l8abC32z1c5HXEfQBz01vHwDwXjPavsi/view?usp=drivesdk"
+    },
+    {
+        "name": "ADWAITH MOHANAN",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/19l-4QJvc4HkuLqEL8hPF4OdH-TbN8-YY/view?usp=drivesdk"
+    },
+    {
+        "name": "Afeef shoukath",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1Ldo9RXrZq9w3nFbqbTduMlTRqv4Pc2zZ/view?usp=drivesdk"
+    },
+    {
+        "name": "Aimin Jayamon",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1RsO0efiNZcjFL59_Ob3UQf7ngFIJYrEB/view?usp=drivesdk"
+    },
+    {
+        "name": "Afthab p",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1hLt_89FnmmnZX3pHq00R24VzNcIb0O3L/view?usp=drivesdk"
+    },
+    {
+        "name": "Adhith B",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1SM-jY6bCyuVRlV37AF_Vkn34Rvtmwj7u/view?usp=drivesdk"
+    },
+    {
+        "name": "Viswas B Dev",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1gI078rBy1rpOe_9m0cXe9EuYBhC_8bO3/view?usp=drivesdk"
+    },
+    {
+        "name": "Abin joy",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1LxqeePPU2AHDCNhHWOOhW5CwbwTxy9U0/view?usp=drivesdk"
+    },
+    {
+        "name": "Abin C Varghese",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1c3T7eok6dfS_ecblp-ol33L2hrIfiAGM/view?usp=drivesdk"
+    },
+    {
+        "name": "Vishnupriya N M",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1jpyWTvkizlUIvfirsOacr3rn7EzdILy-/view?usp=drivesdk"
+    },
+    {
+        "name": "Vishakh",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1hYmCTFzPlNOEzhg3l6Um1sJh6eAnJnW3/view?usp=drivesdk"
+    },
+    {
+        "name": "VIGNESH N PRABODH",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1RGq_Brflml00iJAZ9j3Fcghrr1T0_oCj/view?usp=drivesdk"
+    },
+    {
+        "name": "YADHU KRISHNA C O",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/15EfjGv3ErAMfNW7_cHh_VYfmhgFNv9TR/view?usp=drivesdk"
+    },
+    {
+        "name": "Abhinav kp",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1c7S7cCXJCWStD_npufiLk2ugxjL4rgF4/view?usp=drivesdk"
+    },
+    {
+        "name": "Aadi R",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1swMleDrKCX_R2MiFATbAWb1LC8JWTEu3/view?usp=drivesdk"
+    },
+    {
+        "name": "Victor Varghese T",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1ALQD2RmOfRZCNkAFzPmaJ2JcVyKKRj-o/view?usp=drivesdk"
+    },
+    {
+        "name": "Tharakamal",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1nM0MgDKHdnAMXKT7w-ktBGyqiR9dRTbK/view?usp=drivesdk"
+    },
+    {
+        "name": "VIDYASAGAR P R",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1tVDRfDHRfYlQWj8oUdBP63VDcBTX0Jpi/view?usp=drivesdk"
+    },
+    {
+        "name": "Sana P",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/11j19LkVfwJj9rmNIr15sOGo289SVB_Cw/view?usp=drivesdk"
+    },
+    {
+        "name": "Sreyas shabu",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1S6-2oFClP6w4YBP9qwSBOSuGO2oisCqL/view?usp=drivesdk"
+    },
+    {
+        "name": "Sreekanth m",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1Wv_MxbeXPtRdpiGGUK0Km31yd-2MEIUz/view?usp=drivesdk"
+    },
+    {
+        "name": "Syed Ali S",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1tXNtRAPEtHX8uoAERgqt2zvu3tKDN97M/view?usp=drivesdk"
+    },
+    {
+        "name": "Sharon Felix",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/13zIey-n3frl_2i9k2xa6phCVmeh2Mxcz/view?usp=drivesdk"
+    },
+    {
+        "name": "Sidharth P",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1hanj310YH1VWD70PQnFY7aRRXnQ2AaVQ/view?usp=drivesdk"
+    },
+    {
+        "name": "Sreehari Subramanian P",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1DV3njwcB5uVMRYxPYxqCaNoqcCQPD9q0/view?usp=drivesdk"
+    },
+    {
+        "name": "Sahad tp",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1YIwnG9Or2QJoViJxtugz-I_j2A_sJEod/view?usp=drivesdk"
+    },
+    {
+        "name": "Reja Rayyan K F",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1ddoJbJvB39AIGN4fJQE242k1B9XbgOlT/view?usp=drivesdk"
+    },
+    {
+        "name": "Salahudheen",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1gJP_CLLcEVwXhXtcxOTg7AJSf-MrXC4G/view?usp=drivesdk"
+    },
+    {
+        "name": "Psalm Mathew John",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1eHDTxXPg8qevZ0q_XMz_uIvdo_PVYFyI/view?usp=drivesdk"
+    },
+    {
+        "name": "Pranith",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/15RdK8z5Y7LzcPx7g8qGgt6LJvV99zdG4/view?usp=drivesdk"
+    },
+    {
+        "name": "Oasis Joy",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1lOXAKwlHlfpcN5At_tUKbV5x7B5CTL4x/view?usp=drivesdk"
+    },
+    {
+        "name": "Prasanth P",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/15ipFwL0PBJfYr_hZ6T_MjS9wQVaKBQFE/view?usp=drivesdk"
+    },
+    {
+        "name": "Pranav R",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Participant Pass",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1Q2-JTwBxmRxpeb531nHo3enhgxle39Bl/view?usp=drivesdk"
+    },
+    {
+        "name": "ASHWIN ROY",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Winner / Merit Certificate",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1VZq40EV5vfNBya2oE9M8yE2NBDdxx-2A/view?usp=drivesdk"
+    },
+    {
+        "name": "EBIN GEORGE",
+        "event": "FIFA23 Gaming Tournament",
+        "role": "Winner / Merit Certificate",
+        "date": "July 24, 2026",
+        "link": "https://drive.google.com/file/d/1dyfgiGmqaVcx8tNXirtM5hleR5fpCfo1/view?usp=drivesdk"
+    },
+    {
+        "name": "Aditya Verma",
+        "event": "2-Day Arduino Learning Workshop",
+        "role": "Participant Pass",
+        "date": "May 12, 2026",
+        "link": "https://drive.google.com/file/d/sample-ard-1/view"
+    },
+    {
+        "name": "Neha Kumari",
+        "event": "Free VR Experience Event",
+        "role": "Volunteer Organizer",
+        "date": "April 10, 2026",
+        "link": "https://drive.google.com/file/d/sample-vr-1/view"
     }
-};
+];
 
 function verifyCertificate() {
     const certInput = document.getElementById('cert-input');
     const resultBox = document.getElementById('cert-result');
     const errorBox = document.getElementById('cert-error');
+    const errorText = document.getElementById('cert-error-text');
     
     if (!certInput || !resultBox || !errorBox) return;
 
-    const query = certInput.value.trim().toUpperCase(); // Case-insensitive lookup
+    const query = certInput.value.trim().toLowerCase();
     resultBox.classList.add('hidden');
     errorBox.classList.add('hidden');
 
-    if (dummyCertDB[query]) {
+    if (query.length < 3) {
+        if (errorText) errorText.textContent = "Please enter at least 3 characters of your name to search (e.g. Ebin or Ashwin).";
+        errorBox.classList.remove('hidden');
+        return;
+    }
+
+    // Name Search Engine: Case-insensitive match supporting spaces & underscores
+    const normQuery = query.replace(/_/g, ' ');
+    const matches = certDatabase.filter(item => {
+        if (!item.name) return false;
+        const normName = item.name.toLowerCase().replace(/_/g, ' ');
+        return normName.includes(normQuery);
+    });
+
+    if (matches.length > 0) {
         const studentName = document.getElementById('cert-student-name');
-        const regNo = document.getElementById('cert-reg-no');
         const certList = document.getElementById('cert-list');
-        
-        if (studentName) studentName.innerText = dummyCertDB[query].name;
-        if (regNo) regNo.innerText = query;
+
+        // Extract distinct student names found
+        const namesFound = [...new Set(matches.map(m => m.name))].join(', ');
+        if (studentName) studentName.textContent = namesFound;
         
         if (certList) {
-            certList.innerHTML = ''; // Clear previous searches
+            certList.innerHTML = ''; // Clear previous results
             
-            dummyCertDB[query].certificates.forEach(cert => {
-                // Build DOM safely to prevent XSS — no innerHTML with dynamic data
+            matches.forEach(cert => {
                 const item = document.createElement('div');
-                item.className = 'p-3 bg-white/5 border border-white/10 rounded flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 hover:border-brand-cyan/35 transition-colors';
+                item.className = 'p-3.5 bg-white/5 border border-white/10 rounded flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 hover:border-brand-cyan/35 transition-colors';
 
                 const infoDiv = document.createElement('div');
 
                 const eventSpan = document.createElement('span');
-                eventSpan.className = 'text-[9px] font-mono text-brand-cyan uppercase tracking-widest block';
+                eventSpan.className = 'text-[9px] font-mono text-brand-cyan uppercase tracking-widest block font-semibold';
                 eventSpan.textContent = cert.event;
                 infoDiv.appendChild(eventSpan);
 
                 const roleSpan = document.createElement('span');
                 roleSpan.className = 'text-white font-bold block text-xs mt-0.5';
-                roleSpan.textContent = cert.role;
+                roleSpan.textContent = cert.name + ' — ' + cert.role;
                 infoDiv.appendChild(roleSpan);
 
                 const dateSpan = document.createElement('span');
-                dateSpan.className = 'text-[9px] text-slate-500 block';
+                dateSpan.className = 'text-[9px] text-slate-500 block font-mono mt-0.5';
                 dateSpan.textContent = 'AWARDED: ' + cert.date;
                 infoDiv.appendChild(dateSpan);
 
                 item.appendChild(infoDiv);
 
-                // Validate cert.link is a safe URL before creating the link
                 const link = document.createElement('a');
                 const safeUrl = (cert.link && (cert.link.startsWith('https://') || cert.link.startsWith('http://'))) ? cert.link : '#';
                 link.href = safeUrl;
@@ -195,6 +713,7 @@ function verifyCertificate() {
         
         resultBox.classList.remove('hidden');
     } else {
+        if (errorText) errorText.textContent = `No certificate records found for "${certInput.value.trim()}". Please check your name spelling.`;
         errorBox.classList.remove('hidden');
     }
 }
@@ -385,6 +904,17 @@ window.addEventListener('DOMContentLoaded', () => {
     initLeaves();
     initMobileMenu();
     highlightNav();
+
+    // Enable Enter key search on certificate input
+    const certInput = document.getElementById('cert-input');
+    if (certInput) {
+        certInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                verifyCertificate();
+            }
+        });
+    }
 });
 
 // Update active highlight when hash changes
