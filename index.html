@@ -54,6 +54,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom Shared Stylesheet -->
     <link rel="stylesheet" href="shared.css">
+    
+    <!-- Static Desktop Spacing Overrides -->
+    <style>
+        @media (min-width: 1024px) {
+            #home {
+                min-height: 82vh !important;
+            }
+            main > section + section {
+                margin-top: 165px !important; /* Reduced by ~25% for optimal desktop scroll reveal */
+            }
+        }
+    </style>
 </head>
 <body class="text-slate-300 antialiased min-h-screen flex flex-col justify-between relative pt-6">
 
@@ -121,17 +133,17 @@
     </div>
 
     <!-- MAIN VERTICALLY SCROLLABLE CONTENT -->
-    <main class="relative z-10 max-w-7xl mx-auto px-6 w-full flex-1 flex flex-col space-y-32 my-12">
+    <main class="relative z-10 max-w-7xl mx-auto px-6 w-full flex-1 flex flex-col space-y-24 lg:space-y-48 my-10 lg:my-16">
 
         <!-- ================= HOME / HERO SECTION ================= -->
-        <section id="home" class="scroll-mt-28 py-20 min-h-[80vh] flex items-center grid grid-cols-1 lg:grid-cols-12 gap-12 relative active-section">
+        <section id="home" class="scroll-mt-28 py-12 lg:py-16 lg:min-h-[90vh] grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative active-section">
             <!-- Left Info Block -->
             <div class="lg:col-span-8 space-y-8">
                 <div class="inline-flex items-center gap-2 px-3 py-1 bg-white/5 border border-white/10 rounded-full backdrop-blur-md">
                     <span class="w-2 h-2 rounded-full bg-brand-pink animate-pulse"></span>
                     <span class="font-mono text-[10px] text-brand-pink tracking-wider uppercase">UCE ROBOTICS LABORATORY STATION</span>
                 </div>
-                <h1 class="text-5xl sm:text-7xl font-extrabold tracking-tight text-white leading-none">
+                <h1 class="text-5xl sm:text-7xl font-extrabold tracking-tight text-white leading-tight">
                     Innovate, compete, <br>
                     and <span class="gradient-text-pink-orange font-mono">collaborate</span>
                 </h1>
@@ -168,7 +180,7 @@
         </section>
 
         <!-- ================= GALLERY SECTION ================= -->
-        <section id="about" class="scroll-mt-28 py-16 flex flex-col justify-center space-y-12 active-section">
+        <section id="about" class="scroll-mt-28 py-12 flex flex-col justify-center space-y-12 active-section">
             <div class="max-w-3xl space-y-4">
                 <span class="text-xs font-mono text-brand-orange uppercase tracking-widest block">01 / PHOTO GALLERY</span>
                 <h2 class="text-4xl font-extrabold text-white">Showcase of Past Events</h2>
@@ -182,7 +194,7 @@
         </section>
 
         <!-- ================= MEMBERSHIP SECTION ================= -->
-        <section id="membership" class="scroll-mt-28 py-16 flex flex-col justify-center items-center text-center space-y-12 active-section w-full">
+        <section id="membership" class="scroll-mt-28 py-12 flex flex-col justify-center items-center text-center space-y-12 active-section w-full">
             <div class="max-w-3xl space-y-4">
                 <span class="text-xs font-mono text-brand-orange uppercase tracking-widest block">05 / REGISTER MEMBERSHIP</span>
                 <h2 class="text-4xl font-extrabold text-white">Membership Registration</h2>
@@ -231,7 +243,7 @@
                                     <span class="text-[8px] text-red-500 uppercase tracking-widest block mt-1 font-mono">Closed for now</span>
                                 </div>
                                 <div class="title">PAUSED<span class="text-[9px] text-red-500 block mt-1 font-bold">REGISTRATION</span></div>
-                                <div class="subtitle">RENEWALS OPEN SOON <span class="highlight">1ST YEARS</span></div>
+                                <div class="subtitle"><span class="highlight">MEMBERSHIP OPENS SOON</span></div>
                                 <div class="glowing-elements">
                                     <div class="glow-1"></div>
                                     <div class="glow-2"></div>
