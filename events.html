@@ -147,15 +147,180 @@
                 </p>
             </div>
 
-            <!-- Event tickets placeholder -->
-            <div class="p-8 glass-panel rounded-lg border border-dashed border-white/20 text-center space-y-4 max-w-xl w-full mx-auto">
-                <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mx-auto text-brand-orange animate-pulse">
-                    <i class="fa-solid fa-calendar-days text-xl"></i>
+            <!-- Upcoming Events Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Upcoming Event 1: Capture The Flag (CTF) Challenge -->
+                <div class="p-5 md:p-6 glass-panel rounded-2xl hover:border-brand-cyan/35 transition-all duration-300 space-y-5 shadow-xl flex flex-col justify-between group border border-white/5">
+                    <div class="space-y-4">
+                        <!-- Header Status & Audience Pills -->
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-mono font-bold bg-brand-cyan/10 text-brand-cyan border border-brand-cyan/20">
+                                <span class="w-2 h-2 rounded-full bg-brand-cyan animate-pulse"></span>
+                                COMING SOON
+                            </span>
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-mono text-slate-300 bg-white/5 border border-white/10">
+                                <i class="fa-solid fa-users text-brand-cyan text-xs"></i>
+                                ALL STUDENTS ELIGIBLE
+                            </span>
+                        </div>
+
+                        <!-- Minimal Cyber Header Banner -->
+                        <div class="w-full rounded-xl overflow-hidden border border-white/5 bg-slate-950/60 relative p-4 sm:p-5 flex flex-col justify-between group-hover:border-brand-cyan/20 transition-colors">
+                            <div class="absolute inset-0 bg-gradient-to-br from-brand-cyan/10 via-transparent to-black/60 pointer-events-none"></div>
+                            <div class="grid-bg opacity-30"></div>
+                            <div class="relative z-10 flex items-center justify-between pb-3">
+                                <span class="text-[10px] font-mono text-brand-cyan uppercase tracking-widest font-semibold flex items-center gap-1.5">
+                                    <i class="fa-solid fa-shield-halved text-xs"></i>
+                                    2-HOUR LAB CTF
+                                </span>
+                                <span class="text-[10px] font-mono text-slate-500">CAMPUS LAB</span>
+                            </div>
+                            <div class="relative z-10 pt-2 border-t border-white/5 flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-lg bg-brand-cyan/10 border border-brand-cyan/25 flex items-center justify-center text-brand-cyan flex-shrink-0">
+                                    <i class="fa-solid fa-terminal text-sm"></i>
+                                </div>
+                                <div class="min-w-0">
+                                    <span class="text-[9px] font-mono text-slate-400 uppercase tracking-widest block truncate">JEOPARDY-STYLE HACKATHON</span>
+                                    <h3 class="text-base font-bold text-white leading-tight">Capture The Flag (CTF) Challenge</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Description -->
+                        <p class="text-xs text-slate-300 font-mono leading-relaxed">
+                            A fast-paced 2-hour Capture The Flag (CTF) challenge hosted directly in the college computer lab. All systems and hardware will be provided on-site — please do not bring any personal devices or laptops. Open to all students across all branches and batches.
+                        </p>
+
+                        <!-- Key Event Details Grid -->
+                        <div class="p-3.5 bg-slate-950/40 rounded-xl border border-white/5 space-y-2.5 font-mono text-xs">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px]">
+                                <div class="flex items-center gap-2 text-slate-400">
+                                    <i class="fa-solid fa-clock text-brand-cyan text-xs"></i>
+                                    <span>Duration: <strong class="text-white">2 Hours</strong></span>
+                                </div>
+                                <div class="flex items-center gap-2 text-slate-400">
+                                    <i class="fa-solid fa-desktop text-brand-cyan text-xs"></i>
+                                    <span>Venue: <strong class="text-white">College Lab (Provided)</strong></span>
+                                </div>
+                                <div class="flex items-center gap-2 text-slate-400">
+                                    <i class="fa-solid fa-ban text-brand-cyan text-xs"></i>
+                                    <span>Devices: <strong class="text-white">Do Not Bring Any</strong></span>
+                                </div>
+                                <div class="flex items-center gap-2 text-slate-400">
+                                    <i class="fa-solid fa-graduation-cap text-brand-cyan text-xs"></i>
+                                    <span>Eligibility: <strong class="text-white">All Students</strong></span>
+                                </div>
+                            </div>
+
+                            <!-- Benefits Row (Duty Leave, Points, Certificates) -->
+                            <div class="pt-2 border-t border-white/5 flex flex-wrap items-center gap-x-4 gap-y-1 text-[10px] text-slate-300">
+                                <span class="flex items-center gap-1.5 text-brand-cyan">
+                                    <i class="fa-solid fa-circle-check text-xs"></i> Duty Leave (DL) for Class
+                                </span>
+                                <span class="flex items-center gap-1.5 text-brand-cyan">
+                                    <i class="fa-solid fa-circle-check text-xs"></i> Activity Points
+                                </span>
+                                <span class="flex items-center gap-1.5 text-brand-cyan">
+                                    <i class="fa-solid fa-circle-check text-xs"></i> Certificates Given
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Footer Action -->
+                    <div class="pt-3 border-t border-white/5 flex flex-wrap items-center justify-between gap-3">
+                        <span class="text-[10px] font-mono text-slate-500 uppercase flex items-center gap-1.5">
+                            <i class="fa-regular fa-calendar-check text-brand-cyan"></i> DATE & LAB SLOTS TBA
+                        </span>
+                        <a href="suggestions.html" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-brand-cyan/10 hover:bg-brand-cyan/20 border border-brand-cyan/25 text-brand-cyan hover:text-white text-xs font-mono font-semibold transition-all">
+                            <i class="fa-solid fa-paper-plane text-[10px]"></i>
+                            <span>Ask / Suggest</span>
+                        </a>
+                    </div>
                 </div>
-                <h3 class="text-lg font-bold text-white">No Upcoming Events Scheduled</h3>
-                <p class="text-xs text-slate-400 font-mono leading-relaxed">
-                    We are currently planning our agenda for the next academic semester. Check back soon for announcements on upcoming technical workshops and coding competitions!
-                </p>
+
+                <!-- Upcoming Event 2: Exclusive First-Year Event -->
+                <div class="p-5 md:p-6 glass-panel rounded-2xl hover:border-brand-orange/35 transition-all duration-300 space-y-5 shadow-xl flex flex-col justify-between group border border-white/5">
+                    <div class="space-y-4">
+                        <!-- Header Status & Audience Pills -->
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-mono font-bold bg-brand-orange/10 text-brand-orange border border-brand-orange/20">
+                                <span class="w-2 h-2 rounded-full bg-brand-orange animate-pulse"></span>
+                                IN PLANNING
+                            </span>
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-mono text-brand-orange bg-brand-orange/10 border border-brand-orange/20 font-bold">
+                                <i class="fa-solid fa-user-graduate text-brand-orange text-xs"></i>
+                                1ST YEARS EXCLUSIVE
+                            </span>
+                        </div>
+
+                        <!-- Minimal Cyber Header Banner -->
+                        <div class="w-full rounded-xl overflow-hidden border border-white/5 bg-slate-950/60 relative p-4 sm:p-5 flex flex-col justify-between group-hover:border-brand-orange/20 transition-colors">
+                            <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/10 via-transparent to-black/60 pointer-events-none"></div>
+                            <div class="grid-bg opacity-30"></div>
+                            <div class="relative z-10 flex items-center justify-between pb-3">
+                                <span class="text-[10px] font-mono text-brand-orange uppercase tracking-widest font-semibold flex items-center gap-1.5">
+                                    <i class="fa-solid fa-lightbulb text-xs"></i>
+                                    FRESHERS SPECIAL
+                                </span>
+                                <span class="text-[10px] font-mono text-slate-500">FORMAT UNDECIDED</span>
+                            </div>
+                            <div class="relative z-10 pt-2 border-t border-white/5 flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-lg bg-brand-orange/10 border border-brand-orange/25 flex items-center justify-center text-brand-orange flex-shrink-0">
+                                    <i class="fa-solid fa-comments text-sm"></i>
+                                </div>
+                                <div class="min-w-0">
+                                    <span class="text-[9px] font-mono text-slate-400 uppercase tracking-widest block truncate">COMMUNITY VOTING</span>
+                                    <h3 class="text-base font-bold text-white leading-tight">Exclusive First-Year Event</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Description -->
+                        <p class="text-xs text-slate-300 font-mono leading-relaxed">
+                            An exclusive event is planned specifically for our first-year students, but the exact format is currently undecided! We want your direct input to decide what we host — whether you'd like a hands-on robotics or hardware workshop, a beginner coding contest, a tech quiz, project showcase, or a gaming tournament.
+                        </p>
+
+                        <!-- Key Event Details Grid & Suggestion Prompt -->
+                        <div class="p-3.5 bg-slate-950/40 rounded-xl border border-white/5 space-y-2.5 font-mono text-xs">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px]">
+                                <div class="flex items-center gap-2 text-slate-400">
+                                    <i class="fa-solid fa-user-lock text-brand-orange text-xs"></i>
+                                    <span>Audience: <strong class="text-brand-orange">First Years Only</strong></span>
+                                </div>
+                                <div class="flex items-center gap-2 text-slate-400">
+                                    <i class="fa-solid fa-compass text-brand-orange text-xs"></i>
+                                    <span>Status: <strong class="text-white">Undecided / Open</strong></span>
+                                </div>
+                                <div class="flex items-center gap-2 text-slate-400">
+                                    <i class="fa-solid fa-vote-yea text-brand-orange text-xs"></i>
+                                    <span>Format: <strong class="text-white">Student Choice</strong></span>
+                                </div>
+                                <div class="flex items-center gap-2 text-slate-400">
+                                    <i class="fa-solid fa-award text-brand-orange text-xs"></i>
+                                    <span>Perks: <strong class="text-white">Prizes & Fun</strong></span>
+                                </div>
+                            </div>
+
+                            <!-- Open Suggestions Prompt -->
+                            <div class="pt-2 border-t border-white/5 flex items-center gap-2 text-[10px] text-slate-300">
+                                <i class="fa-solid fa-lightbulb text-brand-orange text-xs flex-shrink-0"></i>
+                                <span>Tell us what you want: Workshops, Coding Contests, Tech Quizzes, or Gaming!</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Footer Action -->
+                    <div class="pt-3 border-t border-white/5 flex flex-wrap items-center justify-between gap-3">
+                        <span class="text-[10px] font-mono text-slate-500 uppercase flex items-center gap-1.5">
+                            <i class="fa-solid fa-bullhorn text-brand-orange"></i> SUGGESTIONS ACTIVE
+                        </span>
+                        <a href="suggestions.html" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-brand-orange/15 hover:bg-brand-orange/25 border border-brand-orange/30 text-brand-orange hover:text-white text-xs font-mono font-semibold transition-all">
+                            <i class="fa-solid fa-comment-dots text-[10px]"></i>
+                            <span>Leave a Suggestion</span>
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
 
