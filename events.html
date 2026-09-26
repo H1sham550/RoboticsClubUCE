@@ -150,92 +150,94 @@
             <!-- Upcoming Events Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Upcoming Event 1: Capture The Flag (CTF) Challenge -->
-                <div class="p-5 md:p-6 glass-panel rounded-2xl hover:border-brand-cyan/35 transition-all duration-300 space-y-5 shadow-xl flex flex-col justify-between group border border-white/5">
+                <div class="p-6 md:p-7 glass-panel rounded-2xl hover:border-brand-cyan/40 transition-all duration-300 space-y-5 shadow-2xl flex flex-col justify-between group border border-white/10 relative overflow-hidden">
+                    <div class="absolute -top-12 -right-12 w-44 h-44 bg-brand-cyan/10 rounded-full blur-3xl pointer-events-none"></div>
+
                     <div class="space-y-4">
-                        <!-- Header Status & Audience Pills -->
+                        <!-- Top Status & Capacity Badges -->
                         <div class="flex flex-wrap items-center justify-between gap-2">
-                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-mono font-bold bg-brand-cyan/10 text-brand-cyan border border-brand-cyan/20">
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-brand-cyan/15 text-brand-cyan border border-brand-cyan/30">
                                 <span class="w-2 h-2 rounded-full bg-brand-cyan animate-pulse"></span>
-                                COMING SOON
+                                REGISTRATIONS OPEN
                             </span>
-                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-mono text-slate-300 bg-white/5 border border-white/10">
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono text-slate-300 bg-white/5 border border-white/10">
                                 <i class="fa-solid fa-users text-brand-cyan text-xs"></i>
-                                ALL STUDENTS ELIGIBLE
+                                2 MEMBERS · MAX 20 TEAMS
                             </span>
                         </div>
 
                         <!-- Minimal Cyber Header Banner -->
-                        <div class="w-full rounded-xl overflow-hidden border border-white/5 bg-slate-950/60 relative p-4 sm:p-5 flex flex-col justify-between group-hover:border-brand-cyan/20 transition-colors">
-                            <div class="absolute inset-0 bg-gradient-to-br from-brand-cyan/10 via-transparent to-black/60 pointer-events-none"></div>
-                            <div class="grid-bg opacity-30"></div>
-                            <div class="relative z-10 flex items-center justify-between pb-3">
-                                <span class="text-[10px] font-mono text-brand-cyan uppercase tracking-widest font-semibold flex items-center gap-1.5">
-                                    <i class="fa-solid fa-shield-halved text-xs"></i>
-                                    2-HOUR LAB CTF
-                                </span>
-                                <span class="text-[10px] font-mono text-slate-500">CAMPUS LAB</span>
+                        <div class="w-full rounded-xl overflow-hidden border border-white/10 bg-slate-950/70 relative p-4 sm:p-5 flex items-center gap-4 group-hover:border-brand-cyan/30 transition-colors">
+                            <div class="w-12 h-12 rounded-xl bg-brand-cyan/15 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan flex-shrink-0 shadow-[0_0_15px_rgba(0,245,255,0.25)]">
+                                <i class="fa-solid fa-shield-halved text-xl"></i>
                             </div>
-                            <div class="relative z-10 pt-2 border-t border-white/5 flex items-center gap-3">
-                                <div class="w-10 h-10 rounded-lg bg-brand-cyan/10 border border-brand-cyan/25 flex items-center justify-center text-brand-cyan flex-shrink-0">
-                                    <i class="fa-solid fa-terminal text-sm"></i>
-                                </div>
-                                <div class="min-w-0">
-                                    <span class="text-[9px] font-mono text-slate-400 uppercase tracking-widest block truncate">JEOPARDY-STYLE HACKATHON</span>
-                                    <h3 class="text-base font-bold text-white leading-tight">Capture The Flag (CTF) Challenge</h3>
-                                </div>
+                            <div class="min-w-0">
+                                <span class="text-[10px] font-mono text-brand-cyan uppercase tracking-widest block font-bold">2-HOUR LAB CTF // JEOPARDY-STYLE</span>
+                                <h3 class="text-xl sm:text-2xl font-black text-white leading-tight">Capture The Flag Challenge</h3>
                             </div>
                         </div>
 
-                        <!-- Description -->
-                        <p class="text-xs text-slate-300 font-mono leading-relaxed">
-                            A fast-paced 2-hour Capture The Flag (CTF) challenge hosted directly in the college computer lab. All systems and hardware will be provided on-site — please do not bring any personal devices or laptops. Open to all students across all branches and batches.
-                        </p>
+                        <!-- Minimal High-Level Strip (Fee & Hardware provided) -->
+                        <div class="grid grid-cols-2 gap-3 p-3 bg-slate-950/60 rounded-xl border border-white/5 text-xs font-mono">
+                            <div class="flex items-center gap-2 text-slate-300">
+                                <i class="fa-solid fa-tag text-brand-cyan text-sm"></i>
+                                <span>Fee: <strong class="text-brand-cyan">From ₹20/head</strong></span>
+                            </div>
+                            <div class="flex items-center gap-2 text-slate-300">
+                                <i class="fa-solid fa-desktop text-brand-cyan text-sm"></i>
+                                <span>Lab: <strong class="text-white">Systems Provided</strong></span>
+                            </div>
+                        </div>
 
-                        <!-- Key Event Details Grid -->
-                        <div class="p-3.5 bg-slate-950/40 rounded-xl border border-white/5 space-y-2.5 font-mono text-xs">
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px]">
-                                <div class="flex items-center gap-2 text-slate-400">
+                        <!-- BIG PROMINENT REGISTER BUTTON -->
+                        <button type="button" onclick="openRegistrationModal('ctf-2026')" class="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-brand-cyan via-brand-cyan to-white hover:brightness-110 text-slate-950 font-mono font-black text-sm sm:text-base uppercase tracking-wider transition-all duration-300 shadow-[0_0_25px_rgba(0,245,255,0.45)] hover:shadow-[0_0_35px_rgba(0,245,255,0.8)] active:scale-[0.99] flex items-center justify-center gap-3 cursor-pointer">
+                            <i class="fa-solid fa-ticket text-slate-950 text-lg"></i>
+                            <span>REGISTER TEAM NOW</span>
+                            <i class="fa-solid fa-arrow-right text-slate-950 text-sm"></i>
+                        </button>
+
+                        <!-- Read More Toggle Row & Query Link -->
+                        <div class="flex items-center justify-between pt-1">
+                            <button type="button" onclick="toggleCtfDetails(this)" class="inline-flex items-center gap-2 text-xs font-mono text-slate-400 hover:text-brand-cyan transition-colors cursor-pointer group/toggle">
+                                <span class="toggle-text font-semibold">View Event Details, Rules & Perks</span>
+                                <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-300"></i>
+                            </button>
+                            <a href="suggestions.html" class="inline-flex items-center gap-1.5 text-xs font-mono text-slate-500 hover:text-white transition-colors" title="Have questions? Ask the club">
+                                <i class="fa-solid fa-circle-question text-[10px]"></i>
+                                <span>Query</span>
+                            </a>
+                        </div>
+
+                        <!-- Expandable Details Drawer (Collapsible) -->
+                        <div id="ctf-details-drawer" class="hidden space-y-3 pt-3 border-t border-white/10 font-mono text-xs text-slate-300">
+                            <p class="leading-relaxed text-slate-400 text-[11px]">
+                                A fast-paced 2-hour Capture The Flag (CTF) challenge hosted directly in the college computer lab. All systems and hardware will be provided on-site — please do not bring personal devices or laptops. Open to all branches and years.
+                            </p>
+                            
+                            <div class="p-3 bg-slate-950/70 rounded-xl border border-white/5 space-y-2 text-[11px]">
+                                <div class="flex items-center gap-2 text-slate-300">
                                     <i class="fa-solid fa-clock text-brand-cyan text-xs"></i>
-                                    <span>Duration: <strong class="text-white">2 Hours</strong></span>
+                                    <span>Duration: <strong class="text-white">2 Hours Lab Session</strong></span>
                                 </div>
-                                <div class="flex items-center gap-2 text-slate-400">
-                                    <i class="fa-solid fa-desktop text-brand-cyan text-xs"></i>
-                                    <span>Venue: <strong class="text-white">College Lab (Provided)</strong></span>
-                                </div>
-                                <div class="flex items-center gap-2 text-slate-400">
-                                    <i class="fa-solid fa-ban text-brand-cyan text-xs"></i>
-                                    <span>Devices: <strong class="text-white">Do Not Bring Any</strong></span>
-                                </div>
-                                <div class="flex items-center gap-2 text-slate-400">
-                                    <i class="fa-solid fa-graduation-cap text-brand-cyan text-xs"></i>
-                                    <span>Eligibility: <strong class="text-white">All Students</strong></span>
+                                <div class="flex items-center gap-2 text-slate-300">
+                                    <i class="fa-solid fa-indian-rupee-sign text-brand-cyan text-xs"></i>
+                                    <span>Pricing: <strong class="text-brand-cyan">₹40</strong> (Both Members) · <strong class="text-brand-cyan">₹50</strong> (1 Member) · <strong class="text-white">₹60</strong> (Non-Members)</span>
                                 </div>
                             </div>
 
-                            <!-- Benefits Row (Duty Leave, Points, Certificates) -->
-                            <div class="pt-2 border-t border-white/5 flex flex-wrap items-center gap-x-4 gap-y-1 text-[10px] text-slate-300">
-                                <span class="flex items-center gap-1.5 text-brand-cyan">
-                                    <i class="fa-solid fa-circle-check text-xs"></i> Duty Leave (DL) for Class
+                            <!-- Perks List -->
+                            <div class="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-[11px] text-slate-300 pt-1">
+                                <span class="flex items-center gap-1.5 text-brand-cyan font-semibold">
+                                    <i class="fa-solid fa-circle-check text-xs"></i> Duty Leave (DL) Granted
                                 </span>
-                                <span class="flex items-center gap-1.5 text-brand-cyan">
-                                    <i class="fa-solid fa-circle-check text-xs"></i> Activity Points
+                                <span class="flex items-center gap-1.5 text-brand-cyan font-semibold">
+                                    <i class="fa-solid fa-circle-check text-xs"></i> KTU Activity Points
                                 </span>
-                                <span class="flex items-center gap-1.5 text-brand-cyan">
-                                    <i class="fa-solid fa-circle-check text-xs"></i> Certificates Given
+                                <span class="flex items-center gap-1.5 text-brand-cyan font-semibold">
+                                    <i class="fa-solid fa-circle-check text-xs"></i> Official Certificates
                                 </span>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Footer Action -->
-                    <div class="pt-3 border-t border-white/5 flex flex-wrap items-center justify-between gap-3">
-                        <span class="text-[10px] font-mono text-slate-500 uppercase flex items-center gap-1.5">
-                            <i class="fa-regular fa-calendar-check text-brand-cyan"></i> DATE & LAB SLOTS TBA
-                        </span>
-                        <a href="suggestions.html" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-brand-cyan/10 hover:bg-brand-cyan/20 border border-brand-cyan/25 text-brand-cyan hover:text-white text-xs font-mono font-semibold transition-all">
-                            <i class="fa-solid fa-paper-plane text-[10px]"></i>
-                            <span>Ask / Suggest</span>
-                        </a>
                     </div>
                 </div>
 
@@ -799,6 +801,450 @@
                     <img id="lightbox-img" src="" alt="Enlarged photo" class="max-w-full max-h-[85vh] rounded-2xl border border-white/10 shadow-2xl object-contain select-none" style="transform:scale(0.9);transition:transform 0.3s ease, opacity 0.2s ease" onclick="event.stopPropagation()">
                 </div>
             </div>
+
+    <!-- ================= GOOGLE FORM STYLE EVENT REGISTRATION MODAL ================= -->
+    <div id="event-reg-modal" class="fixed inset-0 hidden overflow-y-auto" style="z-index:99990;background:rgba(0,0,0,0.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);opacity:0;transition:opacity 0.25s ease;" onclick="if(event.target === this) closeRegistrationModal()">
+        <!-- Centering wrapper: min-height:100vh ensures full-height flex context for reliable vertical centering -->
+        <div style="min-height:100vh;display:flex;align-items:center;justify-content:center;padding:48px 16px;box-sizing:border-box;">
+        
+        <!-- Focused Modal Card Container with Sticky Action Footer -->
+        <div class="modal-card-content w-full max-w-xl relative flex flex-col bg-slate-900/95 border border-white/15 rounded-2xl shadow-2xl overflow-hidden" style="transform:scale(0.96);transition:transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);max-height:calc(100vh - 96px);height:calc(100vh - 96px);">
+            
+            <!-- Top Fixed Strip & Header -->
+            <div class="flex-shrink-0 bg-slate-900 border-b border-white/10 relative">
+                <!-- Color Strip -->
+                <div class="h-2 w-full bg-gradient-to-r from-brand-cyan via-brand-pink to-brand-orange"></div>
+                
+                <div class="p-5 sm:p-6 pb-4 space-y-2">
+                    <div class="flex items-start justify-between gap-4">
+                        <div class="space-y-1">
+                            <span class="text-[10px] font-mono font-bold text-brand-cyan uppercase tracking-widest block">
+                                ROBOTICS CLUB UCE // EVENT REGISTRATION
+                            </span>
+                            <h2 class="text-xl sm:text-2xl font-black text-white tracking-tight">Capture The Flag Challenge</h2>
+                        </div>
+                        <button type="button" onclick="closeRegistrationModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 flex items-center justify-center text-slate-300 hover:text-white transition-colors cursor-pointer flex-shrink-0" title="Close" aria-label="Close modal">
+                            <i class="fa-solid fa-xmark text-sm"></i>
+                        </button>
+                    </div>
+
+                    <!-- Progress & Required Notice -->
+                    <div class="pt-2 flex flex-wrap items-center justify-between gap-2 text-xs font-mono">
+                        <div class="flex items-center gap-2">
+                            <span id="gform-step-badge" class="px-2.5 py-0.5 rounded-full bg-brand-cyan/15 text-brand-cyan font-bold border border-brand-cyan/30 text-[11px]">
+                                Page 1 of 2
+                            </span>
+                            <span id="gform-step-title" class="text-slate-300 font-semibold text-xs">Team & Participant Details</span>
+                        </div>
+                        <span class="text-red-400 font-semibold text-[11px]">* Required</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Container with Scrollable Body and Sticky Footer -->
+            <form id="event-registration-form" onsubmit="handleEventRegistration(event)" class="flex flex-col flex-1" style="min-height:0;overflow:hidden;">
+                
+                <!-- Honeypot anti-spam trap -->
+                <div style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true">
+                    <label for="reg-website-pot">Leave empty</label>
+                    <input type="text" id="reg-website-pot" tabindex="-1" autocomplete="off">
+                </div>
+
+                <!-- Scrollable Body Content -->
+                <div id="modal-scroll-body" class="flex-1 p-4 sm:p-6 space-y-4" style="overflow-y:auto;min-height:0;">
+                    
+                    <!-- ================= STEP 1: PARTICIPANT DETAILS ================= -->
+                    <div id="reg-step-1" class="space-y-4">
+                        
+                        <!-- CARD: Team Name -->
+                        <div class="bg-slate-950/70 border border-white/10 rounded-2xl p-4 sm:p-5 shadow-lg space-y-2">
+                            <label for="reg-team-name" class="block text-sm font-bold text-white">
+                                Team Name <span class="text-red-400 font-bold">*</span>
+                            </label>
+                            <p class="text-xs text-slate-400 font-mono">Handle displayed on lab scoreboards & leaderboards</p>
+                            <input type="text" id="reg-team-name" class="reg-input" placeholder="e.g. CyberKnights" required>
+                        </div>
+
+                        <!-- CARD: Member 1 (Team Leader) -->
+                        <div class="bg-slate-950/70 border border-white/10 rounded-2xl p-4 sm:p-5 shadow-lg space-y-3.5">
+                            <div class="flex items-center gap-2 pb-2 border-b border-white/10">
+                                <i class="fa-solid fa-crown text-yellow-400 text-sm"></i>
+                                <h3 class="text-xs font-bold text-white uppercase tracking-wider font-mono">Member 1 (Team Leader)</h3>
+                            </div>
+
+                            <div class="space-y-1.5">
+                                <label for="reg-m1-name" class="block text-xs font-semibold text-slate-200">
+                                    Full Name <span class="text-red-400">*</span>
+                                </label>
+                                <input type="text" id="reg-m1-name" class="reg-input" placeholder="Enter full name" required>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <div class="space-y-1.5">
+                                    <label for="reg-m1-dept" class="block text-xs font-semibold text-slate-200">
+                                        Department <span class="text-red-400">*</span>
+                                    </label>
+                                    <select id="reg-m1-dept" class="reg-input cursor-pointer" required>
+                                        <option value="" disabled selected>Select branch</option>
+                                        <option value="CSE">CSE (Computer Science)</option>
+                                        <option value="CY">CY (Cyber Security)</option>
+                                        <option value="AD">AD (AI & Data Science)</option>
+                                        <option value="EEE">EEE (Electrical & Electronics)</option>
+                                        <option value="EE">EE (Electronics Engineering)</option>
+                                        <option value="PO">PO (Polymer Engineering)</option>
+                                    </select>
+                                </div>
+
+                                <div class="space-y-1.5">
+                                    <label for="reg-m1-year" class="block text-xs font-semibold text-slate-200">
+                                        Semester / Year <span class="text-red-400">*</span>
+                                    </label>
+                                    <select id="reg-m1-year" class="reg-input cursor-pointer" required>
+                                        <option value="" disabled selected>Select semester</option>
+                                        <option value="S1">S1 (1st Year)</option>
+                                        <option value="S3">S3 (2nd Year)</option>
+                                        <option value="S5">S5 (3rd Year)</option>
+                                        <option value="S7">S7 (4th Year)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="space-y-1.5">
+                                <label for="reg-m1-phone" class="block text-xs font-semibold text-slate-200">
+                                    WhatsApp Mobile Number <span class="text-red-400">*</span>
+                                </label>
+                                <input type="tel" id="reg-m1-phone" class="reg-input" placeholder="10-digit number (e.g. 9876543210)" pattern="[0-9]{10}" maxlength="10" required>
+                            </div>
+                        </div>
+
+                        <!-- CARD: Member 2 (Teammate) -->
+                        <div class="bg-slate-950/70 border border-white/10 rounded-2xl p-4 sm:p-5 shadow-lg space-y-3.5">
+                            <div class="flex items-center gap-2 pb-2 border-b border-white/10">
+                                <i class="fa-solid fa-user-group text-brand-cyan text-sm"></i>
+                                <h3 class="text-xs font-bold text-white uppercase tracking-wider font-mono">Member 2 (Teammate)</h3>
+                            </div>
+
+                            <div class="space-y-1.5">
+                                <label for="reg-m2-name" class="block text-xs font-semibold text-slate-200">
+                                    Full Name <span class="text-red-400">*</span>
+                                </label>
+                                <input type="text" id="reg-m2-name" class="reg-input" placeholder="Enter full name" required>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <div class="space-y-1.5">
+                                    <label for="reg-m2-dept" class="block text-xs font-semibold text-slate-200">
+                                        Department <span class="text-red-400">*</span>
+                                    </label>
+                                    <select id="reg-m2-dept" class="reg-input cursor-pointer" required>
+                                        <option value="" disabled selected>Select branch</option>
+                                        <option value="CSE">CSE (Computer Science)</option>
+                                        <option value="CY">CY (Cyber Security)</option>
+                                        <option value="AD">AD (AI & Data Science)</option>
+                                        <option value="EEE">EEE (Electrical & Electronics)</option>
+                                        <option value="EE">EE (Electronics Engineering)</option>
+                                        <option value="PO">PO (Polymer Engineering)</option>
+                                    </select>
+                                </div>
+
+                                <div class="space-y-1.5">
+                                    <label for="reg-m2-year" class="block text-xs font-semibold text-slate-200">
+                                        Semester / Year <span class="text-red-400">*</span>
+                                    </label>
+                                    <select id="reg-m2-year" class="reg-input cursor-pointer" required>
+                                        <option value="" disabled selected>Select semester</option>
+                                        <option value="S1">S1 (1st Year)</option>
+                                        <option value="S3">S3 (2nd Year)</option>
+                                        <option value="S5">S5 (3rd Year)</option>
+                                        <option value="S7">S7 (4th Year)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="space-y-1.5">
+                                <label for="reg-m2-phone" class="block text-xs font-semibold text-slate-200">
+                                    WhatsApp Mobile Number <span class="text-red-400">*</span>
+                                </label>
+                                <input type="tel" id="reg-m2-phone" class="reg-input" placeholder="10-digit number (e.g. 9876543210)" pattern="[0-9]{10}" maxlength="10" required>
+                            </div>
+                        </div>
+
+                        <!-- CARD: Club Membership Tier Selection -->
+                        <div class="bg-slate-950/70 border border-white/10 rounded-2xl p-4 sm:p-5 shadow-lg space-y-3">
+                            <div class="space-y-1">
+                                <label class="block text-sm font-bold text-white">
+                                    Robotics Club Membership <span class="text-red-400">*</span>
+                                </label>
+                                <p class="text-xs text-slate-400 font-mono">
+                                    Club members pay ₹20/person · Non-members pay ₹30/person
+                                </p>
+                            </div>
+                            
+                            <div class="space-y-2.5 pt-1">
+                                <!-- Option 1: Both are Club Members (₹40) -->
+                                <div id="row-membership-both" onclick="selectMembershipTier('both')" class="flex items-center justify-between p-3.5 rounded-xl border-2 border-brand-cyan bg-brand-cyan/15 cursor-pointer transition-all">
+                                    <label class="flex items-center gap-3 cursor-pointer w-full">
+                                        <input type="radio" name="gform-membership" id="radio-membership-both" value="both" checked class="accent-brand-cyan w-5 h-5 cursor-pointer">
+                                        <div>
+                                            <span class="text-sm font-semibold text-white block">
+                                                Both of us are Club Members
+                                            </span>
+                                            <span class="text-[11px] text-brand-cyan font-mono">₹20 + ₹20</span>
+                                        </div>
+                                    </label>
+                                    <span class="text-base font-black text-brand-cyan font-mono ml-2">₹40</span>
+                                </div>
+
+                                <!-- Option 2: 1 Member + 1 Non-Member (₹50) -->
+                                <div id="row-membership-one" onclick="selectMembershipTier('one')" class="flex items-center justify-between p-3.5 rounded-xl border border-white/10 bg-slate-950/60 hover:border-white/25 cursor-pointer transition-all">
+                                    <label class="flex items-center gap-3 cursor-pointer w-full">
+                                        <input type="radio" name="gform-membership" id="radio-membership-one" value="one" class="accent-brand-cyan w-5 h-5 cursor-pointer">
+                                        <div>
+                                            <span class="text-sm font-semibold text-white block">
+                                                1 Club Member + 1 Non-Member
+                                            </span>
+                                            <span class="text-[11px] text-slate-400 font-mono">₹20 + ₹30</span>
+                                        </div>
+                                    </label>
+                                    <span class="text-base font-black text-white font-mono ml-2">₹50</span>
+                                </div>
+
+                                <!-- Option 3: Neither is a Club Member (₹60) -->
+                                <div id="row-membership-none" onclick="selectMembershipTier('none')" class="flex items-center justify-between p-3.5 rounded-xl border border-white/10 bg-slate-950/60 hover:border-white/25 cursor-pointer transition-all">
+                                    <label class="flex items-center gap-3 cursor-pointer w-full">
+                                        <input type="radio" name="gform-membership" id="radio-membership-none" value="none" class="accent-brand-orange w-5 h-5 cursor-pointer">
+                                        <div>
+                                            <span class="text-sm font-semibold text-white block">
+                                                Neither is a Club Member
+                                            </span>
+                                            <span class="text-[11px] text-slate-400 font-mono">₹30 + ₹30</span>
+                                        </div>
+                                    </label>
+                                    <span class="text-base font-black text-slate-300 font-mono ml-2">₹60</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ================= STEP 2: PAYMENT & PROOF ================= -->
+                    <div id="reg-step-2" class="space-y-4 hidden">
+                        
+                        <!-- CARD: Payment QR & Instructions -->
+                        <div class="bg-slate-950/70 border border-white/10 rounded-2xl p-4 sm:p-5 shadow-lg space-y-4">
+                            <div class="flex items-center justify-between pb-2 border-b border-white/10">
+                                <div>
+                                    <h3 class="text-xs font-bold text-white uppercase tracking-wider font-mono">Scan & Pay via UPI</h3>
+                                    <p class="text-[11px] text-slate-400 font-mono">Transfer exact fee shown on right</p>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-[9px] text-slate-400 uppercase font-mono block">Fee to pay</span>
+                                    <span id="step2-summary-fee" class="text-2xl font-black text-brand-cyan font-mono">₹40</span>
+                                </div>
+                            </div>
+
+                            <!-- Centered QR Display -->
+                            <div class="flex flex-col items-center justify-center p-3 rounded-2xl bg-black border border-white/10">
+                                <img id="reg-qr-image" src="assets/qr-40.svg" alt="Payment QR Code" class="w-44 h-44 sm:w-48 sm:h-48 object-contain rounded-xl shadow-lg">
+                                <span class="text-[11px] text-slate-400 font-mono mt-2">Scan with Google Pay, PhonePe, or Paytm</span>
+                            </div>
+
+                            <!-- UPI ID Row -->
+                            <div class="space-y-2">
+                                <div class="flex items-center justify-between bg-black border border-white/15 rounded-xl px-4 py-3">
+                                    <span class="text-xs text-slate-400 font-mono">UPI ID: <strong id="reg-upi-id-display" class="text-white text-sm">roboticsclubuce@upi</strong></span>
+                                    <button type="button" id="reg-copy-upi-btn" onclick="copyUpiId()" class="px-3 py-1.5 bg-brand-cyan/15 hover:bg-brand-cyan/25 border border-brand-cyan/30 text-brand-cyan rounded-lg text-xs font-bold font-mono inline-flex items-center gap-1.5 transition-colors cursor-pointer">
+                                        <i class="fa-regular fa-copy"></i>
+                                        <span>Copy</span>
+                                    </button>
+                                </div>
+
+                                <!-- Mobile Quick Launch -->
+                                <a id="reg-upi-app-link" href="#" class="w-full py-3 bg-brand-cyan/15 hover:bg-brand-cyan/25 border border-brand-cyan/30 text-brand-cyan rounded-xl text-xs font-mono font-bold flex items-center justify-center gap-2 transition-all">
+                                    <i class="fa-solid fa-mobile-screen"></i>
+                                    <span>Pay directly via installed UPI App</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- CARD: 12-Digit UTR Input -->
+                        <div class="bg-slate-950/70 border border-white/10 rounded-2xl p-4 sm:p-5 shadow-lg space-y-2.5">
+                            <div class="flex items-center justify-between">
+                                <label for="reg-upi-utr" class="block text-sm font-bold text-white">
+                                    12-Digit UPI Transaction ID (UTR) <span class="text-red-400">*</span>
+                                </label>
+                                <button type="button" onclick="openUtrHelp()" class="text-xs font-mono text-brand-pink hover:text-white underline flex items-center gap-1 cursor-pointer">
+                                    <i class="fa-solid fa-circle-question"></i> Where to find?
+                                </button>
+                            </div>
+                            <p class="text-xs text-slate-400 font-mono">Found in your payment app receipt</p>
+                            <input type="text" id="reg-upi-utr" oninput="validateUtrInput(this)" class="reg-input font-mono tracking-widest text-center sm:text-left text-base" placeholder="e.g. 427819381023" maxlength="12" pattern="[0-9]{12}" required>
+                            <div id="reg-utr-valid-badge" class="hidden text-xs mt-1"></div>
+                        </div>
+
+                        <!-- CARD: Screenshot Upload Dropzone -->
+                        <div class="bg-slate-950/70 border border-white/10 rounded-2xl p-4 sm:p-5 shadow-lg space-y-2.5">
+                            <label class="block text-sm font-bold text-white">
+                                Payment Screenshot Proof <span class="text-red-400">*</span>
+                            </label>
+                            <p class="text-xs text-slate-400 font-mono">Upload receipt showing the successful transfer</p>
+                            
+                            <input type="file" id="reg-screenshot-input" accept="image/*" onchange="handleScreenshotSelect(event)" class="hidden">
+
+                            <!-- Clickable Upload Box -->
+                            <div id="reg-upload-placeholder" onclick="document.getElementById('reg-screenshot-input').click()" class="border-2 border-dashed border-white/20 hover:border-brand-cyan/60 rounded-xl p-5 text-center cursor-pointer transition-colors bg-black/60 group">
+                                <div class="space-y-2">
+                                    <div class="w-10 h-10 rounded-full bg-brand-cyan/10 border border-brand-cyan/25 flex items-center justify-center text-brand-cyan mx-auto group-hover:scale-110 transition-transform">
+                                        <i class="fa-solid fa-cloud-arrow-up text-base"></i>
+                                    </div>
+                                    <p class="text-xs text-slate-200 font-semibold">Click to upload screenshot</p>
+                                    <span class="text-[11px] text-slate-400 block font-mono">PNG, JPG, or WEBP (auto-compressed)</span>
+                                </div>
+                            </div>
+
+                            <!-- Upload Preview Box -->
+                            <div id="reg-upload-preview" class="hidden p-3.5 rounded-xl bg-black border border-brand-cyan/30 flex items-center justify-between gap-3">
+                                <div class="flex items-center gap-3 min-w-0">
+                                    <img id="reg-preview-img" src="" alt="Proof Preview" class="w-12 h-12 rounded-lg object-cover border border-white/20 flex-shrink-0">
+                                    <div class="min-w-0">
+                                        <span id="reg-preview-meta" class="text-xs text-white font-bold block truncate">screenshot.jpg</span>
+                                        <span class="text-xs text-green-400 font-mono flex items-center gap-1">
+                                            <i class="fa-solid fa-circle-check text-xs"></i> Image ready for submission
+                                        </span>
+                                    </div>
+                                </div>
+                                <button type="button" onclick="removeScreenshot()" class="w-8 h-8 rounded-full bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/30 flex items-center justify-center transition-colors cursor-pointer flex-shrink-0" title="Remove screenshot">
+                                    <i class="fa-solid fa-trash-can text-xs"></i>
+                                </button>
+                            </div>
+
+                            <div id="reg-upload-status" class="hidden text-xs text-brand-cyan font-mono animate-pulse"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STICKY ACTION FOOTER (ALWAYS VISIBLE ON SCREEN) -->
+                <div class="p-4 sm:p-5 border-t border-white/10 bg-slate-950/95 backdrop-blur-md flex items-center justify-between gap-3 flex-shrink-0 z-20 shadow-[0_-10px_25px_rgba(0,0,0,0.6)]">
+                    
+                    <!-- Step 1 Controls -->
+                    <div id="footer-step-1" class="flex items-center justify-between w-full gap-3">
+                        <button type="button" onclick="closeRegistrationModal()" class="px-4 py-2.5 text-xs font-mono font-bold text-slate-400 hover:text-white transition-colors cursor-pointer">
+                            Cancel
+                        </button>
+                        <button type="button" onclick="goToStep(2)" class="px-6 sm:px-7 py-3.5 bg-brand-cyan hover:bg-white text-slate-950 font-bold font-mono text-sm uppercase tracking-wider rounded-xl transition-all shadow-[0_0_20px_rgba(0,245,255,0.45)] hover:shadow-[0_0_25px_rgba(255,255,255,0.7)] cursor-pointer inline-flex items-center gap-2.5">
+                            <span>Next: Payment</span>
+                            <span id="step1-btn-fee" class="text-xs font-black bg-slate-950/25 px-2 py-0.5 rounded-full">₹40</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+
+                    <!-- Step 2 Controls -->
+                    <div id="footer-step-2" class="hidden flex items-center justify-between w-full gap-3">
+                        <button type="button" onclick="goToStep(1, false)" class="px-4 py-2.5 text-xs font-mono font-bold text-slate-400 hover:text-white inline-flex items-center gap-2 transition-colors cursor-pointer">
+                            <i class="fa-solid fa-arrow-left"></i> <span>Back</span>
+                        </button>
+                        <button type="submit" id="reg-submit-btn" class="px-6 sm:px-7 py-3.5 bg-brand-cyan hover:bg-white text-slate-950 font-bold font-mono text-sm uppercase tracking-wider rounded-xl transition-all shadow-[0_0_20px_rgba(0,245,255,0.45)] hover:shadow-[0_0_25px_rgba(255,255,255,0.7)] cursor-pointer inline-flex items-center gap-2">
+                            <span id="reg-submit-spinner" class="hidden w-4 h-4 border-2 border-slate-950 border-t-transparent rounded-full animate-spin"></span>
+                            <span id="reg-submit-btn-text">Submit Registration</span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        </div><!-- end centering wrapper -->
+    </div>
+
+    <!-- ================= UTR HELP MODAL / POPOVER ================= -->
+    <div id="utr-help-modal" class="fixed inset-0 hidden flex items-center justify-center p-4" style="z-index:99995;background:rgba(0,0,0,0.8);backdrop-filter:blur(8px);" onclick="if(event.target === this) closeUtrHelp()">
+        <div class="glass-panel bg-slate-950/95 border border-brand-pink/30 rounded-2xl p-6 max-w-md w-full space-y-4 shadow-2xl relative">
+            <div class="flex items-center justify-between pb-3 border-b border-white/10">
+                <h4 class="text-sm font-bold text-white uppercase tracking-wider font-mono flex items-center gap-2">
+                    <i class="fa-solid fa-circle-info text-brand-pink"></i> Where to find the 12-digit UTR
+                </h4>
+                <button type="button" onclick="closeUtrHelp()" class="text-slate-400 hover:text-white text-xl cursor-pointer">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="space-y-3 font-mono text-xs text-slate-300">
+                <div class="p-3 rounded-lg bg-white/5 border border-white/10 space-y-1">
+                    <span class="text-brand-cyan font-bold block">1. Google Pay (GPay)</span>
+                    <p class="text-[11px] text-slate-400">Open the transaction &gt; Look for <strong class="text-white">"UPI transaction ID"</strong> (12 digits, e.g. 427819381023).</p>
+                </div>
+                <div class="p-3 rounded-lg bg-white/5 border border-white/10 space-y-1">
+                    <span class="text-brand-pink font-bold block">2. PhonePe</span>
+                    <p class="text-[11px] text-slate-400">Open Payment Details &gt; Look for <strong class="text-white">"UTR"</strong> (12 digits under Transfer Details).</p>
+                </div>
+                <div class="p-3 rounded-lg bg-white/5 border border-white/10 space-y-1">
+                    <span class="text-brand-orange font-bold block">3. Paytm</span>
+                    <p class="text-[11px] text-slate-400">Open Order Details &gt; Look for <strong class="text-white">"UPI Ref No."</strong> (12 digits).</p>
+                </div>
+            </div>
+            <button type="button" onclick="closeUtrHelp()" class="w-full py-2.5 bg-white/10 hover:bg-white/15 border border-white/15 rounded-lg text-white font-mono text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer">
+                Got It
+            </button>
+        </div>
+    </div>
+
+    <!-- ================= SUCCESS TICKET MODAL ================= -->
+    <div id="reg-ticket-modal" class="fixed inset-0 hidden flex items-center justify-center p-4" style="z-index:99998;background:rgba(0,0,0,0.9);backdrop-filter:blur(16px);opacity:0;transition:opacity 0.25s ease;" onclick="if(event.target === this) closeTicketModal()">
+        <div class="glass-panel bg-slate-950/95 border border-brand-cyan/40 rounded-3xl p-6 sm:p-8 max-w-lg w-full space-y-6 shadow-2xl relative text-center">
+            
+            <!-- Glow Icon Header -->
+            <div class="w-16 h-16 rounded-full bg-brand-cyan/15 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan text-2xl mx-auto shadow-[0_0_30px_rgba(0,245,255,0.4)]">
+                <i class="fa-solid fa-ticket"></i>
+            </div>
+
+            <div class="space-y-1">
+                <span class="text-[10px] font-mono text-brand-cyan uppercase tracking-widest block font-bold">REGISTRATION RECORDED</span>
+                <h3 class="text-2xl font-black text-white">Team Slot Reserved!</h3>
+                <p class="text-xs text-slate-400 font-mono">Our team will verify your UPI transaction ID and confirm your lab slot.</p>
+            </div>
+
+            <!-- Cyber Ticket Body -->
+            <div class="p-4 rounded-2xl bg-black/60 border border-white/10 text-left font-mono text-xs space-y-3">
+                <div class="flex items-center justify-between pb-2 border-b border-white/5">
+                    <span class="text-slate-500 uppercase text-[9px]">Event</span>
+                    <span id="ticket-event-name" class="font-bold text-brand-cyan text-right truncate">Capture The Flag</span>
+                </div>
+                <div class="flex items-center justify-between pb-2 border-b border-white/5">
+                    <span class="text-slate-500 uppercase text-[9px]">Team Name</span>
+                    <span id="ticket-team-name" class="font-bold text-white text-right">CyberPhantoms</span>
+                </div>
+                <div class="flex items-center justify-between pb-2 border-b border-white/5">
+                    <span class="text-slate-500 uppercase text-[9px]">Leader (M1)</span>
+                    <span id="ticket-m1" class="text-slate-300 text-right truncate">Aditya Verma</span>
+                </div>
+                <div class="flex items-center justify-between pb-2 border-b border-white/5">
+                    <span class="text-slate-500 uppercase text-[9px]">Teammate (M2)</span>
+                    <span id="ticket-m2" class="text-slate-300 text-right truncate">Rahul K</span>
+                </div>
+                <div class="flex items-center justify-between pb-2 border-b border-white/5">
+                    <span class="text-slate-500 uppercase text-[9px]">Amount Paid</span>
+                    <span id="ticket-fee" class="font-bold text-brand-cyan">₹40</span>
+                </div>
+                <div class="flex items-center justify-between pb-2 border-b border-white/5">
+                    <span class="text-slate-500 uppercase text-[9px]">UPI Ref (UTR)</span>
+                    <span id="ticket-utr" class="font-mono text-white text-[11px] tracking-wider">427819381023</span>
+                </div>
+                <div class="flex items-center justify-between pt-1">
+                    <span class="text-slate-500 uppercase text-[9px]">Status</span>
+                    <span class="text-[10px] font-bold text-yellow-400 bg-yellow-400/10 px-2 py-0.5 rounded border border-yellow-400/20">
+                        <i class="fa-solid fa-clock text-xs"></i> Verification Pending
+                    </span>
+                </div>
+            </div>
+
+            <p class="text-[10px] font-mono text-slate-500">
+                A confirmation has been saved directly to the club's verification spreadsheet. Please take a screenshot of this card for your records.
+            </p>
+
+            <button type="button" onclick="closeTicketModal()" class="w-full py-3 bg-brand-cyan hover:bg-white text-slate-950 font-bold font-mono text-xs uppercase tracking-wider rounded-xl transition-all cursor-pointer">
+                Close & Return
+            </button>
+        </div>
+    </div>
+
+    <!-- Reusable Event Registration Script -->
+    <script src="event-registration.js"></script>
 
     <!-- Custom Shared Script -->
     <script src="shared.js"></script>

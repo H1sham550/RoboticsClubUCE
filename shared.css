@@ -861,4 +861,50 @@ html, body {
     }
 }
 
+/* ================= MODALS & REGISTRATION OVERLAYS ================= */
+#photo-lightbox {
+    z-index: 99900 !important;
+}
 
+#event-reg-modal {
+    z-index: 99990 !important;
+}
+
+#utr-help-modal {
+    z-index: 99995 !important;
+}
+
+#reg-ticket-modal {
+    z-index: 99998 !important;
+}
+
+/* High-Contrast Google Form Input Styles */
+.reg-input {
+    background-color: #0b1120 !important;
+    color: #ffffff !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.25) !important;
+    border-radius: 0.75rem !important;
+    padding: 0.75rem 1rem !important;
+    font-size: 0.925rem !important;
+    line-height: 1.4 !important;
+    width: 100% !important;
+    transition: all 0.2s ease !important;
+}
+
+.reg-input::placeholder {
+    color: #94a3b8 !important; /* Visible slate-400 */
+    opacity: 1 !important;
+}
+
+.reg-input:focus {
+    border-color: #00f5ff !important;
+    background-color: #030712 !important;
+    box-shadow: 0 0 0 3px rgba(0, 245, 255, 0.25) !important;
+    outline: none !important;
+}
+
+select.reg-input option {
+    background-color: #0b1120 !important;
+    color: #ffffff !important;
+    padding: 8px !important;
+}
