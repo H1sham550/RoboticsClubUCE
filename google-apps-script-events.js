@@ -66,7 +66,7 @@ function doPost(e) {
         "Member 2 Year",
         "Member 2 Phone",
         "Member 2 Club Member",
-        "UPI UTR (12-Digit)",
+        "UPI Transaction ID / UTR",
         "Payment Screenshot Link",
         "Verification Status"
       ];

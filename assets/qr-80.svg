@@ -86,8 +86,8 @@
     <rect x="240" y="255" width="12" height="12" rx="2"/>
   </g>
 
-  <!-- Center Badge: ₹60 -->
+  <!-- Center Badge: ₹80 -->
   <rect x="95" y="115" width="110" height="70" rx="12" fill="#090d16" stroke="url(#cyberGradOrange)" stroke-width="2.5"/>
-  <text x="150" y="145" fill="#ff6b35" font-family="monospace" font-size="22" font-weight="900" text-anchor="middle">₹60</text>
-  <text x="150" y="168" fill="#ffffff" font-family="monospace" font-size="9" font-weight="bold" letter-spacing="1" text-anchor="middle">MIXED TEAM</text>
+  <text x="150" y="145" fill="#ff6b35" font-family="monospace" font-size="22" font-weight="900" text-anchor="middle">₹80</text>
+  <text x="150" y="168" fill="#ffffff" font-family="monospace" font-size="9" font-weight="bold" letter-spacing="1" text-anchor="middle">NON-MEMBERS</text>
 </svg>

@@ -4,7 +4,7 @@
  * =========================================================================
  * Clean 2-step flow:
  * Step 1: Team & Member Details + Club Membership Tier Choice
- * Step 2: Dynamic Payment QR (₹40 / ₹50 / ₹60), UTR Entry & Screenshot Upload
+ * Step 2: Dynamic Payment QR (₹40 / ₹60 / ₹80), UTR Entry & Screenshot Upload
  * =========================================================================
  */
 
@@ -67,7 +67,7 @@ const TIER_FEES = {
 
 // Current Wizard State
 let currentStep = 1;
-let selectedTier = 'both'; // 'both' (₹40), 'one' (₹50), 'none' (₹60)
+let selectedTier = 'both'; // 'both' (₹40), 'one' (₹60), 'none' (₹80)
 let currentCompressedFile = null;
 
 // ================= MODAL OPEN / CLOSE =================
