@@ -986,9 +986,9 @@
                             
                             <div class="space-y-2.5 pt-1">
                                 <!-- Option 1: Both are Club Members (₹40) -->
-                                <div id="row-membership-both" onclick="selectMembershipTier('both')" class="flex items-center justify-between p-3.5 rounded-xl border-2 border-brand-cyan bg-brand-cyan/15 cursor-pointer transition-all">
+                                <div id="row-membership-both" onclick="selectMembershipTier('both')" class="flex items-center justify-between p-3.5 rounded-xl border border-white/10 bg-slate-950/60 hover:border-white/25 cursor-pointer transition-all">
                                     <label class="flex items-center gap-3 cursor-pointer w-full">
-                                        <input type="radio" name="gform-membership" id="radio-membership-both" value="both" checked class="accent-brand-cyan w-5 h-5 cursor-pointer">
+                                        <input type="radio" name="gform-membership" id="radio-membership-both" value="both" class="accent-brand-cyan w-5 h-5 cursor-pointer">
                                         <div>
                                             <span class="text-sm font-semibold text-white block">
                                                 Both of us are Club Members
@@ -1125,7 +1125,7 @@
                         </button>
                         <button type="button" onclick="goToStep(2)" class="btn-cyan-solid px-6 sm:px-7 py-3.5 font-bold font-mono text-sm uppercase tracking-wider rounded-xl transition-all cursor-pointer inline-flex items-center gap-2.5">
                             <span>Next: Payment</span>
-                            <span id="step1-btn-fee" class="text-xs font-black bg-slate-950/25 px-2 py-0.5 rounded-full">₹40</span>
+                            <span id="step1-btn-fee" class="hidden text-xs font-black bg-slate-950/25 px-2 py-0.5 rounded-full"></span>
                             <i class="fa-solid fa-arrow-right text-xs"></i>
                         </button>
                     </div>

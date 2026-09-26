@@ -67,7 +67,7 @@ const TIER_FEES = {
 
 // Current Wizard State
 let currentStep = 1;
-let selectedTier = 'both'; // 'both' (₹40), 'one' (₹60), 'none' (₹80)
+let selectedTier = null; // null by default; user must select a tier
 let currentCompressedFile = null;
 
 // ================= MODAL OPEN / CLOSE =================
@@ -95,8 +95,8 @@ async function openRegistrationModal(eventId) {
     // Reset wizard to Step 1
     goToStep(1, false);
 
-    // Default to Both Club Members (₹40)
-    selectMembershipTier('both');
+    // Clear membership selection by default (forces user to choose)
+    clearMembershipTierSelection();
 
     // Show modal
     modal.classList.remove('hidden');
@@ -194,8 +194,27 @@ function goToStep(stepNumber, shouldValidate = true) {
 
 // ================= MEMBERSHIP SELECTION & PRICING =================
 
+function clearMembershipTierSelection() {
+    selectedTier = null;
+    const tiers = ['both', 'one', 'none'];
+    tiers.forEach(t => {
+        const row = document.getElementById(`row-membership-${t}`);
+        const radio = document.getElementById(`radio-membership-${t}`);
+        if (radio) radio.checked = false;
+        if (row) {
+            row.className = "flex items-center justify-between p-3.5 rounded-xl border border-white/10 bg-slate-950/60 hover:border-white/25 cursor-pointer transition-all";
+        }
+    });
+
+    const nextBtnFee = document.getElementById('step1-btn-fee');
+    if (nextBtnFee) {
+        nextBtnFee.textContent = "";
+        nextBtnFee.classList.add('hidden');
+    }
+}
+
 function selectMembershipTier(tier) {
-    if (!TIER_FEES[tier]) tier = 'both';
+    if (!TIER_FEES[tier]) return;
     selectedTier = tier;
 
     const tiers = ['both', 'one', 'none'];
@@ -218,7 +237,10 @@ function selectMembershipTier(tier) {
 
     const fee = TIER_FEES[tier].fee;
     const nextBtnFee = document.getElementById('step1-btn-fee');
-    if (nextBtnFee) nextBtnFee.textContent = `₹${fee}`;
+    if (nextBtnFee) {
+        nextBtnFee.textContent = `₹${fee}`;
+        nextBtnFee.classList.remove('hidden');
+    }
 }
 
 // Backward compatibility alias
@@ -346,6 +368,24 @@ function validateStep1() {
     }
     if (!m2Phone || !/^[0-9]{10}$/.test(m2Phone.value.trim())) {
         showInputError(m2Phone, "Please enter a valid 10-digit WhatsApp number for Member 2.");
+        return false;
+    }
+
+    // Require user to actively select a membership tier
+    if (!selectedTier || !TIER_FEES[selectedTier]) {
+        const tierSection = document.getElementById('row-membership-both');
+        if (tierSection) tierSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        ['both', 'one', 'none'].forEach(t => {
+            const row = document.getElementById(`row-membership-${t}`);
+            if (row) {
+                row.classList.add('border-red-500', 'ring-2', 'ring-red-500/40');
+                setTimeout(() => {
+                    row.classList.remove('border-red-500', 'ring-2', 'ring-red-500/40');
+                }, 3000);
+            }
+        });
+        alert("Please choose your Robotics Club Membership status to calculate your registration fee.");
         return false;
     }
 
@@ -604,7 +644,7 @@ function resetRegistrationForm() {
     const validBadge = document.getElementById('reg-utr-valid-badge');
     if (validBadge) validBadge.classList.add('hidden');
     goToStep(1, false);
-    selectMembershipTier('both');
+    clearMembershipTierSelection();
 }
 
 // ================= SUCCESS TICKET MODAL =================
