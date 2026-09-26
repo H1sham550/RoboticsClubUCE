@@ -20,13 +20,13 @@ const EVENT_REG_CONFIG = {
     // Payment QR Images (real JPEGs take priority, SVGs as fallback)
     QR_IMAGES: {
         40: "assets/payment_qr/40.jpeg",
-        50: "assets/payment_qr/50.jpeg",
-        60: "assets/payment_qr/60.jpeg"
+        60: "assets/payment_qr/60.jpeg",
+        80: "assets/payment_qr/80.jpeg"
     },
     QR_FALLBACKS: {
         40: "assets/qr-40.svg",
-        50: "assets/qr-50.svg",
-        60: "assets/qr-60.svg"
+        60: "assets/qr-60.svg",
+        80: "assets/qr-80.svg"
     }
 };
 
@@ -50,16 +50,16 @@ const TIER_FEES = {
         m2: true
     },
     'one': {
-        fee: 50,
-        label: "1 Member + 1 Non-Member (₹50)",
+        fee: 60,
+        label: "1 Member + 1 Non-Member (₹60)",
         badge: "1 Club Member + 1 Non-Member",
         m1: true,
         m2: false
     },
     'none': {
-        fee: 60,
-        label: "Non-Club Members (₹60)",
-        badge: "Non-Club Members (₹30/head)",
+        fee: 80,
+        label: "Non-Club Members (₹80)",
+        badge: "Non-Club Members (₹40/head)",
         m1: false,
         m2: false
     }
