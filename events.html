@@ -156,10 +156,10 @@
                     <div class="space-y-4">
                         <!-- Top Status & Capacity Badges -->
                         <div class="flex flex-wrap items-center justify-between gap-2">
-                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-brand-cyan/15 text-brand-cyan border border-brand-cyan/30">
+                            <button type="button" onclick="openRegistrationModal('ctf-2026')" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-brand-cyan/15 hover:bg-brand-cyan/25 text-brand-cyan border border-brand-cyan/30 cursor-pointer transition-colors" title="Click to register">
                                 <span class="w-2 h-2 rounded-full bg-brand-cyan animate-pulse"></span>
                                 REGISTRATIONS OPEN
-                            </span>
+                            </button>
                             <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono text-slate-300 bg-white/5 border border-white/10">
                                 <i class="fa-solid fa-users text-brand-cyan text-xs"></i>
                                 2 MEMBERS · MAX 15 TEAMS
@@ -190,10 +190,10 @@
                         </div>
 
                         <!-- BIG PROMINENT REGISTER BUTTON -->
-                        <button type="button" onclick="openRegistrationModal('ctf-2026')" class="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-brand-cyan via-brand-cyan to-white hover:brightness-110 text-slate-950 font-mono font-black text-sm sm:text-base uppercase tracking-wider transition-all duration-300 shadow-[0_0_25px_rgba(0,245,255,0.45)] hover:shadow-[0_0_35px_rgba(0,245,255,0.8)] active:scale-[0.99] flex items-center justify-center gap-3 cursor-pointer">
-                            <i class="fa-solid fa-ticket text-slate-950 text-lg"></i>
+                        <button type="button" onclick="openRegistrationModal('ctf-2026')" class="btn-register-cyber">
+                            <i class="fa-solid fa-ticket text-lg"></i>
                             <span>REGISTER TEAM NOW</span>
-                            <i class="fa-solid fa-arrow-right text-slate-950 text-sm"></i>
+                            <i class="fa-solid fa-arrow-right text-sm"></i>
                         </button>
 
                         <!-- Read More Toggle Row & Query Link -->
@@ -1053,7 +1053,7 @@
                             </div>
 
                             <!-- Mobile Quick Launch -->
-                            <a id="reg-upi-app-link" href="#" class="w-full py-4 bg-brand-cyan hover:bg-white text-slate-950 rounded-xl font-bold font-mono text-sm flex items-center justify-center gap-2.5 transition-all shadow-[0_0_20px_rgba(0,245,255,0.35)] hover:shadow-[0_0_25px_rgba(255,255,255,0.5)] cursor-pointer">
+                            <a id="reg-upi-app-link" href="#" class="btn-cyan-solid w-full py-4 rounded-xl font-bold font-mono text-sm flex items-center justify-center gap-2.5 transition-all cursor-pointer">
                                 <i class="fa-solid fa-mobile-screen text-base"></i>
                                 <span>Pay via UPI App</span>
                             </a>
@@ -1123,7 +1123,7 @@
                         <button type="button" onclick="closeRegistrationModal()" class="px-4 py-2.5 text-xs font-mono font-bold text-slate-400 hover:text-white transition-colors cursor-pointer">
                             Cancel
                         </button>
-                        <button type="button" onclick="goToStep(2)" class="px-6 sm:px-7 py-3.5 bg-brand-cyan hover:bg-white text-slate-950 font-bold font-mono text-sm uppercase tracking-wider rounded-xl transition-all shadow-[0_0_20px_rgba(0,245,255,0.45)] hover:shadow-[0_0_25px_rgba(255,255,255,0.7)] cursor-pointer inline-flex items-center gap-2.5">
+                        <button type="button" onclick="goToStep(2)" class="btn-cyan-solid px-6 sm:px-7 py-3.5 font-bold font-mono text-sm uppercase tracking-wider rounded-xl transition-all cursor-pointer inline-flex items-center gap-2.5">
                             <span>Next: Payment</span>
                             <span id="step1-btn-fee" class="text-xs font-black bg-slate-950/25 px-2 py-0.5 rounded-full">₹40</span>
                             <i class="fa-solid fa-arrow-right text-xs"></i>
@@ -1135,7 +1135,7 @@
                         <button type="button" onclick="goToStep(1, false)" class="px-4 py-2.5 text-xs font-mono font-bold text-slate-400 hover:text-white inline-flex items-center gap-2 transition-colors cursor-pointer">
                             <i class="fa-solid fa-arrow-left"></i> <span>Back</span>
                         </button>
-                        <button type="submit" id="reg-submit-btn" class="px-6 sm:px-7 py-3.5 bg-brand-cyan hover:bg-white text-slate-950 font-bold font-mono text-sm uppercase tracking-wider rounded-xl transition-all shadow-[0_0_20px_rgba(0,245,255,0.45)] hover:shadow-[0_0_25px_rgba(255,255,255,0.7)] cursor-pointer inline-flex items-center gap-2">
+                        <button type="submit" id="reg-submit-btn" class="btn-cyan-solid px-6 sm:px-7 py-3.5 font-bold font-mono text-sm uppercase tracking-wider rounded-xl transition-all cursor-pointer inline-flex items-center gap-2">
                             <span id="reg-submit-spinner" class="hidden w-4 h-4 border-2 border-slate-950 border-t-transparent rounded-full animate-spin"></span>
                             <span id="reg-submit-btn-text">Submit Registration</span>
                         </button>
