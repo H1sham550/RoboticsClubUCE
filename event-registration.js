@@ -36,7 +36,7 @@ const ACTIVE_EVENT = {
     name: "Capture The Flag (CTF) Challenge",
     category: "CYBERSECURITY & HACKATHON",
     teamSize: 2,
-    maxTeams: 20,
+    maxTeams: 15,
     venue: "College Computer Lab (Provided On-site)"
 };
 
@@ -72,9 +72,25 @@ let currentCompressedFile = null;
 
 // ================= MODAL OPEN / CLOSE =================
 
-function openRegistrationModal(eventId) {
+async function openRegistrationModal(eventId) {
     const modal = document.getElementById('event-reg-modal');
     if (!modal) return;
+
+    // Pre-check slot availability from backend before opening
+    try {
+        const res = await fetch(
+            EVENT_REG_CONFIG.APPS_SCRIPT_URL + '?action=checkSlots&eventId=' + (eventId || ACTIVE_EVENT.id),
+            { method: 'GET' }
+        );
+        const data = await res.json();
+        if (data.slotsLeft !== undefined && data.slotsLeft <= 0) {
+            showSlotsFullMessage();
+            return;
+        }
+    } catch (err) {
+        // Network error — fail-open; backend is the hard gate
+        console.warn('Slot pre-check failed, opening modal anyway:', err);
+    }
 
     // Reset wizard to Step 1
     goToStep(1, false);
@@ -90,6 +106,10 @@ function openRegistrationModal(eventId) {
         const inner = modal.querySelector('.modal-card-content');
         if (inner) inner.style.transform = 'scale(1)';
     });
+}
+
+function showSlotsFullMessage() {
+    alert('Registration is now closed — all 15 team slots have been filled. Thank you for your interest!');
 }
 
 function closeRegistrationModal() {

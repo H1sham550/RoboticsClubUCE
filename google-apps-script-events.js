@@ -23,6 +23,9 @@
 // Replace with your Google Drive Folder ID for payment screenshots
 var SCREENSHOT_FOLDER_ID = "YOUR_GOOGLE_DRIVE_FOLDER_ID_HERE";
 
+// Maximum number of teams allowed to register
+var MAX_TEAMS = 15;
+
 function doPost(e) {
   var lock = LockService.getScriptLock();
   // Wait up to 15 seconds to avoid spreadsheet write collisions
@@ -78,7 +81,20 @@ function doPost(e) {
       sheet.setFrozenRows(1);
     }
 
-    // 2. Handle Screenshot Upload to Google Drive (if present)
+    // 2. Enforce slot limit (header row counts as 1, so data rows = lastRow - 1)
+    var registeredTeams = sheet.getLastRow() - 1;
+    if (registeredTeams >= MAX_TEAMS) {
+      return ContentService
+        .createTextOutput(JSON.stringify({
+          status: "full",
+          message: "Registration is closed. All " + MAX_TEAMS + " team slots have been filled.",
+          registered: registeredTeams,
+          max: MAX_TEAMS
+        }))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
+
+    // 3. Handle Screenshot Upload to Google Drive (if present)
     var fileUrl = "No screenshot uploaded";
     if (data.fileData && data.fileData.trim() !== "") {
       try {
@@ -106,7 +122,7 @@ function doPost(e) {
       }
     }
 
-    // 3. Format and Append New Registration Row
+    // 4. Format and Append New Registration Row
     var timestamp = Utilities.formatDate(new Date(), "Asia/Kolkata", "yyyy-MM-dd HH:mm:ss");
     var m1 = data.member1 || {};
     var m2 = data.member2 || {};
@@ -133,12 +149,13 @@ function doPost(e) {
       "Pending Verification"
     ]);
 
-    // 4. Return Success Output
+    // 5. Return Success Output
     return ContentService
       .createTextOutput(JSON.stringify({
         status: "success",
         message: "Registration successful!",
-        fileUrl: fileUrl
+        fileUrl: fileUrl,
+        slotsLeft: MAX_TEAMS - (registeredTeams + 1)
       }))
       .setMimeType(ContentService.MimeType.JSON);
 
@@ -154,12 +171,21 @@ function doPost(e) {
   }
 }
 
-// Simple healthcheck / GET test
+// Healthcheck + slot count check (used by frontend before opening registration modal)
 function doGet(e) {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  var registeredTeams = sheet.getLastRow() <= 1 ? 0 : sheet.getLastRow() - 1;
+  var slotsLeft = Math.max(0, MAX_TEAMS - registeredTeams);
+
   return ContentService
     .createTextOutput(JSON.stringify({
       status: "active",
-      message: "Robotics Club UCE Event Registration Web App is live."
+      message: "Robotics Club UCE Event Registration Web App is live.",
+      registered: registeredTeams,
+      max: MAX_TEAMS,
+      slotsLeft: slotsLeft
     }))
     .setMimeType(ContentService.MimeType.JSON);
 }
+
+
