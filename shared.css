@@ -866,15 +866,18 @@ html, body {
     z-index: 99900 !important;
 }
 
-#event-reg-modal {
+#event-reg-modal,
+#membership-reg-modal {
     z-index: 99990 !important;
 }
 
-#utr-help-modal {
+#utr-help-modal,
+#membership-utr-modal {
     z-index: 99995 !important;
 }
 
-#reg-ticket-modal {
+#reg-ticket-modal,
+#membership-pass-modal {
     z-index: 99998 !important;
 }
 
@@ -938,6 +941,11 @@ select.reg-input option {
     box-shadow: 0 0 25px rgba(0, 245, 255, 0.55), inset 0 1px 1px rgba(255, 255, 255, 0.6) !important;
     transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
     text-decoration: none !important;
+}
+
+/* Allow .hidden to override btn-register-cyber's display:inline-flex */
+.btn-register-cyber.hidden {
+    display: none !important;
 }
 
 .btn-register-cyber * {

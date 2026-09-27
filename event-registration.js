@@ -76,29 +76,13 @@ async function openRegistrationModal(eventId) {
     const modal = document.getElementById('event-reg-modal');
     if (!modal) return;
 
-    // Pre-check slot availability from backend before opening
-    try {
-        const res = await fetch(
-            EVENT_REG_CONFIG.APPS_SCRIPT_URL + '?action=checkSlots&eventId=' + (eventId || ACTIVE_EVENT.id),
-            { method: 'GET' }
-        );
-        const data = await res.json();
-        if (data.slotsLeft !== undefined && data.slotsLeft <= 0) {
-            showSlotsFullMessage();
-            return;
-        }
-    } catch (err) {
-        // Network error — fail-open; backend is the hard gate
-        console.warn('Slot pre-check failed, opening modal anyway:', err);
-    }
-
     // Reset wizard to Step 1
     goToStep(1, false);
 
     // Clear membership selection by default (forces user to choose)
     clearMembershipTierSelection();
 
-    // Show modal
+    // Show modal immediately — no waiting for network
     modal.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
     requestAnimationFrame(() => {
@@ -106,6 +90,22 @@ async function openRegistrationModal(eventId) {
         const inner = modal.querySelector('.modal-card-content');
         if (inner) inner.style.transform = 'scale(1)';
     });
+
+    // Background slot check — close modal silently if full
+    try {
+        const res = await fetch(
+            EVENT_REG_CONFIG.APPS_SCRIPT_URL + '?action=checkSlots&eventId=' + (eventId || ACTIVE_EVENT.id),
+            { method: 'GET' }
+        );
+        const data = await res.json();
+        if (data.slotsLeft !== undefined && data.slotsLeft <= 0) {
+            closeRegistrationModal();
+            setTimeout(() => showSlotsFullMessage(), 300);
+        }
+    } catch (err) {
+        // Network error — fail-open; backend is the hard gate on submission
+        console.warn('Slot pre-check failed, leaving modal open:', err);
+    }
 }
 
 function showSlotsFullMessage() {
@@ -501,8 +501,8 @@ function showScreenshotPreview(compressed, fileName) {
     const previewImg = document.getElementById('reg-preview-img');
     const metaEl = document.getElementById('reg-preview-meta');
 
-    if (uploadBox) uploadBox.classList.add('hidden');
-    if (previewBox) previewBox.classList.remove('hidden');
+    if (uploadBox) uploadBox.style.display = 'none';
+    if (previewBox) previewBox.style.display = 'flex';
     if (previewImg) previewImg.src = compressed.dataUrl;
     if (metaEl) metaEl.textContent = `${fileName} (${compressed.sizeKb} KB)`;
 }
@@ -514,8 +514,8 @@ function removeScreenshot() {
 
     const uploadBox = document.getElementById('reg-upload-placeholder');
     const previewBox = document.getElementById('reg-upload-preview');
-    if (uploadBox) uploadBox.classList.remove('hidden');
-    if (previewBox) previewBox.classList.add('hidden');
+    if (uploadBox) uploadBox.style.display = '';
+    if (previewBox) previewBox.style.display = 'none';
 }
 
 // ================= UTR HELP MODAL =================

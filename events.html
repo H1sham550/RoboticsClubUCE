@@ -1084,10 +1084,10 @@
                             <input type="file" id="reg-screenshot-input" accept="image/*" onchange="handleScreenshotSelect(event)" class="hidden">
 
                             <!-- Clickable Upload Box -->
-                            <div id="reg-upload-placeholder" onclick="document.getElementById('reg-screenshot-input').click()" class="border-2 border-dashed border-white/20 hover:border-brand-cyan/60 rounded-xl p-5 text-center cursor-pointer transition-colors bg-black/60 group">
-                                <div class="space-y-2">
-                                    <div class="w-10 h-10 rounded-full bg-brand-cyan/10 border border-brand-cyan/25 flex items-center justify-center text-brand-cyan mx-auto group-hover:scale-110 transition-transform">
-                                        <i class="fa-solid fa-cloud-arrow-up text-base"></i>
+                            <div id="reg-upload-placeholder" onclick="document.getElementById('reg-screenshot-input').click()" class="border-2 border-dashed border-white/20 hover:border-brand-cyan/60 rounded-xl text-center cursor-pointer transition-colors bg-black/60 group" style="padding: 2rem 1.25rem; min-height: 130px; display: flex; align-items: center; justify-content: center;">
+                                <div class="space-y-3">
+                                    <div style="width:48px;height:48px;border-radius:50%;background:rgba(0,245,255,0.08);border:1px solid rgba(0,245,255,0.28);display:flex;align-items:center;justify-content:center;color:#00f5ff;margin:0 auto;flex-shrink:0;" class="group-hover:scale-110 transition-transform">
+                                        <i class="fa-solid fa-cloud-arrow-up" style="font-size:1.1rem;"></i>
                                     </div>
                                     <p class="text-xs text-slate-200 font-semibold">Click to upload screenshot</p>
                                     <span class="text-[11px] text-slate-400 block font-mono">PNG, JPG, or WEBP (auto-compressed)</span>
@@ -1095,7 +1095,7 @@
                             </div>
 
                             <!-- Upload Preview Box -->
-                            <div id="reg-upload-preview" class="hidden p-3.5 rounded-xl bg-black border border-brand-cyan/30 flex items-center justify-between gap-3">
+                            <div id="reg-upload-preview" class="hidden p-3.5 rounded-xl bg-black border border-brand-cyan/30 items-center justify-between gap-3" style="display:none;">
                                 <div class="flex items-center gap-3 min-w-0">
                                     <img id="reg-preview-img" src="" alt="Proof Preview" class="w-12 h-12 rounded-lg object-cover border border-white/20 flex-shrink-0">
                                     <div class="min-w-0">
