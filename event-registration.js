@@ -14,7 +14,7 @@ const EVENT_REG_CONFIG = {
     APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbxK2pGEGF4pAY5ihljtPu-_6-CCY53qlQodWqA5K7gXudr-yOSrq9sTHoTVokTPK-WXTA/exec",
 
     // Club UPI Details
-    DEFAULT_UPI_ID: "roboticsclubuce@upi",
+    DEFAULT_UPI_ID: "meenakshikrishnakumar496@oksbi",
     PAYEE_NAME: "Robotics Club UCE",
 
     // Payment QR Images (real JPEGs take priority, SVGs as fallback)

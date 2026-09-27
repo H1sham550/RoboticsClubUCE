@@ -16,7 +16,7 @@ const MEMBERSHIP_CONFIG = {
     APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycby-ASvkuCKUaNv7IobaTTXprtYUJTYLxWsOhebLnQmGQqwHQBGDPTMKdUg1F2NyJFuLDw/exec",
 
     // Club UPI Details
-    DEFAULT_UPI_ID: "roboticsclubuce@upi",
+    DEFAULT_UPI_ID: "hishamts69@oksbi",
     PAYEE_NAME: "Robotics Club UCE",
     FEE: 150,
 
