@@ -156,13 +156,13 @@
                     <div class="space-y-4">
                         <!-- Top Status & Capacity Badges -->
                         <div class="flex flex-wrap items-center justify-between gap-2">
-                            <!-- Dynamic Registration Status Badge -->
-                            <div id="ctf-reg-badge" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-bold border transition-all">
-                                <!-- Filled by ctfRegistrationTimer() -->
-                            </div>
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-rose-500/10 text-rose-400 border border-rose-500/30">
+                                <i class="fa-solid fa-lock text-[10px]"></i>
+                                REGISTRATIONS CLOSED
+                            </span>
                             <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono text-slate-300 bg-white/5 border border-white/10">
-                                <i class="fa-solid fa-users text-brand-cyan text-xs"></i>
-                                2 MEMBERS · MAX 15 TEAMS
+                                <i class="fa-solid fa-users text-rose-400 text-xs"></i>
+                                15 / 15 SLOTS FILLED
                             </span>
                         </div>
 
@@ -189,9 +189,12 @@
                             </div>
                         </div>
 
-                        <!-- BIG PROMINENT REGISTER BUTTON (locked until 6PM IST) -->
+                        <!-- REGISTRATION CLOSED BUTTON -->
                         <div id="ctf-reg-btn-wrap">
-                            <!-- Filled by ctfRegistrationTimer() -->
+                            <button type="button" disabled class="w-full py-4 rounded-2xl font-black font-mono text-sm uppercase tracking-widest flex items-center justify-center gap-3 cursor-not-allowed select-none bg-slate-900/80 text-rose-400 border border-rose-500/30 shadow-none">
+                                <i class="fa-solid fa-lock text-base"></i>
+                                <span>REGISTRATIONS CLOSED — 15/15 TEAMS REGISTERED</span>
+                            </button>
                         </div>
 
                         <!-- Read More Toggle Row & Query Link -->
@@ -1251,33 +1254,6 @@
 
     <!-- Custom Shared Script -->
     <script src="shared.js"></script>
-
-    <!-- CTF Registration Countdown Timer -->
-    <script>
-    (function() {
-        var badge   = document.getElementById('ctf-reg-badge');
-        var btnWrap = document.getElementById('ctf-reg-btn-wrap');
-
-        function renderOpen() {
-            // Badge: cyan pulsing "REGISTRATIONS OPEN"
-            badge.className = 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-brand-cyan/15 text-brand-cyan border border-brand-cyan/30 transition-all cursor-pointer hover:bg-brand-cyan/25';
-            badge.onclick   = function() { openRegistrationModal('ctf-2026'); };
-            badge.title     = 'Click to register';
-            badge.innerHTML = '<span class="w-2 h-2 rounded-full bg-brand-cyan animate-pulse"></span>REGISTRATIONS OPEN';
-
-            // Button: full cyber register button
-            btnWrap.innerHTML =
-                '<button type="button" onclick="openRegistrationModal(\'ctf-2026\')" class="btn-register-cyber">' +
-                    '<i class="fa-solid fa-ticket text-lg"></i>' +
-                    '<span>REGISTER TEAM NOW</span>' +
-                    '<i class="fa-solid fa-arrow-right text-sm"></i>' +
-                '</button>';
-        }
-
-        // Keep registration open indefinitely until the 15 team limit hits
-        renderOpen();
-    })();
-    </script>
 
 </body>
 </html>

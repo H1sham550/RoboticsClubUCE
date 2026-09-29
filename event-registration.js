@@ -37,7 +37,8 @@ const ACTIVE_EVENT = {
     category: "CYBERSECURITY & HACKATHON",
     teamSize: 2,
     maxTeams: 15,
-    venue: "College Computer Lab (Provided On-site)"
+    venue: "College Computer Lab (Provided On-site)",
+    isClosed: true
 };
 
 // Pricing Tiers Definition
@@ -73,6 +74,11 @@ let currentCompressedFile = null;
 // ================= MODAL OPEN / CLOSE =================
 
 async function openRegistrationModal(eventId) {
+    if (ACTIVE_EVENT.isClosed) {
+        showSlotsFullMessage();
+        return;
+    }
+
     const modal = document.getElementById('event-reg-modal');
     if (!modal) return;
 
@@ -534,6 +540,12 @@ function closeUtrHelp() {
 
 function handleEventRegistration(event) {
     event.preventDefault();
+
+    if (ACTIVE_EVENT.isClosed) {
+        alert("Registration is officially closed. All 15 team slots have been filled.");
+        closeRegistrationModal();
+        return;
+    }
 
     // Honeypot check
     const honeypot = document.getElementById('reg-website-pot');
