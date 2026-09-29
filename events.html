@@ -1255,34 +1255,10 @@
     <!-- CTF Registration Countdown Timer -->
     <script>
     (function() {
-        // ─── CONFIG ──────────────────────────────────────────────────
-        // Registration opens at 6:00 PM IST (UTC+05:30) today
-        var OPEN_HOUR_IST   = 18; // 18 = 6 PM
-        var OPEN_MINUTE_IST = 0;
-        // ─────────────────────────────────────────────────────────────
-
         var badge   = document.getElementById('ctf-reg-badge');
         var btnWrap = document.getElementById('ctf-reg-btn-wrap');
-        var interval;
-
-        function getOpenTime() {
-            var istOffsetMs = 5.5 * 60 * 60 * 1000; // UTC+5:30
-            // Get today's date expressed in IST using UTC methods (timezone-independent)
-            var istNow = new Date(Date.now() + istOffsetMs);
-            // Build 18:00 IST today as a UTC timestamp: set IST h/m via Date.UTC, then subtract IST offset
-            return Date.UTC(
-                istNow.getUTCFullYear(),
-                istNow.getUTCMonth(),
-                istNow.getUTCDate(),
-                OPEN_HOUR_IST,
-                OPEN_MINUTE_IST,
-                0, 0
-            ) - istOffsetMs;
-        }
 
         function renderOpen() {
-            clearInterval(interval);
-
             // Badge: cyan pulsing "REGISTRATIONS OPEN"
             badge.className = 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-brand-cyan/15 text-brand-cyan border border-brand-cyan/30 transition-all cursor-pointer hover:bg-brand-cyan/25';
             badge.onclick   = function() { openRegistrationModal('ctf-2026'); };
@@ -1298,43 +1274,8 @@
                 '</button>';
         }
 
-        function pad(n) { return n < 10 ? '0' + n : '' + n; }
-
-        function renderCountdown(msLeft) {
-            var totalSec = Math.max(0, Math.floor(msLeft / 1000));
-            var h = Math.floor(totalSec / 3600);
-            var m = Math.floor((totalSec % 3600) / 60);
-            var s = totalSec % 60;
-            var timeStr = pad(h) + ':' + pad(m) + ':' + pad(s);
-
-            // Badge: amber locked state
-            badge.className = 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-amber-500/10 text-amber-400 border border-amber-500/30 transition-all';
-            badge.onclick   = null;
-            badge.title     = '';
-            badge.innerHTML = '<i class="fa-solid fa-lock text-[10px]"></i>OPENS IN ' + timeStr;
-
-            // Button: disabled countdown button
-            btnWrap.innerHTML =
-                '<button type="button" disabled class="w-full py-4 rounded-2xl font-black font-mono text-sm uppercase tracking-widest flex items-center justify-center gap-3 cursor-not-allowed select-none ' +
-                'bg-slate-800/60 text-slate-400 border border-slate-700/50 shadow-none">' +
-                    '<i class="fa-solid fa-lock text-base"></i>' +
-                    '<span>REGISTRATIONS OPEN AT 6:00 PM — ' + timeStr + '</span>' +
-                '</button>';
-        }
-
-        function tick() {
-            var openTimeMs = getOpenTime();
-            var msLeft = openTimeMs - Date.now();
-            if (msLeft <= 0) {
-                renderOpen();
-            } else {
-                renderCountdown(msLeft);
-            }
-        }
-
-        // Kick off immediately, then every second
-        tick();
-        interval = setInterval(tick, 1000);
+        // Keep registration open indefinitely until the 15 team limit hits
+        renderOpen();
     })();
     </script>
 
