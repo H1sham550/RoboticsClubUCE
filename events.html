@@ -149,104 +149,7 @@
 
             <!-- Upcoming Events Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Upcoming Event 1: Capture The Flag (CTF) Challenge -->
-                <div class="p-6 md:p-7 glass-panel rounded-2xl hover:border-brand-cyan/40 transition-all duration-300 space-y-5 shadow-2xl flex flex-col justify-between group border border-white/10 relative overflow-hidden">
-                    <div class="absolute -top-12 -right-12 w-44 h-44 bg-brand-cyan/10 rounded-full blur-3xl pointer-events-none"></div>
-
-                    <div class="space-y-4">
-                        <!-- Top Status & Capacity Badges -->
-                        <div class="flex flex-wrap items-center justify-between gap-2">
-                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-rose-500/10 text-rose-400 border border-rose-500/30">
-                                <i class="fa-solid fa-lock text-[10px]"></i>
-                                REGISTRATIONS CLOSED
-                            </span>
-                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono text-slate-300 bg-white/5 border border-white/10">
-                                <i class="fa-solid fa-users text-rose-400 text-xs"></i>
-                                15 / 15 SLOTS FILLED
-                            </span>
-                        </div>
-
-                        <!-- Minimal Cyber Header Banner -->
-                        <div class="w-full rounded-xl overflow-hidden border border-white/10 bg-slate-950/70 relative p-4 sm:p-5 flex items-center gap-4 group-hover:border-brand-cyan/30 transition-colors">
-                            <div class="w-12 h-12 rounded-xl bg-brand-cyan/15 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan flex-shrink-0 shadow-[0_0_15px_rgba(0,245,255,0.25)]">
-                                <i class="fa-solid fa-shield-halved text-xl"></i>
-                            </div>
-                            <div class="min-w-0">
-                                <span class="text-[10px] font-mono text-brand-cyan uppercase tracking-widest block font-bold">2-HOUR LAB CTF // JEOPARDY-STYLE</span>
-                                <h3 class="text-xl sm:text-2xl font-black text-white leading-tight">Capture The Flag Challenge</h3>
-                            </div>
-                        </div>
-
-                        <!-- Minimal High-Level Strip (Prize Pool & Hardware provided) -->
-                        <div class="grid grid-cols-2 gap-3 p-3 bg-slate-950/60 rounded-xl border border-white/5 text-xs font-mono">
-                            <div class="flex items-center gap-2 text-slate-300">
-                                <i class="fa-solid fa-trophy text-brand-cyan text-sm"></i>
-                                <span>Prize Pool: <strong class="text-brand-cyan font-bold">₹1,500</strong></span>
-                            </div>
-                            <div class="flex items-center gap-2 text-slate-300">
-                                <i class="fa-solid fa-desktop text-brand-cyan text-sm"></i>
-                                <span>Lab: <strong class="text-white">Systems Provided</strong></span>
-                            </div>
-                        </div>
-
-                        <!-- REGISTRATION CLOSED BUTTON -->
-                        <div id="ctf-reg-btn-wrap">
-                            <button type="button" disabled class="w-full py-4 rounded-2xl font-black font-mono text-sm uppercase tracking-widest flex items-center justify-center gap-3 cursor-not-allowed select-none bg-slate-900/80 text-rose-400 border border-rose-500/30 shadow-none">
-                                <i class="fa-solid fa-lock text-base"></i>
-                                <span>REGISTRATIONS CLOSED — 15/15 TEAMS REGISTERED</span>
-                            </button>
-                        </div>
-
-                        <!-- Read More Toggle Row & Query Link -->
-                        <div class="flex items-center justify-between pt-1">
-                            <button type="button" onclick="toggleCtfDetails(this)" class="inline-flex items-center gap-2 text-xs font-mono text-slate-400 hover:text-brand-cyan transition-colors cursor-pointer group/toggle">
-                                <span class="toggle-text font-semibold">View Event Details, Rules & Perks</span>
-                                <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-300"></i>
-                            </button>
-                            <a href="suggestions.html" class="inline-flex items-center gap-1.5 text-xs font-mono text-slate-500 hover:text-white transition-colors" title="Have questions? Ask the club">
-                                <i class="fa-solid fa-circle-question text-[10px]"></i>
-                                <span>Query</span>
-                            </a>
-                        </div>
-
-                        <!-- Expandable Details Drawer (Collapsible) -->
-                        <div id="ctf-details-drawer" class="hidden space-y-3 pt-3 border-t border-white/10 font-mono text-xs text-slate-300">
-                            <p class="leading-relaxed text-slate-400 text-[11px]">
-                                A fast-paced 2-hour Capture The Flag (CTF) challenge hosted directly in the college computer lab. All systems and hardware will be provided on-site — please do not bring personal devices or laptops. Open to all branches and years.
-                            </p>
-                            
-                            <div class="p-3 bg-slate-950/70 rounded-xl border border-white/5 space-y-2 text-[11px]">
-                                <div class="flex items-center gap-2 text-slate-300">
-                                    <i class="fa-solid fa-clock text-brand-cyan text-xs"></i>
-                                    <span>Duration: <strong class="text-white">2 Hours Lab Session</strong></span>
-                                </div>
-                                <div class="flex items-center gap-2 text-slate-300">
-                                    <i class="fa-solid fa-indian-rupee-sign text-brand-cyan text-xs"></i>
-                                    <span>Pricing: <strong class="text-brand-cyan">₹40</strong> (Both Members) · <strong class="text-brand-cyan">₹60</strong> (1 Member) · <strong class="text-white">₹80</strong> (Non-Members)</span>
-                                </div>
-                                <div class="flex items-center gap-2 text-slate-300">
-                                    <i class="fa-solid fa-trophy text-brand-cyan text-xs"></i>
-                                    <span>Prize Pool: <strong class="text-brand-cyan">₹1,500</strong></span>
-                                </div>
-                            </div>
-
-                            <!-- Perks List -->
-                            <div class="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-[11px] text-slate-300 pt-1">
-                                <span class="flex items-center gap-1.5 text-brand-cyan font-semibold">
-                                    <i class="fa-solid fa-circle-check text-xs"></i> Duty Leave (DL) Granted
-                                </span>
-                                <span class="flex items-center gap-1.5 text-brand-cyan font-semibold">
-                                    <i class="fa-solid fa-circle-check text-xs"></i> KTU Activity Points
-                                </span>
-                                <span class="flex items-center gap-1.5 text-brand-cyan font-semibold">
-                                    <i class="fa-solid fa-circle-check text-xs"></i> Official Certificates
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Upcoming Event 2: Exclusive First-Year Event -->
+                <!-- Upcoming Event: Exclusive First-Year Event -->
                 <div class="p-5 md:p-6 glass-panel rounded-2xl hover:border-brand-orange/35 transition-all duration-300 space-y-5 shadow-xl flex flex-col justify-between group border border-white/5">
                     <div class="space-y-4">
                         <!-- Header Status & Audience Pills -->
@@ -328,6 +231,45 @@
                         </a>
                     </div>
                 </div>
+
+                <!-- Teaser: Future Initiatives -->
+                <div class="p-5 md:p-6 glass-panel rounded-2xl border border-dashed border-white/10 hover:border-brand-cyan/30 transition-all duration-300 flex flex-col justify-between space-y-5">
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-2">
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-mono font-bold bg-white/5 text-slate-400 border border-white/10">
+                                <i class="fa-solid fa-clock text-xs text-brand-cyan"></i>
+                                IN PIPELINE
+                            </span>
+                        </div>
+                        <div class="w-full rounded-xl overflow-hidden border border-white/5 bg-slate-950/40 p-4 sm:p-5 flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center text-brand-cyan flex-shrink-0">
+                                <i class="fa-solid fa-wand-magic-sparkles text-sm"></i>
+                            </div>
+                            <div>
+                                <span class="text-[9px] font-mono text-slate-400 uppercase tracking-widest block">WORKSHOPS & HACKATHONS</span>
+                                <h3 class="text-base font-bold text-white leading-tight">Next Events in the Works</h3>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-400 font-mono leading-relaxed">
+                            Following the successful CTF Challenge, we are preparing new technical workshops, robotics hackathons, and industrial tech talks for the coming weeks.
+                        </p>
+                        <div class="p-3 bg-slate-950/40 rounded-xl border border-white/5 text-[11px] font-mono text-slate-400 space-y-1">
+                            <div class="flex items-center gap-2 text-slate-300">
+                                <i class="fa-solid fa-bell text-brand-cyan text-xs"></i>
+                                <span>Announcements will be posted here and on WhatsApp</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-3 border-t border-white/5 flex flex-wrap items-center justify-between gap-3">
+                        <span class="text-[10px] font-mono text-slate-500 uppercase flex items-center gap-1.5">
+                            <i class="fa-solid fa-lightbulb text-brand-cyan"></i> HAVE AN IDEA?
+                        </span>
+                        <a href="suggestions.html" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-brand-cyan/15 hover:bg-brand-cyan/25 border border-brand-cyan/30 text-brand-cyan hover:text-white text-xs font-mono font-semibold transition-all">
+                            <i class="fa-solid fa-paper-plane text-[10px]"></i>
+                            <span>Suggest an Event</span>
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -343,6 +285,57 @@
 
             <!-- Past events grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Event: Capture The Flag (CTF) Challenge -->
+                <div class="p-6 glass-panel rounded hover:border-brand-cyan/35 transition-colors space-y-4 shadow-xl flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-full aspect-video rounded-lg overflow-hidden border border-white/5 bg-slate-950/40 relative">
+                            <img src="assets/EventPhotos/CTF/banner.webp" alt="Capture The Flag (CTF) Challenge" class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded bg-brand-cyan/10 flex items-center justify-center text-brand-cyan flex-shrink-0">
+                                <i class="fa-solid fa-shield-halved text-sm"></i>
+                            </div>
+                            <div>
+                                <span class="text-[9px] font-mono text-brand-cyan uppercase tracking-widest block">Cybersecurity & CTF</span>
+                                <h3 class="text-base font-bold text-white leading-tight">Capture The Flag Challenge</h3>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-300 font-mono leading-relaxed">
+                            A fast-paced 2-hour Jeopardy-style Capture The Flag challenge hosted in the college computer lab. 15 teams competed head-to-head solving security puzzles and web exploits, with the team accumulating the most points claiming victory.
+                        </p>
+
+                        <!-- Winners & Stats Badges -->
+                        <div class="p-3 bg-slate-950/40 rounded-lg border border-white/5 space-y-1.5 font-mono text-xs">
+                            <div class="flex justify-between items-center text-slate-400 text-[10px]">
+                                <span><i class="fa-solid fa-users text-brand-cyan"></i> 15 Teams (30 Participants)</span>
+                                <span class="text-brand-cyan font-bold flex-shrink-0 ml-2">Total ₹1,500 Prize Pool</span>
+                            </div>
+                            <div class="flex justify-between items-start text-white text-xs pt-1 border-t border-white/5">
+                                <span>🥇 1st: <strong class="text-white">Kasinath Remesh & Dibin Dinesh</strong></span>
+                                <span class="text-brand-cyan font-bold flex-shrink-0 ml-2">₹1,000</span>
+                            </div>
+                            <div class="flex justify-between items-start text-white text-xs">
+                                <span>🥈 2nd: <strong class="text-white">GeorgeKutty Senni & Jagan Rajeev</strong></span>
+                                <span class="text-brand-cyan font-bold flex-shrink-0 ml-2">₹500</span>
+                            </div>
+                        </div>
+
+                        <button onclick="toggleGallery('ctf-gallery', this)" class="text-[10px] font-mono text-brand-cyan hover:text-white transition-colors flex items-center gap-1.5 group">
+                            <i class="fa-solid fa-images text-xs"></i>
+                            <span>View Photos</span>
+                            <i class="fa-solid fa-chevron-down text-[8px] transition-transform duration-300 group-[.gallery-open]:rotate-180"></i>
+                        </button>
+                        <div id="ctf-gallery" class="event-photo-gallery hidden">
+                            <div class="p-4 rounded-lg border border-dashed border-brand-cyan/20 bg-brand-cyan/5 text-center text-slate-300 text-xs font-mono space-y-1">
+                                <i class="fa-solid fa-camera-retro text-brand-cyan text-base"></i>
+                                <p class="text-white font-semibold">Event Photos Coming Soon</p>
+                                <p class="text-slate-400 text-[11px]">Official competition photos will be uploaded here shortly.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="text-[9px] font-mono text-slate-500 mt-2 block border-t border-white/5 pt-2">COLLEGE LEVEL // COMPLETED (SEPTEMBER 30, 2026)</span>
+                </div>
+
                 <!-- Event 1: FIFA23 Gaming Tournament -->
                 <div class="p-6 glass-panel rounded hover:border-brand-orange/35 transition-colors space-y-4 shadow-xl flex flex-col justify-between">
                     <div class="space-y-4">
