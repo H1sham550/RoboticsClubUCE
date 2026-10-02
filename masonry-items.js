@@ -124,5 +124,23 @@ const masonryItems = [
       title: "FIFA23 Arena Action",
       category: "ESPORTS",
       desc: "Intense gameplay during the FIFA23 tournament finals."
+    },
+    {
+      id: "15",
+      img: "assets/EventPhotos/CTF/hall.webp",
+      url: "events.html",
+      height: 480,
+      title: "Capture The Flag Challenge",
+      category: "CYBERSECURITY",
+      desc: "15 teams battling head-to-head in our Jeopardy-style CTF challenge in the college computer lab."
+    },
+    {
+      id: "16",
+      img: "assets/EventPhotos/CTF/1stPrize.webp",
+      url: "events.html",
+      height: 540,
+      title: "CTF 1st Prize Presentation",
+      category: "AWARDS",
+      desc: "1st prize winners Kasinath Remesh and Dibin Dinesh receiving their award from faculty."
     }
 ];
