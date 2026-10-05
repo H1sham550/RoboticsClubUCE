@@ -142,5 +142,14 @@ const masonryItems = [
       title: "CTF 1st Prize Presentation",
       category: "AWARDS",
       desc: "1st prize winners Kasinath Remesh and Dibin Dinesh receiving their award from faculty."
+    },
+    {
+      id: "17",
+      img: "assets/EventPhotos/CTF/ctf-hacking.webp",
+      url: "events.html",
+      height: 440,
+      title: "CTF Live Competition",
+      category: "CYBERSECURITY",
+      desc: "Teams collaborating and analyzing security vulnerabilities during the 2-hour CTF showdown."
     }
 ];
