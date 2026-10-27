@@ -201,7 +201,7 @@ async function verifyCertificate() {
                 const linkIcon = document.createElement('i');
                 linkIcon.className = 'fa-solid fa-arrow-up-right-from-square';
                 link.appendChild(linkIcon);
-                link.appendChild(document.createTextNode(' View PDF'));
+                link.appendChild(document.createTextNode(' View Certificate'));
 
                 item.appendChild(link);
                 certList.appendChild(item);
