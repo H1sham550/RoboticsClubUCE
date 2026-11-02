@@ -101,7 +101,11 @@
             </nav>
             
             <!-- Actions & Menu -->
-            <div class="flex items-center gap-2 lg:gap-4 pointer-events-auto">
+            <div class="flex items-center gap-2 lg:gap-3 pointer-events-auto">
+                <a href="https://www.linkedin.com/company/roboticsclubuce" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-xs font-mono font-bold text-[#0a66c2] hover:text-white transition-colors bg-white/5 px-3 py-1.5 rounded-full border border-white/10" title="Follow us on LinkedIn">
+                    <i class="fa-brands fa-linkedin-in text-sm"></i>
+                    <span class="hidden md:inline">LinkedIn</span>
+                </a>
                 <a href="https://www.instagram.com/roboticsclubuce/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-xs font-mono font-bold text-brand-pink hover:text-white transition-colors bg-white/5 px-3 py-1.5 rounded-full border border-white/10" title="Follow us on Instagram">
                     <i class="fa-brands fa-instagram text-sm"></i>
                     <span class="hidden sm:inline">@roboticsclubuce</span>
@@ -132,6 +136,17 @@
             <i class="fa-solid fa-credit-card"></i>
             <span>Join Club</span>
         </a>
+        <div class="flex items-center gap-4 pt-4 border-t border-white/10 text-xs font-mono">
+            <a href="https://www.linkedin.com/company/roboticsclubuce" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-slate-300 hover:text-[#0a66c2] transition-colors">
+                <i class="fa-brands fa-linkedin-in text-sm text-[#0a66c2]"></i>
+                <span>LinkedIn</span>
+            </a>
+            <span class="text-white/20">|</span>
+            <a href="https://www.instagram.com/roboticsclubuce/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-slate-300 hover:text-brand-pink transition-colors">
+                <i class="fa-brands fa-instagram text-sm text-brand-pink"></i>
+                <span>Instagram</span>
+            </a>
+        </div>
     </div>
 
     <!-- MAIN CONTENT -->
@@ -764,17 +779,29 @@
             <div class="flex items-center gap-3">
                 <img src="assets/logo.png" alt="Robotics Club UCE Logo" class="h-8 w-auto object-contain opacity-50 hover:opacity-100 transition-opacity">
             </div>
-            <!-- Contact Info -->
-            <div class="flex flex-col items-center gap-1.5 text-center">
-                <span class="text-[10px] text-slate-600 uppercase tracking-widest font-bold">Contact Us</span>
-                <a href="mailto:uceroboticsclub@gmail.com" class="flex items-center gap-1.5 text-slate-400 hover:text-brand-cyan transition-colors">
-                    <i class="fa-solid fa-envelope text-[10px]"></i>
-                    uceroboticsclub@gmail.com
-                </a>
-                <a href="tel:+919633802029" class="flex items-center gap-1.5 text-slate-400 hover:text-brand-cyan transition-colors">
-                    <i class="fa-solid fa-phone text-[10px]"></i>
-                    Hisham T S &middot; +91 96338 02029
-                </a>
+            <!-- Contact & Social Info -->
+            <div class="flex flex-col items-center gap-2.5 text-center">
+                <div class="flex items-center gap-3">
+                    <a href="https://www.linkedin.com/company/roboticsclubuce" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-white/5 hover:bg-[#0a66c2]/20 border border-white/10 hover:border-[#0a66c2]/40 flex items-center justify-center text-slate-400 hover:text-[#0a66c2] transition-colors" title="Follow us on LinkedIn" aria-label="LinkedIn">
+                        <i class="fa-brands fa-linkedin-in text-xs"></i>
+                    </a>
+                    <a href="https://www.instagram.com/roboticsclubuce/" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-white/5 hover:bg-brand-pink/20 border border-white/10 hover:border-brand-pink/40 flex items-center justify-center text-slate-400 hover:text-brand-pink transition-colors" title="Follow us on Instagram" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram text-xs"></i>
+                    </a>
+                    <a href="https://github.com/H1sham550/RoboticsClubUCE" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-white/5 hover:bg-white/15 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white transition-colors" title="GitHub Repository" aria-label="GitHub">
+                        <i class="fa-brands fa-github text-xs"></i>
+                    </a>
+                </div>
+                <div class="flex flex-col items-center gap-1 text-[11px]">
+                    <a href="mailto:uceroboticsclub@gmail.com" class="flex items-center gap-1.5 text-slate-400 hover:text-brand-cyan transition-colors">
+                        <i class="fa-solid fa-envelope text-[10px]"></i>
+                        uceroboticsclub@gmail.com
+                    </a>
+                    <a href="tel:+919633802029" class="flex items-center gap-1.5 text-slate-400 hover:text-brand-cyan transition-colors">
+                        <i class="fa-solid fa-phone text-[10px]"></i>
+                        Hisham T S &middot; +91 96338 02029
+                    </a>
+                </div>
             </div>
             <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center md:text-right">
                 <span>&copy; 2026 UCE ROBOTICS CLUB. All rights reserved.</span>
