@@ -460,14 +460,13 @@ function showMembershipPassModal(data) {
     const modal = document.getElementById('membership-pass-modal');
     if (!modal) return;
 
-    // Fill Pass details
+    // Fill confirmation details
     const nameEl = document.getElementById('pass-student-name');
     const deptEl = document.getElementById('pass-student-dept');
     const yearEl = document.getElementById('pass-student-year');
     const phoneEl = document.getElementById('pass-student-phone');
     const emailEl = document.getElementById('pass-student-email');
     const utrEl = document.getElementById('pass-utr-code');
-    const passIdEl = document.getElementById('pass-reference-id');
 
     if (nameEl) nameEl.textContent = data.student.name;
     if (deptEl) deptEl.textContent = data.student.dept;
@@ -475,10 +474,6 @@ function showMembershipPassModal(data) {
     if (phoneEl) phoneEl.textContent = data.student.phone;
     if (emailEl) emailEl.textContent = data.student.email;
     if (utrEl) utrEl.textContent = data.upiUtr;
-
-    // Generate random Pass ID (e.g. UCE-RC-4029)
-    const randomId = "UCE-RC-" + Math.floor(1000 + Math.random() * 9000);
-    if (passIdEl) passIdEl.textContent = randomId;
 
     modal.classList.remove('hidden');
     document.body.style.overflow = 'hidden';

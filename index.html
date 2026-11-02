@@ -621,97 +621,72 @@
         </div>
     </div>
 
-    <!-- Success Membership Pass Modal -->
-    <div id="membership-pass-modal" class="fixed inset-0 hidden flex items-center justify-center p-4 bg-black/85 backdrop-blur-md" style="z-index:99998;">
-        <div class="w-full max-w-lg bg-slate-900 border border-brand-pink/40 rounded-2xl overflow-hidden shadow-2xl space-y-0">
-            <!-- Header bar -->
-            <div class="bg-gradient-to-r from-brand-pink via-brand-orange to-brand-cyan p-5 text-slate-950 font-black flex items-center justify-between">
-                <div class="flex items-center gap-2.5">
-                    <i class="fa-solid fa-id-card text-xl"></i>
-                    <div>
-                        <span class="text-[10px] uppercase font-mono tracking-widest block opacity-80">OFFICIAL CREDENTIAL</span>
-                        <h3 class="text-lg leading-none">Club Membership Pass</h3>
-                    </div>
+    <!-- Membership Registration Confirmation Modal -->
+    <div id="membership-pass-modal" class="fixed inset-0 hidden flex items-center justify-center p-4 bg-black/85 backdrop-blur-md" style="z-index:99998;opacity:0;transition:opacity 0.25s ease;" onclick="if(event.target === this) closeMembershipPassModal()">
+        <div class="w-full max-w-md bg-slate-900 border border-white/15 rounded-2xl overflow-hidden shadow-2xl">
+            <!-- Header with Success Icon -->
+            <div class="p-6 text-center border-b border-white/10 space-y-2.5 bg-slate-950/60">
+                <div class="w-14 h-14 rounded-full bg-green-500/15 border border-green-500/30 flex items-center justify-center mx-auto text-green-400">
+                    <i class="fa-solid fa-check text-2xl"></i>
                 </div>
-                <span class="px-2.5 py-1 bg-black/30 rounded-full text-[10px] font-mono font-bold text-white uppercase tracking-wider">
-                    4-Year Pass
-                </span>
+                <div>
+                    <h3 class="text-xl font-bold text-white font-mono">Registration Submitted!</h3>
+                    <p class="text-xs text-slate-400 font-mono mt-1">Your details and payment proof have been received.</p>
+                </div>
             </div>
 
-            <!-- Pass Body -->
-            <div class="p-6 space-y-5 bg-slate-950/80 font-mono text-xs">
-                <div class="p-3.5 bg-brand-pink/10 border border-brand-pink/25 rounded-xl flex items-center justify-between">
-                    <div>
-                        <span class="text-[9px] text-slate-400 uppercase block">Membership ID</span>
-                        <span id="pass-reference-id" class="text-base font-bold text-brand-pink">UCE-RC-0000</span>
+            <!-- Body -->
+            <div class="p-5 sm:p-6 space-y-4">
+                <!-- Summary of Submitted Data -->
+                <div class="bg-black/50 border border-white/10 rounded-xl p-4 font-mono text-xs space-y-2">
+                    <div class="flex justify-between items-center pb-2 border-b border-white/10">
+                        <span class="text-slate-400">Name:</span>
+                        <span id="pass-student-name" class="font-bold text-white text-right">-</span>
                     </div>
-                    <div class="text-right">
-                        <span class="text-[9px] text-slate-400 uppercase block">Status</span>
-                        <span class="text-xs font-bold text-green-400 flex items-center gap-1">
-                            <i class="fa-solid fa-circle-check text-[10px]"></i> Active (Paid ₹150)
+                    <div class="flex justify-between items-center">
+                        <span class="text-slate-400">Department:</span>
+                        <span id="pass-student-dept" class="font-semibold text-slate-200 text-right">-</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-slate-400">Semester:</span>
+                        <span id="pass-student-year" class="font-semibold text-slate-200 text-right">-</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-slate-400">WhatsApp:</span>
+                        <span id="pass-student-phone" class="font-semibold text-slate-200 text-right">-</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-slate-400">Email:</span>
+                        <span id="pass-student-email" class="text-slate-300 text-right truncate max-w-[200px]">-</span>
+                    </div>
+                    <div class="flex justify-between items-center pt-2 border-t border-white/10">
+                        <span class="text-slate-400">UTR / Ref:</span>
+                        <span id="pass-utr-code" class="font-bold text-brand-cyan tracking-wider text-right">-</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-slate-400">Status:</span>
+                        <span class="font-bold text-green-400 text-right flex items-center gap-1.5">
+                            <i class="fa-solid fa-circle-check text-[10px]"></i> Paid ₹150 (Pending Verification)
                         </span>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-2 gap-3 text-[11px] p-4 bg-white/5 border border-white/10 rounded-xl">
+                <!-- WhatsApp Community Invite Card -->
+                <div class="p-4 rounded-xl bg-[#25D366]/10 border border-[#25D366]/30 text-center space-y-3">
                     <div>
-                        <span class="text-slate-500 block text-[9px] uppercase">Member Name</span>
-                        <span id="pass-student-name" class="font-bold text-white text-xs block truncate">-</span>
+                        <p class="text-xs font-bold text-white font-mono">Next: Join the Official WhatsApp Group</p>
+                        <p class="text-[11px] text-slate-400 font-mono mt-0.5">Stay updated on workshops, events, and member notices</p>
                     </div>
-                    <div>
-                        <span class="text-slate-500 block text-[9px] uppercase">Department</span>
-                        <span id="pass-student-dept" class="font-bold text-white text-xs block">-</span>
-                    </div>
-                    <div>
-                        <span class="text-slate-500 block text-[9px] uppercase">Semester</span>
-                        <span id="pass-student-year" class="font-bold text-white text-xs block">-</span>
-                    </div>
-                    <div>
-                        <span class="text-slate-500 block text-[9px] uppercase">WhatsApp</span>
-                        <span id="pass-student-phone" class="font-bold text-white text-xs block">-</span>
-                    </div>
-                    <div class="col-span-2 border-t border-white/5 pt-2">
-                        <span class="text-slate-500 block text-[9px] uppercase">Email</span>
-                        <span id="pass-student-email" class="font-bold text-slate-200 text-xs block truncate">-</span>
-                    </div>
-                    <div class="col-span-2">
-                        <span class="text-slate-500 block text-[9px] uppercase">UPI Transaction UTR</span>
-                        <span id="pass-utr-code" class="font-bold text-brand-cyan text-xs block tracking-widest">-</span>
-                    </div>
+                    <a href="https://chat.whatsapp.com/L4tIyy0RaSdG9xI6dLCzaF" target="_blank" rel="noopener noreferrer" class="w-full py-3 px-4 rounded-xl font-bold font-mono text-xs text-white flex items-center justify-center gap-2 transition-all cursor-pointer shadow-lg" style="background-color: #25D366 !important; box-shadow: 0 0 20px rgba(37, 211, 102, 0.35) !important;">
+                        <i class="fa-brands fa-whatsapp text-base"></i>
+                        <span>Join WhatsApp Group</span>
+                    </a>
                 </div>
 
-                <!-- Unlocked Perks List -->
-                <div class="space-y-2 text-[11px] pt-1">
-                    <span class="text-slate-400 uppercase text-[9px] tracking-wider block font-bold">Unlocked Membership Privileges:</span>
-                    <ul class="space-y-1.5 text-slate-300">
-                        <li class="flex items-center gap-2">
-                            <i class="fa-solid fa-check text-green-400 text-xs"></i>
-                            <span>Access to exclusive member events (VR Workshop, Robotics Expos)</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <i class="fa-solid fa-check text-green-400 text-xs"></i>
-                            <span>Up to 50% discount on all club hackathons & gaming contests</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <i class="fa-solid fa-check text-green-400 text-xs"></i>
-                            <span>Conduct & lead official events under the Robotics Club banner</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <i class="fa-solid fa-check text-green-400 text-xs"></i>
-                            <span>No yearly renewals — valid for your full 4 years of college</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="pt-3 border-t border-white/10 flex items-center justify-between gap-3">
-                    <button type="button" onclick="window.print()" class="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-mono text-xs font-bold transition-colors flex items-center gap-2 cursor-pointer">
-                        <i class="fa-solid fa-print"></i>
-                        <span>Print Pass</span>
-                    </button>
-                    <button type="button" onclick="closeMembershipPassModal()" class="px-6 py-2.5 rounded-xl bg-brand-pink/20 hover:bg-brand-pink/30 border border-brand-pink/40 text-brand-pink hover:text-white font-mono text-xs font-bold transition-colors cursor-pointer ml-auto">
-                        Done
-                    </button>
-                </div>
+                <!-- Done Button -->
+                <button type="button" onclick="closeMembershipPassModal()" class="w-full py-3 rounded-xl bg-white/10 hover:bg-white/15 border border-white/10 text-white font-mono text-xs font-bold transition-colors cursor-pointer">
+                    Done
+                </button>
             </div>
         </div>
     </div>
