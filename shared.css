@@ -862,13 +862,42 @@ html, body {
 }
 
 /* ================= MODALS & REGISTRATION OVERLAYS ================= */
-#photo-lightbox {
+#photo-lightbox,
+.moments-modal-overlay {
     z-index: 99900 !important;
 }
 
 #event-reg-modal,
 #membership-reg-modal {
     z-index: 99990 !important;
+}
+
+#membership-reg-modal .modal-card-content {
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100dvh - 32px);
+    height: calc(100dvh - 32px);
+}
+
+@media (min-width: 640px) {
+    #membership-reg-modal .modal-card-content {
+        max-height: min(720px, calc(100dvh - 48px));
+        height: auto;
+    }
+}
+
+#membership-registration-form {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow: hidden;
+}
+
+#mem-modal-scroll-body {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
 }
 
 #utr-help-modal,
@@ -891,6 +920,7 @@ html, body {
     font-size: 0.925rem !important;
     line-height: 1.4 !important;
     width: 100% !important;
+    box-sizing: border-box !important;
     transition: all 0.2s ease !important;
 }
 
@@ -904,6 +934,17 @@ html, body {
     background-color: #030712 !important;
     box-shadow: 0 0 0 3px rgba(0, 245, 255, 0.25) !important;
     outline: none !important;
+}
+
+select.reg-input {
+    padding-right: 2.25rem !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='rgba(255, 255, 255, 0.6)' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 0.75rem center !important;
+    background-size: 1rem 1rem !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
 }
 
 select.reg-input option {

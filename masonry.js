@@ -137,9 +137,129 @@ class MasonryGrid {
                 box-shadow: 0 20px 40px rgba(0,0,0,0.5), inset 0 1px 1px rgba(255,255,255,0.1);
             }
             .moments-modal-overlay {
+                z-index: 99900 !important;
                 background: rgba(0,0,0,0.9);
                 backdrop-filter: blur(20px);
                 -webkit-backdrop-filter: blur(20px);
+            }
+            .moments-modal-box {
+                position: relative;
+                width: 100%;
+                max-width: 920px;
+                max-height: 85vh;
+                max-height: 85dvh;
+                display: flex;
+                flex-direction: column;
+                background: #09090b;
+                border: 1px solid rgba(255, 255, 255, 0.15);
+                border-radius: 1.25rem;
+                overflow: hidden;
+                box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+                transform: scale(0.95);
+                transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+            }
+            @media (min-width: 768px) {
+                .moments-modal-box {
+                    flex-direction: row;
+                    height: 520px;
+                    max-height: 80vh;
+                    border-radius: 1.5rem;
+                }
+            }
+            .moments-modal-img {
+                width: 100%;
+                height: 200px;
+                flex-shrink: 0;
+                background-size: cover;
+                background-position: center;
+                position: relative;
+            }
+            @media (min-width: 640px) {
+                .moments-modal-img {
+                    height: 240px;
+                }
+            }
+            @media (min-width: 768px) {
+                .moments-modal-img {
+                    width: 58%;
+                    height: 100%;
+                }
+            }
+            .moments-modal-details {
+                width: 100%;
+                flex: 1 1 auto;
+                min-height: 0;
+                overflow-y: auto;
+                padding: 1.25rem 1.25rem 1.25rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                background: #09090b;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                box-sizing: border-box;
+            }
+            @media (min-width: 768px) {
+                .moments-modal-details {
+                    width: 42%;
+                    height: 100%;
+                    border-top: none;
+                    border-left: 1px solid rgba(255, 255, 255, 0.1);
+                    padding: 2.25rem 2rem 2rem;
+                }
+            }
+            .moments-close-x {
+                position: absolute;
+                top: 0.75rem;
+                right: 0.75rem;
+                z-index: 30;
+                width: 2rem;
+                height: 2rem;
+                border-radius: 9999px;
+                background: rgba(0, 0, 0, 0.7);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                color: #ffffff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+                transition: all 0.2s ease;
+            }
+            .moments-close-x:hover,
+            .moments-close-x:active {
+                background: rgba(0, 0, 0, 0.9);
+                border-color: rgba(255, 255, 255, 0.4);
+                transform: scale(0.95);
+            }
+            @media (min-width: 768px) {
+                .moments-close-x {
+                    top: 1rem;
+                    right: 1rem;
+                }
+            }
+            .moments-close-btn {
+                margin-top: 1.25rem;
+                flex-shrink: 0;
+                background: rgba(255, 255, 255, 0.08);
+                border: 1px solid rgba(255, 255, 255, 0.18);
+                color: #ffffff;
+                font-family: monospace, Courier New, Courier;
+                font-size: 0.75rem;
+                letter-spacing: 0.15em;
+                text-transform: uppercase;
+                font-weight: 700;
+                padding: 0.75rem 1.25rem;
+                border-radius: 9999px;
+                width: 100%;
+                text-align: center;
+                cursor: pointer;
+                transition: all 0.2s ease;
+            }
+            .moments-close-btn:hover,
+            .moments-close-btn:active {
+                background: rgba(255, 255, 255, 0.18);
+                border-color: rgba(255, 255, 255, 0.35);
+                transform: scale(0.98);
             }
 
             /* ---- Mobile auto-scrolling marquee ---- */
@@ -241,24 +361,31 @@ class MasonryGrid {
 
     createModal() {
         this.modalEl = document.createElement('div');
-        this.modalEl.className = 'fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-10 moments-modal-overlay opacity-0 pointer-events-none transition-all duration-500';
+        this.modalEl.className = 'fixed inset-0 z-[99900] flex items-center justify-center p-3 sm:p-6 md:p-10 moments-modal-overlay opacity-0 pointer-events-none transition-all duration-300';
+        this.modalEl.style.zIndex = '99900';
         this.modalEl.innerHTML = `
-            <div class="relative w-full max-w-5xl h-[80vh] bg-zinc-950 border border-white/10 rounded-3xl overflow-hidden flex flex-col md:flex-row shadow-2xl scale-95 transition-all duration-500" id="modal-box">
+            <div class="moments-modal-box" id="modal-box">
+                <!-- Floating Close Button (Top-Right) -->
+                <button type="button" id="modal-close-x" class="moments-close-x" title="Close moment" aria-label="Close modal">
+                    <i class="fa-solid fa-xmark text-sm"></i>
+                </button>
+
                 <!-- Left Image Slot -->
-                <div class="w-full md:w-3/5 h-1/2 md:h-full bg-cover bg-center relative" id="modal-img">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div class="moments-modal-img" id="modal-img">
+                    <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-zinc-950"></div>
                 </div>
+
                 <!-- Right details panel -->
-                <div class="w-full md:w-2/5 p-8 md:p-12 flex flex-col justify-between text-left h-1/2 md:h-full bg-zinc-950 border-t md:border-t-0 md:border-l border-white/10">
-                    <div class="space-y-6">
+                <div class="moments-modal-details">
+                    <div class="space-y-3 sm:space-y-4">
                         <div>
-                            <span id="modal-cat" class="text-xs font-mono tracking-widest text-brand-pink font-bold uppercase">CATEGORY</span>
-                            <h2 id="modal-title" class="text-3xl font-heading font-normal italic text-white mt-2 leading-tight">Moment Title</h2>
+                            <span id="modal-cat" class="text-[11px] font-mono tracking-widest text-brand-pink font-bold uppercase block">CATEGORY</span>
+                            <h2 id="modal-title" class="text-xl sm:text-2xl md:text-3xl font-heading font-normal italic text-white mt-1 sm:mt-1.5 leading-tight">Moment Title</h2>
                         </div>
-                        <p id="modal-desc" class="text-sm text-slate-400 font-mono leading-relaxed">Detailed moment description goes here.</p>
+                        <p id="modal-desc" class="text-xs sm:text-sm text-slate-300 font-mono leading-relaxed">Detailed moment description goes here.</p>
                     </div>
                     
-                    <button id="modal-close" class="mt-8 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-mono text-xs uppercase tracking-widest py-3 px-6 rounded-full transition-colors w-full text-center">
+                    <button type="button" id="modal-close" class="moments-close-btn">
                         CLOSE MOMENT
                     </button>
                 </div>
@@ -268,10 +395,20 @@ class MasonryGrid {
 
         // Add close event listeners
         const closeBtn = this.modalEl.querySelector('#modal-close');
-        closeBtn.onclick = () => this.closeModal();
+        if (closeBtn) closeBtn.onclick = () => this.closeModal();
+
+        const closeIconBtn = this.modalEl.querySelector('#modal-close-x');
+        if (closeIconBtn) closeIconBtn.onclick = () => this.closeModal();
+
         this.modalEl.onclick = (e) => {
             if (e.target === this.modalEl) this.closeModal();
         };
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !this.modalEl.classList.contains('pointer-events-none')) {
+                this.closeModal();
+            }
+        });
     }
 
     openModal(item) {
@@ -537,14 +674,14 @@ class MasonryGrid {
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
         if (document.getElementById('masonry-container') && typeof masonryItems !== 'undefined') {
-            new MasonryGrid('masonry-container', {
+            window.momentMasonry = new MasonryGrid('masonry-container', {
                 items: masonryItems
             });
         }
     });
 } else {
     if (document.getElementById('masonry-container') && typeof masonryItems !== 'undefined') {
-        new MasonryGrid('masonry-container', {
+        window.momentMasonry = new MasonryGrid('masonry-container', {
             items: masonryItems
         });
     }
