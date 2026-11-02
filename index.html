@@ -363,7 +363,7 @@
                     <!-- Progress & Required Notice -->
                     <div class="pt-1.5 flex flex-wrap items-center justify-between gap-2 text-xs font-mono">
                         <div class="flex items-center gap-2">
-                            <span id="mem-step-badge" class="px-2.5 py-0.5 rounded-full bg-brand-pink/15 text-brand-pink font-bold border border-brand-pink/30 text-[11px]">
+                            <span id="mem-step-badge" class="mem-pill-badge bg-brand-pink/15 text-brand-pink font-bold border border-brand-pink/30">
                                 Page 1 of 2
                             </span>
                             <span id="mem-step-title" class="text-slate-300 font-semibold text-xs">Personal & Academic Info</span>
@@ -389,13 +389,13 @@
                     <div id="mem-step-1" class="space-y-4">
                         
                         <!-- Perks Quick Banner -->
-                        <div class="p-4 sm:p-4.5 bg-brand-pink/[0.08] border border-brand-pink/30 rounded-2xl space-y-2">
+                        <div class="p-4 sm:p-5 bg-brand-pink/[0.08] border border-brand-pink/30 rounded-2xl space-y-2">
                             <div class="flex flex-wrap items-center justify-between gap-2">
                                 <div class="flex items-center gap-2 text-brand-pink font-bold text-xs font-mono uppercase tracking-wider">
-                                    <i class="fa-solid fa-sparkles text-xs"></i>
                                     <span>Lifetime College Pass</span>
+                                    <i class="fa-solid fa-sparkles text-[10px] opacity-80"></i>
                                 </div>
-                                <span class="px-2.5 py-0.5 rounded-full bg-brand-pink/20 text-brand-pink border border-brand-pink/35 font-mono font-bold text-[11px] whitespace-nowrap">
+                                <span class="mem-pill-badge bg-brand-pink/20 text-brand-pink border border-brand-pink/35 font-mono font-bold">
                                     ₹150 One-Time
                                 </span>
                             </div>
@@ -405,25 +405,26 @@
                         </div>
 
                         <!-- CARD: Student Details (Name, Dept, Year) -->
-                        <div class="bg-slate-950/70 border border-white/10 rounded-2xl p-4 sm:p-5 shadow-lg space-y-4">
-                            <div class="flex items-center gap-2 pb-2.5 border-b border-white/10">
+                        <div class="mem-form-card">
+                            <div class="mem-card-header">
                                 <i class="fa-solid fa-user-graduate text-brand-pink text-xs"></i>
                                 <h3 class="text-xs font-bold text-white uppercase tracking-wider font-mono">Academic & Student Info</h3>
                             </div>
 
-                            <div class="space-y-1.5">
-                                <label for="mem-name" class="block text-xs font-bold text-slate-200 uppercase tracking-wider font-mono">
+                            <div class="mem-field-group">
+                                <label for="mem-name" class="mem-field-label">
                                     Full Name <span class="text-red-400 font-bold">*</span>
                                 </label>
-                                <p class="text-[11px] text-slate-400 font-mono">Official name as displayed on membership ID</p>
+                                <span class="mem-field-helper">Official name as displayed on membership ID</span>
                                 <input type="text" id="mem-name" class="reg-input" placeholder="e.g. Rahul Nair" required>
                             </div>
 
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1">
-                                <div class="space-y-1.5">
-                                    <label for="mem-dept" class="block text-xs font-bold text-slate-200 uppercase tracking-wider font-mono">
+                            <div class="mem-grid-2">
+                                <div class="mem-field-group">
+                                    <label for="mem-dept" class="mem-field-label">
                                         Department <span class="text-red-400 font-bold">*</span>
                                     </label>
+                                    <span class="mem-field-helper">Your branch of engineering</span>
                                     <select id="mem-dept" class="reg-input cursor-pointer" required>
                                         <option value="" disabled selected>Select branch</option>
                                         <option value="CSE">CSE (Computer Science)</option>
@@ -435,10 +436,11 @@
                                     </select>
                                 </div>
 
-                                <div class="space-y-1.5">
-                                    <label for="mem-year" class="block text-xs font-bold text-slate-200 uppercase tracking-wider font-mono">
+                                <div class="mem-field-group">
+                                    <label for="mem-year" class="mem-field-label">
                                         Semester / Year <span class="text-red-400 font-bold">*</span>
                                     </label>
+                                    <span class="mem-field-helper">Current semester of study</span>
                                     <select id="mem-year" class="reg-input cursor-pointer" required>
                                         <option value="" disabled selected>Select semester</option>
                                         <option value="S1">S1 (1st Year)</option>
@@ -451,25 +453,25 @@
                         </div>
 
                         <!-- CARD: Contact Info (WhatsApp + Email) -->
-                        <div class="bg-slate-950/70 border border-white/10 rounded-2xl p-4 sm:p-5 shadow-lg space-y-4">
-                            <div class="flex items-center gap-2 pb-2.5 border-b border-white/10">
+                        <div class="mem-form-card">
+                            <div class="mem-card-header">
                                 <i class="fa-solid fa-address-book text-brand-cyan text-xs"></i>
                                 <h3 class="text-xs font-bold text-white uppercase tracking-wider font-mono">Contact Details</h3>
                             </div>
 
-                            <div class="space-y-1.5">
-                                <label for="mem-phone" class="block text-xs font-bold text-slate-200 uppercase tracking-wider font-mono">
+                            <div class="mem-field-group">
+                                <label for="mem-phone" class="mem-field-label">
                                     WhatsApp Mobile Number <span class="text-red-400 font-bold">*</span>
                                 </label>
-                                <p class="text-[11px] text-slate-400 font-mono">Used for adding to the official club community group</p>
+                                <span class="mem-field-helper">Used for adding to the official club community group</span>
                                 <input type="tel" id="mem-phone" class="reg-input" placeholder="10-digit number (e.g. 9876543210)" pattern="[0-9]{10}" maxlength="10" required>
                             </div>
 
-                            <div class="space-y-1.5 pt-1">
-                                <label for="mem-email" class="block text-xs font-bold text-slate-200 uppercase tracking-wider font-mono">
+                            <div class="mem-field-group">
+                                <label for="mem-email" class="mem-field-label">
                                     Email Address <span class="text-red-400 font-bold">*</span>
                                 </label>
-                                <p class="text-[11px] text-slate-400 font-mono">Official updates and certificate verification link</p>
+                                <span class="mem-field-helper">Official updates and certificate verification link</span>
                                 <input type="email" id="mem-email" class="reg-input" placeholder="e.g. student@gmail.com" required>
                             </div>
                         </div>
@@ -479,7 +481,7 @@
                     <div id="mem-step-2" class="space-y-4 hidden">
                         
                         <!-- CARD: Payment QR & Instructions -->
-                        <div class="bg-slate-950/70 border border-white/10 rounded-2xl p-4 sm:p-5 shadow-lg space-y-4">
+                        <div class="mem-form-card">
                             <div class="flex items-center justify-between pb-3 border-b border-white/10">
                                 <div class="space-y-0.5">
                                     <h3 class="text-xs font-bold text-white uppercase tracking-wider font-mono flex items-center gap-1.5">
@@ -497,7 +499,7 @@
                             <!-- Centered QR Display -->
                             <div class="flex flex-col items-center justify-center p-4 sm:p-5 rounded-2xl bg-black/80 border border-white/10 gap-3">
                                 <img id="mem-qr-image" src="assets/qr-150.svg" alt="Membership Payment QR Code" class="w-40 h-40 sm:w-44 sm:h-44 object-contain rounded-xl shadow-lg">
-                                <span class="text-[11px] text-slate-300 font-mono text-center px-3 py-1 bg-white/5 rounded-full border border-white/10">
+                                <span class="mem-pill-badge bg-white/5 border border-white/10 text-slate-300">
                                     Scan with Google Pay, PhonePe, or Paytm
                                 </span>
                             </div>
@@ -510,57 +512,61 @@
                         </div>
 
                         <!-- CARD: 12-Digit UTR Input -->
-                        <div class="bg-slate-950/70 border border-white/10 rounded-2xl p-4 sm:p-5 shadow-lg space-y-2.5">
-                            <div class="flex flex-wrap items-center justify-between gap-2 pb-0.5">
-                                <label for="mem-upi-utr" class="block text-xs font-bold text-slate-200 uppercase tracking-wider font-mono">
-                                    12-Digit UPI Transaction ID (UTR) <span class="text-red-400 font-bold">*</span>
-                                </label>
-                                <button type="button" onclick="openMemUtrHelp()" class="text-[11px] font-mono text-brand-pink hover:text-white flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-brand-pink/10 border border-brand-pink/25 hover:border-brand-pink/40 transition-colors cursor-pointer flex-shrink-0">
-                                    <i class="fa-solid fa-circle-question text-xs"></i> Where to find?
-                                </button>
+                        <div class="mem-form-card">
+                            <div class="mem-field-group">
+                                <div class="flex flex-wrap items-center justify-between gap-2">
+                                    <label for="mem-upi-utr" class="mem-field-label">
+                                        12-Digit UPI Transaction ID (UTR) <span class="text-red-400 font-bold">*</span>
+                                    </label>
+                                    <button type="button" onclick="openMemUtrHelp()" class="mem-help-pill">
+                                        <i class="fa-solid fa-circle-question text-xs"></i> Where to find?
+                                    </button>
+                                </div>
+                                <span class="mem-field-helper">Found on your payment receipt (12 numerical digits)</span>
+                                <input type="text" id="mem-upi-utr" oninput="validateMemUtrInput(this)" class="reg-input font-mono tracking-widest text-center sm:text-left text-sm sm:text-base" placeholder="e.g. 427819381023" maxlength="12" pattern="[0-9]{12}" required>
+                                <div id="mem-utr-valid-badge" class="hidden text-xs mt-1"></div>
                             </div>
-                            <p class="text-[11px] text-slate-400 font-mono">Found on your payment receipt (12 numerical digits)</p>
-                            <input type="text" id="mem-upi-utr" oninput="validateMemUtrInput(this)" class="reg-input font-mono tracking-widest text-center sm:text-left text-sm sm:text-base" placeholder="e.g. 427819381023" maxlength="12" pattern="[0-9]{12}" required>
-                            <div id="mem-utr-valid-badge" class="hidden text-xs mt-1"></div>
                         </div>
 
                         <!-- CARD: Screenshot Upload Dropzone -->
-                        <div class="bg-slate-950/70 border border-white/10 rounded-2xl p-4 sm:p-5 shadow-lg space-y-2.5">
-                            <label class="block text-xs font-bold text-slate-200 uppercase tracking-wider font-mono">
-                                Payment Screenshot Proof <span class="text-red-400 font-bold">*</span>
-                            </label>
-                            <p class="text-[11px] text-slate-400 font-mono">Upload receipt showing the successful ₹150 transfer</p>
-                            
-                            <input type="file" id="mem-screenshot-input" accept="image/*" onchange="handleMemScreenshotSelect(event)" class="hidden">
+                        <div class="mem-form-card">
+                            <div class="mem-field-group">
+                                <label class="mem-field-label">
+                                    Payment Screenshot Proof <span class="text-red-400 font-bold">*</span>
+                                </label>
+                                <span class="mem-field-helper">Upload receipt showing the successful ₹150 transfer</span>
+                                
+                                <input type="file" id="mem-screenshot-input" accept="image/*" onchange="handleMemScreenshotSelect(event)" class="hidden">
 
-                            <!-- Clickable Upload Box -->
-                            <div id="mem-upload-placeholder" onclick="document.getElementById('mem-screenshot-input').click()" class="border-2 border-dashed border-white/20 hover:border-brand-pink/60 rounded-xl text-center cursor-pointer transition-all bg-black/60 hover:bg-black/80 group p-4 sm:p-5 flex items-center justify-center min-h-[105px]">
-                                <div class="space-y-2">
-                                    <div style="width:40px;height:40px;border-radius:50%;background:rgba(255,75,139,0.10);border:1px solid rgba(255,75,139,0.28);display:flex;align-items:center;justify-content:center;color:#ff4b8b;margin:0 auto;flex-shrink:0;" class="group-hover:scale-110 transition-transform">
-                                        <i class="fa-solid fa-cloud-arrow-up text-sm"></i>
-                                    </div>
-                                    <p class="text-xs text-slate-200 font-semibold">Click to upload screenshot</p>
-                                    <span class="text-[10px] sm:text-[11px] text-slate-400 block font-mono">PNG, JPG, or WEBP (auto-compressed)</span>
-                                </div>
-                            </div>
-
-                            <!-- Upload Preview Box -->
-                            <div id="mem-upload-preview" class="hidden p-3.5 rounded-xl bg-black border border-brand-pink/30 items-center justify-between gap-3" style="display:none;">
-                                <div class="flex items-center gap-3 min-w-0">
-                                    <img id="mem-preview-img" src="" alt="Proof Preview" class="w-12 h-12 rounded-lg object-cover border border-white/20 flex-shrink-0">
-                                    <div class="min-w-0">
-                                        <span class="text-xs text-white font-bold block truncate" id="mem-preview-meta">screenshot.jpg</span>
-                                        <span class="text-[10px] text-green-400 font-mono flex items-center gap-1">
-                                            <i class="fa-solid fa-circle-check text-[10px]"></i> Ready to submit
-                                        </span>
+                                <!-- Clickable Upload Box -->
+                                <div id="mem-upload-placeholder" onclick="document.getElementById('mem-screenshot-input').click()" class="border-2 border-dashed border-white/20 hover:border-brand-pink/60 rounded-xl text-center cursor-pointer transition-all bg-black/60 hover:bg-black/80 group p-4 sm:p-5 flex items-center justify-center min-h-[105px]">
+                                    <div class="space-y-2">
+                                        <div style="width:40px;height:40px;border-radius:50%;background:rgba(255,75,139,0.10);border:1px solid rgba(255,75,139,0.28);display:flex;align-items:center;justify-content:center;color:#ff4b8b;margin:0 auto;flex-shrink:0;" class="group-hover:scale-110 transition-transform">
+                                            <i class="fa-solid fa-cloud-arrow-up text-sm"></i>
+                                        </div>
+                                        <p class="text-xs text-slate-200 font-semibold">Click to upload screenshot</p>
+                                        <span class="text-[10px] sm:text-[11px] text-slate-400 block font-mono">PNG, JPG, or WEBP (auto-compressed)</span>
                                     </div>
                                 </div>
-                                <button type="button" onclick="removeMemScreenshot()" class="px-2.5 py-1.5 rounded-lg bg-red-950/40 hover:bg-red-900/50 border border-red-500/30 text-red-300 text-xs font-mono transition-colors flex-shrink-0 cursor-pointer" title="Remove image">
-                                    <i class="fa-solid fa-trash-can"></i>
-                                </button>
-                            </div>
 
-                            <span id="mem-upload-status" class="text-[11px] text-brand-pink font-mono block hidden"></span>
+                                <!-- Upload Preview Box -->
+                                <div id="mem-upload-preview" class="hidden p-3.5 rounded-xl bg-black border border-brand-pink/30 items-center justify-between gap-3" style="display:none;">
+                                    <div class="flex items-center gap-3 min-w-0">
+                                        <img id="mem-preview-img" src="" alt="Proof Preview" class="w-12 h-12 rounded-lg object-cover border border-white/20 flex-shrink-0">
+                                        <div class="min-w-0">
+                                            <span class="text-xs text-white font-bold block truncate" id="mem-preview-meta">screenshot.jpg</span>
+                                            <span class="text-[10px] text-green-400 font-mono flex items-center gap-1">
+                                                <i class="fa-solid fa-circle-check text-[10px]"></i> Ready to submit
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <button type="button" onclick="removeMemScreenshot()" class="px-2.5 py-1.5 rounded-lg bg-red-950/40 hover:bg-red-900/50 border border-red-500/30 text-red-300 text-xs font-mono transition-colors flex-shrink-0 cursor-pointer" title="Remove image">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </div>
+
+                                <span id="mem-upload-status" class="text-[11px] text-brand-pink font-mono block hidden"></span>
+                            </div>
                         </div>
                     </div>
                 </div>
